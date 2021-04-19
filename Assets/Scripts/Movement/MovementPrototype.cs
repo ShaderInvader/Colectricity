@@ -5,6 +5,7 @@ using UnityEngine;
 public class MovementPrototype : MonoBehaviour
 {
     public bool wsad = false;
+    public float speed = 1;
 
     Transform obj;
     List<KeyCode> keys;
@@ -27,6 +28,6 @@ public class MovementPrototype : MonoBehaviour
         right = Input.GetKey(keys[3]) ? right - 1 : right;
 
         Vector3 mov = new Vector3(right, 0, forward);
-        obj.Translate(mov.normalized);
+        obj.Translate(speed*mov.normalized);
     }
 }
