@@ -1,10 +1,9 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(SelectKeys))]
 public class MovementPrototype : MonoBehaviour
 {
-    public bool wsad = false;
     public float speed = 1;
 
     Transform obj;
@@ -14,8 +13,10 @@ public class MovementPrototype : MonoBehaviour
     private void Start()
     {
         obj = gameObject.GetComponent<Transform>();
-        keys = wsad ? new List<KeyCode>() { KeyCode.W, KeyCode.S, KeyCode.D, KeyCode.A }
-            : new List<KeyCode>() { KeyCode.UpArrow, KeyCode.DownArrow, KeyCode.RightArrow, KeyCode.LeftArrow };
+        bool isWSAD = gameObject.GetComponent<SelectKeys>().selection == SelectKeys.Keys.wsad;
+        List<KeyCode> WSAD = new List<KeyCode>() { KeyCode.W, KeyCode.S, KeyCode.D, KeyCode.A };
+        List<KeyCode> Arrows = new List<KeyCode>() { KeyCode.UpArrow, KeyCode.DownArrow, KeyCode.RightArrow, KeyCode.LeftArrow };
+        keys = isWSAD ? WSAD : Arrows; 
     }
 
     void Update()
