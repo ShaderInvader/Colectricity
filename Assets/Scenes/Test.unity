@@ -492,7 +492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d4fd34ee03267d468e83c7904802815, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 0.1
 --- !u!114 &565476957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -520,6 +520,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: 1
+  time_to_shot_ms: 50
 --- !u!114 &565476959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -532,7 +533,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e294baf176b6dc94796ffef068167a9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selection: 1
+  selection: 0
 --- !u!1 &654679386
 GameObject:
   m_ObjectHideFlags: 0
@@ -1078,7 +1079,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d4fd34ee03267d468e83c7904802815, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 0.1
 --- !u!114 &883742566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1106,6 +1107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: 0
+  time_to_shot_ms: 50
 --- !u!114 &883742568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1118,7 +1120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e294baf176b6dc94796ffef068167a9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selection: 0
+  selection: 1
 --- !u!1 &924403911
 GameObject:
   m_ObjectHideFlags: 0
