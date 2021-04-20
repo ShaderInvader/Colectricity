@@ -38,12 +38,14 @@ public class Electron : MonoBehaviour
         Energabler elec = GetNearestEnergable(full_acc: false);
         if(elec.gameObject.GetComponent<Electron>() != null && GetComponent<Energabler>().RemEnergy())
         {
-            elec.AddEnergy();  
+            elec.AddEnergy();
+            RenderLine(elec.transform);
         }
         else if (GetComponent<Energabler>().AddEnergy())
         {
             Energabler temp_e = GetNearestEnergable(empty_acc: false);
             temp_e.RemEnergy();
+            RenderLine(temp_e.transform);
         }
     }
 
@@ -53,6 +55,7 @@ public class Electron : MonoBehaviour
         {
             Energabler temp_e = GetNearestEnergable(full_acc: false);
             temp_e.AddEnergy();
+            RenderLine(temp_e.transform);
         }
     }
 
@@ -76,5 +79,17 @@ public class Electron : MonoBehaviour
             }
         }
         return eMin;
+    }
+
+    private void RenderLine(Transform target)
+    {
+        GameObject go = new GameObject();
+        LineRenderer lr = go.AddComponent<LineRenderer>();
+
+        lr.startWidth = .1f;
+        lr.endWidth = .1f;
+
+        lr.SetPosition(0, transform.position);
+        lr.SetPosition(1, target.position);
     }
 }
