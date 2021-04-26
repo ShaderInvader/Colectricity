@@ -45,12 +45,12 @@ public class Energabler : MonoBehaviour
         return true;
     }
 
-    public bool IsFull(int size=0)
+    public bool IsFull(int size=1)
     {
         return energy+size > max_energy;
     }
 
-    public bool IsEmpty(int size=0)
+    public bool IsEmpty(int size=1)
     {
         return energy-size < 0;
     }
