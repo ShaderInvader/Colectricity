@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1481.7451, g: 1835.5391, b: 2429.8105, a: 1}
+  m_IndirectSpecularColor: {r: 1481.7754, g: 1835.8867, b: 2430.4492, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -473,7 +473,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 565476951}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.61000013, y: 1.37, z: -0.52}
+  m_LocalPosition: {x: 3.27, y: 1.25, z: -0.52}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1889703282}
@@ -520,7 +520,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: 1
-  time_to_shot_ms: 50
+  time_to_shot_ms: 200
+  size_of_energy: 20
 --- !u!114 &565476959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -533,7 +534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e294baf176b6dc94796ffef068167a9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selection: 0
+  selection: 1
 --- !u!1 &654679386
 GameObject:
   m_ObjectHideFlags: 0
@@ -1060,7 +1061,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 883742560}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.27, y: 1.25, z: -0.52}
+  m_LocalPosition: {x: -0.61000013, y: 1.37, z: -0.52}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 654679387}
@@ -1107,7 +1108,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: 0
-  time_to_shot_ms: 50
+  time_to_shot_ms: 200
+  size_of_energy: 20
 --- !u!114 &883742568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1120,7 +1122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e294baf176b6dc94796ffef068167a9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selection: 1
+  selection: 0
 --- !u!1 &924403911
 GameObject:
   m_ObjectHideFlags: 0

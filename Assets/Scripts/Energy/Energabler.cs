@@ -25,34 +25,34 @@ public class Energabler : MonoBehaviour
         }
     }
 
-    public bool AddEnergy()
+    public bool AddEnergy(int size_of_energy=1)
     {
-        if (IsFull())
+        if (IsFull(size_of_energy))
         {
             return false;
         }
-        energy++;
+        energy += size_of_energy;
         return true;
     }
 
-    public bool RemEnergy()
+    public bool RemEnergy(int size_of_energy=1)
     {
-        if (IsEmpty())
+        if (IsEmpty(size_of_energy))
         {
             return false;
         }
-        energy--;
+        energy -= size_of_energy;
         return true;
     }
 
-    public bool IsFull()
+    public bool IsFull(int size=0)
     {
-        return energy == max_energy;
+        return energy+size > max_energy;
     }
 
-    public bool IsEmpty()
+    public bool IsEmpty(int size=0)
     {
-        return energy == 0;
+        return energy-size < 0;
     }
 
     public static void UpdateEmissiveColorFromIntensityAndEmissiveColorLDR(Material material)

@@ -7,6 +7,7 @@ public class Electron : MonoBehaviour
     public enum Type { giver, receiver };
     public Type player;
     public float time_to_shot_ms = 20;
+    public int size_of_energy = 20;
 
     KeyCode action_key;
     float timer=0;
@@ -37,25 +38,25 @@ public class Electron : MonoBehaviour
     void Receive()
     {
         Energabler elec = GetNearestEnergable(full_acc: false);
-        if(elec.gameObject.GetComponent<Electron>() != null && GetComponent<Energabler>().RemEnergy())
+        if(elec.gameObject.GetComponent<Electron>() != null && GetComponent<Energabler>().RemEnergy(size_of_energy))
         {
-            elec.AddEnergy();
+            elec.AddEnergy(size_of_energy);
             RenderLine(elec.transform);
         }
-        else if (GetComponent<Energabler>().AddEnergy())
+        else if (GetComponent<Energabler>().AddEnergy(size_of_energy))
         {
             Energabler temp_e = GetNearestEnergable(empty_acc: false);
-            temp_e.RemEnergy();
+            temp_e.RemEnergy(size_of_energy);
             RenderLine(temp_e.transform);
         }
     }
 
     void Give()
     {
-        if (GetComponent<Energabler>().RemEnergy())
+        if (GetComponent<Energabler>().RemEnergy(size_of_energy))
         {
             Energabler temp_e = GetNearestEnergable(full_acc: false);
-            temp_e.AddEnergy();
+            temp_e.AddEnergy(size_of_energy);
             RenderLine(temp_e.transform);
         }
     }
@@ -66,9 +67,12 @@ public class Electron : MonoBehaviour
         Energabler eMin = null;
         float minDist = Mathf.Infinity;
         Vector3 currentPos = transform.position;
+        bool theSameObj, isNotQualified;
         foreach (Energabler e in energables)
         {
-            if((!full_acc && e.IsFull()) || (!empty_acc && e.IsEmpty()) || e.gameObject.GetInstanceID()==gameObject.GetInstanceID())
+            isNotQualified = (!full_acc && e.IsFull(size_of_energy)) || (!empty_acc && e.IsEmpty(size_of_energy));
+            theSameObj = e.gameObject.GetInstanceID() == gameObject.GetInstanceID();
+            if (isNotQualified || theSameObj)
             {
                 continue;
             }
