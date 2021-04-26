@@ -18,7 +18,7 @@ public class Energabler : MonoBehaviour
             Color c = new Color(93, 203, 255);
             renderer.materials[0].SetColor("_EmissiveColor", Color.Lerp(Color.black, c, 0.3f * ((float)energy) / max_energy));
         }
-        else // players
+        else if (gameObject.tag == "Player") // players
         {
             float s = 0.5f * ((float)energy) / max_energy + 1;
             transform.localScale = new Vector3(s, s, s);
