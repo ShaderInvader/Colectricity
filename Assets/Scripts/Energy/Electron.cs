@@ -6,13 +6,14 @@ public class Electron : MonoBehaviour
 {
     public enum Type { giver, receiver };
     public Type player;
+    public float time_to_shot_ms = 20;
 
     KeyCode action_key;
     float timer=0;
     private void Start()
     {
         bool isWSAD = gameObject.GetComponent<SelectKeys>().selection == SelectKeys.Keys.wsad;
-        action_key = isWSAD ? KeyCode.LeftShift : KeyCode.RightShift;
+        action_key = isWSAD ? KeyCode.E : KeyCode.Slash;
     }
 
     void Update()
@@ -27,7 +28,7 @@ public class Electron : MonoBehaviour
             {
                 Receive();
             }
-            timer += 1;
+            timer += time_to_shot_ms/1000;
         }
         timer -= Time.deltaTime;
         timer = timer < 0 ? 0 : timer;
