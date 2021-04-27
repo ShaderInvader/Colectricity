@@ -39,11 +39,7 @@ public class Electron : MonoBehaviour
     void Receive()
     {
         Energabler elec = GetNearestEnergable(full_acc: false);
-        if (elec == null)
-        {
-            return;
-        }
-        else if (elec.gameObject.GetComponent<Electron>() != null && GetComponent<Energabler>().RemEnergy(size_of_energy))
+        if (elec != null && elec.gameObject.GetComponent<Electron>() != null && GetComponent<Energabler>().RemEnergy(size_of_energy))
         {
             elec.AddEnergy(size_of_energy);
             RenderLine(elec.transform);
