@@ -18,9 +18,9 @@ public class MovementPrototype : MonoBehaviour
         List<KeyCode> Arrows = new List<KeyCode>() { KeyCode.UpArrow, KeyCode.DownArrow, KeyCode.RightArrow, KeyCode.LeftArrow };
         keys = isWSAD ? WSAD : Arrows; 
     }
-
-    void Update()
+    void FixedUpdate()
     {
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
         (forward, right) = (0, 0);
         
         forward = Input.GetKey(keys[0]) ? ++forward : forward;
