@@ -8,6 +8,7 @@ public class Electron : MonoBehaviour
     public Type player;
     public float time_to_shot_ms = 20;
     public int size_of_energy = 20;
+    public float distance_limit = 5;
 
     KeyCode action_key;
     float timer=0;
@@ -38,26 +39,40 @@ public class Electron : MonoBehaviour
     void Receive()
     {
         Energabler elec = GetNearestEnergable(full_acc: false);
-        if(elec.gameObject.GetComponent<Electron>() != null && GetComponent<Energabler>().RemEnergy(size_of_energy))
+        if (elec == null)
+        {
+            return;
+        }
+        else if (elec.gameObject.GetComponent<Electron>() != null && GetComponent<Energabler>().RemEnergy(size_of_energy))
         {
             elec.AddEnergy(size_of_energy);
             RenderLine(elec.transform);
+            return;
+        }
+
+        Energabler energabler = GetNearestEnergable(empty_acc: false);
+        if (energabler == null)
+        {
+            return;
         }
         else if (GetComponent<Energabler>().AddEnergy(size_of_energy))
         {
-            Energabler temp_e = GetNearestEnergable(empty_acc: false);
-            temp_e.RemEnergy(size_of_energy);
-            RenderLine(temp_e.transform);
+            energabler.RemEnergy(size_of_energy);
+            RenderLine(energabler.transform);
         }
     }
 
     void Give()
     {
-        if (GetComponent<Energabler>().RemEnergy(size_of_energy))
+        Energabler energabler = GetNearestEnergable(full_acc: false);
+        if (energabler == null)
         {
-            Energabler temp_e = GetNearestEnergable(full_acc: false);
-            temp_e.AddEnergy(size_of_energy);
-            RenderLine(temp_e.transform);
+            return;
+        }
+        else if (GetComponent<Energabler>().RemEnergy(size_of_energy))
+        {
+            energabler.AddEnergy(size_of_energy);
+            RenderLine(energabler.transform);
         }
     }
 
@@ -82,6 +97,10 @@ public class Electron : MonoBehaviour
                 eMin = e;
                 minDist = dist;
             }
+        }
+        if(minDist>distance_limit)
+        {
+            return null;
         }
         return eMin;
     }
