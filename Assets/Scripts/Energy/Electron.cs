@@ -98,7 +98,7 @@ public class Electron : MonoBehaviour
                 minDist = dist;
             }
         }
-        if(minDist>distance_limit)
+        if(distance_limit>0 && minDist>distance_limit)
         {
             return null;
         }
