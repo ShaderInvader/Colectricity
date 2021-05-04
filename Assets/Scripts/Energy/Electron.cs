@@ -9,6 +9,7 @@ public class Electron : MonoBehaviour
     public float time_to_shot_ms = 20;
     public int size_of_energy = 20;
     public float distance_limit = 5;
+    public ParticleSystem shockWaveParticleSystem;
 
     KeyCode action_key;
     float timer=0;
@@ -41,6 +42,7 @@ public class Electron : MonoBehaviour
         Energabler elec = GetNearestEnergable(full_acc: false);
         if (elec != null && elec.gameObject.GetComponent<Electron>() != null && GetComponent<Energabler>().RemEnergy(size_of_energy))
         {
+            shockWaveParticleSystem.Play();
             elec.AddEnergy(size_of_energy);
             RenderLine(elec.transform);
             return;
@@ -53,6 +55,7 @@ public class Electron : MonoBehaviour
         }
         else if (GetComponent<Energabler>().AddEnergy(size_of_energy))
         {
+            shockWaveParticleSystem.Play();
             energabler.RemEnergy(size_of_energy);
             RenderLine(energabler.transform);
         }
@@ -67,6 +70,7 @@ public class Electron : MonoBehaviour
         }
         else if (GetComponent<Energabler>().RemEnergy(size_of_energy))
         {
+            shockWaveParticleSystem.Play();
             energabler.AddEnergy(size_of_energy);
             RenderLine(energabler.transform);
         }
