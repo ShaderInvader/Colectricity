@@ -5,22 +5,25 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
     public float speed;
-    public GameObject opener, left, right;
+    public GameObject left, right;
     bool closed;
-    Energabler knob;
+
+    Energabler[] knobs;
+    
     float distance = 1f;
     Vector3 startPosRight, startPosLeft;
+
     void Start()
     {
         startPosRight = right.transform.localPosition;
         startPosLeft = left.transform.localPosition;
-        knob = opener.GetComponent<Energabler>();
+        knobs = GetComponentsInChildren<Energabler>();
         closed = true;
     }
 
     void Update()
     {
-        if (knob.IsFull() && closed)
+        if (areKnobsFull() && closed)
         {
             Vector3 epsilon = Vector3.right * Time.deltaTime;
             right.transform.Translate(epsilon);
@@ -32,7 +35,7 @@ public class Door : MonoBehaviour
                 closed = false;
             }
         }   
-        else if (!closed && !knob.IsFull())
+        else if (!closed && !areKnobsFull())
         {
             Vector3 epsilon = Vector3.right * Time.deltaTime;
             right.transform.Translate(-epsilon);
@@ -44,5 +47,14 @@ public class Door : MonoBehaviour
                 closed = true;
             }
         }
+    }
+
+    bool areKnobsFull()
+    {
+        foreach(Energabler knob in knobs)
+        {
+            if(knob.IsFull() == false) return false;
+        }
+        return true;
     }
 }
