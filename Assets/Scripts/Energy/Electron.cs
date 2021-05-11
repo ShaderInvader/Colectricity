@@ -40,7 +40,9 @@ public class Electron : MonoBehaviour
     void Receive()
     {
         Energabler elec = GetNearestEnergable(full_acc: false);
-        if (elec != null && elec.gameObject.GetComponent<Electron>() != null && GetComponent<Energabler>().RemEnergy(size_of_energy))
+        if (elec != null && (elec.gameObject.GetComponent<Electron>() != null 
+            || (elec.gameObject.GetComponent<Cable>() != null && elec.GetComponent<Cable>().IsGoodToTransfer())) 
+            && GetComponent<Energabler>().RemEnergy(size_of_energy))
         {
             shockWaveParticleSystem.Play();
             elec.AddEnergy(size_of_energy);
@@ -65,6 +67,10 @@ public class Electron : MonoBehaviour
     {
         Energabler energabler = GetNearestEnergable(full_acc: false);
         if (energabler == null)
+        {
+            return;
+        }
+        else if (energabler.GetComponent<Cable>()!=null && !energabler.GetComponent<Cable>().IsGoodToTransfer())
         {
             return;
         }
