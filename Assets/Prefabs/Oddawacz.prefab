@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 2557528580249769613}
   - component: {fileID: 2557528580249769612}
   - component: {fileID: 2557528580249769603}
+  - component: {fileID: 1639132707956892358}
   m_Layer: 0
   m_Name: Oddawacz
   m_TagString: Player
@@ -97,7 +98,7 @@ SphereCollider:
   m_GameObject: {fileID: 2557528580249769610}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -113,7 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e294baf176b6dc94796ffef068167a9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selection: 0
+  selection: 1
 --- !u!114 &2557528580249769615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d4fd34ee03267d468e83c7904802815, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.1
+  speed: 0.12
 --- !u!114 &2557528580249769613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,7 +143,8 @@ MonoBehaviour:
   player: 0
   time_to_shot_ms: 200
   size_of_energy: 20
-  distance_limit: 5
+  distance_limit: 0
+  shockWaveParticleSystem: {fileID: 0}
 --- !u!114 &2557528580249769612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,7 +174,20 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 116
-  m_CollisionDetection: 3
+  m_CollisionDetection: 2
+--- !u!65 &1639132707956892358
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2557528580249769610}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.1, y: 1.1, z: 1.1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2557528580558625968
 GameObject:
   m_ObjectHideFlags: 0

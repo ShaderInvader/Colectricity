@@ -16,11 +16,11 @@ public class Energabler : MonoBehaviour
         if(gameObject.tag == "Container")
         {
             Color c = new Color(93, 203, 255);
-            renderer.materials[0].SetColor("_EmissiveColor", Color.Lerp(Color.black, c, 0.3f * ((float)energy) / max_energy));
+            renderer.materials[0].SetColor("_EmissiveColor", Color.Lerp(Color.black, c, 0.08f * ((float)energy) / max_energy));
         }
         else if (gameObject.tag == "Player") // players
         {
-            float s = 0.5f * ((float)energy) / max_energy + 1;
+            float s = 1f * ((float)energy) / max_energy + 1;
             transform.localScale = new Vector3(s, s, s);
         }
     }
