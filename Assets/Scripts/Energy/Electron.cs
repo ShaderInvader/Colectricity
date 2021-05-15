@@ -11,25 +11,42 @@ public class Electron : MonoBehaviour
     public float distance_limit = 5;
     public ParticleSystem shockWaveParticleSystem;
 
-    KeyCode action_key;
+    KeyCode enviro_key, player_key;
     float timer=0;
     private void Start()
     {
         bool isWSAD = gameObject.GetComponent<SelectKeys>().selection == SelectKeys.Keys.wsad;
-        action_key = isWSAD ? KeyCode.E : KeyCode.Slash;
+        enviro_key = isWSAD ? KeyCode.E : KeyCode.Slash;
+        player_key = isWSAD ? KeyCode.Q : KeyCode.Quote;
     }
 
     void Update()
     {
-        if (Input.GetKey(action_key) && timer==0)
+        bool enviro_pressed = Input.GetKey(enviro_key), player_pressed = Input.GetKey(player_key);
+
+        if ((enviro_pressed || player_pressed) && timer==0)
         {
             if(player==Type.giver)
             {
-                Give();
+                if(enviro_pressed)
+                {
+                    Give();
+                }
+                else
+                {
+                    TransferToElectron();
+                }
             }
             else
             {
-                Receive();
+                if (enviro_pressed)
+                {
+                    Receive();
+                }
+                else
+                {
+                    TransferToElectron();
+                }
             }
             timer += time_to_shot_ms/1000;
         }
@@ -39,18 +56,7 @@ public class Electron : MonoBehaviour
 
     void Receive()
     {
-        Energabler elec = GetNearestEnergable(full_acc: false);
-        if (elec != null && (elec.gameObject.GetComponent<Electron>() != null 
-            || (elec.gameObject.GetComponent<Cable>() != null && elec.GetComponent<Cable>().IsGoodToTransfer())) 
-            && GetComponent<Energabler>().RemEnergy(size_of_energy))
-        {
-            shockWaveParticleSystem.Play();
-            elec.AddEnergy(size_of_energy);
-            RenderLine(elec.transform);
-            return;
-        }
-
-        Energabler energabler = GetNearestEnergable(empty_acc: false);
+        Energabler energabler = GetNearestEnergable(empty_acc: false, electron:false, cable: false);
         if (energabler == null)
         {
             return;
@@ -65,12 +71,12 @@ public class Electron : MonoBehaviour
 
     void Give()
     {
-        Energabler energabler = GetNearestEnergable(full_acc: false);
+        Energabler energabler = GetNearestEnergable(full_acc: false, electron: false, cable: false);
         if (energabler == null)
         {
             return;
         }
-        else if (energabler.GetComponent<Cable>()!=null && !energabler.GetComponent<Cable>().IsGoodToTransfer())
+        else if (energabler.GetComponent<Cable>()!=null && energabler.GetComponent<Cable>().IsGoodToTransfer())
         {
             return;
         }
@@ -82,18 +88,33 @@ public class Electron : MonoBehaviour
         }
     }
 
-    Energabler GetNearestEnergable(bool full_acc=true, bool empty_acc=true)
+    void TransferToElectron()
+    {
+        Energabler elec = GetNearestEnergable(full_acc: false);
+        if (elec != null && (elec.gameObject.GetComponent<Electron>() != null
+            || (elec.gameObject.GetComponent<Cable>() != null && elec.GetComponent<Cable>().IsGoodToTransfer()))
+            && GetComponent<Energabler>().RemEnergy(size_of_energy))
+        {
+            shockWaveParticleSystem.Play();
+            elec.AddEnergy(size_of_energy);
+            RenderLine(elec.transform);
+            return;
+        }
+    }
+
+    Energabler GetNearestEnergable(bool full_acc=true, bool empty_acc=true, bool cable=true, bool electron=true)
     {
         Energabler[] energables = FindObjectsOfType<Energabler>();
         Energabler eMin = null;
         float minDist = Mathf.Infinity;
         Vector3 currentPos = transform.position;
-        bool theSameObj, isNotQualified;
+        bool theSameObj, isNotQualified, goodType;
         foreach (Energabler e in energables)
         {
             isNotQualified = (!full_acc && e.IsFull(size_of_energy)) || (!empty_acc && e.IsEmpty(size_of_energy));
+            goodType = (electron || e.gameObject.GetComponent<Electron>() == null) && (cable || e.gameObject.GetComponent<Cable>() == null);
             theSameObj = e.gameObject.GetInstanceID() == gameObject.GetInstanceID();
-            if (isNotQualified || theSameObj)
+            if (isNotQualified || theSameObj || !goodType)
             {
                 continue;
             }
