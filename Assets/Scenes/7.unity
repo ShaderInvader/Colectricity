@@ -9528,6 +9528,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Oddawacz
       objectReference: {fileID: 0}
+    - target: {fileID: 2557528580249769611, guid: 7e40a1979db231248b7a0fa8f9ee7198, type: 3}
+      propertyPath: m_Radius
+      value: 0.39
+      objectReference: {fileID: 0}
     - target: {fileID: 2557528580249769613, guid: 7e40a1979db231248b7a0fa8f9ee7198, type: 3}
       propertyPath: distance_limit
       value: 0
@@ -9638,8 +9642,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5822440272893144631, guid: f613f2c32a01e9f4894bc655ada41a7b, type: 3}
+      propertyPath: m_Radius
+      value: 0.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 5822440272893144631, guid: f613f2c32a01e9f4894bc655ada41a7b, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5822440272893144632, guid: f613f2c32a01e9f4894bc655ada41a7b, type: 3}
       propertyPath: m_Name

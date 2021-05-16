@@ -6,13 +6,13 @@ public class MovementPrototype : MonoBehaviour
 {
     public float speed = 1;
 
-    Transform obj;
+    Rigidbody rb;
     List<KeyCode> keys;
     int forward, right;
 
     private void Start()
     {
-        obj = gameObject.GetComponent<Transform>();
+        rb = gameObject.GetComponent<Rigidbody>();
         bool isWSAD = gameObject.GetComponent<SelectKeys>().selection == SelectKeys.Keys.wsad;
         List<KeyCode> WSAD = new List<KeyCode>() { KeyCode.W, KeyCode.S, KeyCode.D, KeyCode.A };
         List<KeyCode> Arrows = new List<KeyCode>() { KeyCode.UpArrow, KeyCode.DownArrow, KeyCode.RightArrow, KeyCode.LeftArrow };
@@ -20,7 +20,6 @@ public class MovementPrototype : MonoBehaviour
     }
     void FixedUpdate()
     {
-        GetComponent<Rigidbody>().velocity = Vector3.zero;
         (forward, right) = (0, 0);
         
         forward = Input.GetKey(keys[0]) ? ++forward : forward;
@@ -28,7 +27,8 @@ public class MovementPrototype : MonoBehaviour
         right = Input.GetKey(keys[2]) ? right + 1 : right;
         right = Input.GetKey(keys[3]) ? right - 1 : right;
 
-        Vector3 mov = new Vector3(right, 0, forward);
-        obj.Translate(speed*mov.normalized);
+        Vector3 vel = new Vector3(right, 0, forward).normalized * speed;
+
+        rb.velocity = vel;
     }
 }

@@ -215,7 +215,6 @@ GameObject:
   - component: {fileID: 5822440272893144625}
   - component: {fileID: 5822440272893144626}
   - component: {fileID: 5822440272893144591}
-  - component: {fileID: 1922656761727531613}
   m_Layer: 0
   m_Name: Pobieracz
   m_TagString: Player
@@ -296,9 +295,9 @@ SphereCollider:
   m_GameObject: {fileID: 5822440272893144632}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.39
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5822440272893144624
 MonoBehaviour:
@@ -325,7 +324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d4fd34ee03267d468e83c7904802815, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.12
+  speed: 5
 --- !u!114 &5822440272893144625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -373,16 +372,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 2
---- !u!65 &1922656761727531613
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5822440272893144632}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.1, y: 1.1, z: 1.1}
-  m_Center: {x: 0, y: 0, z: 0}
