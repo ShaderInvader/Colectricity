@@ -25,8 +25,18 @@ public class Energabler : MonoBehaviour
     {
         if(gameObject.tag == "Container")
         {
-            Color c = new Color(93, 203, 255);
-            renderer.materials[0].SetColor("_EmissiveColor", Color.Lerp(Color.black, c, 0.08f * ((float)energy) / max_energy));
+            Color cEmissive = new Color(93, 203, 255);
+
+            renderer.materials[0].SetColor("_EmissiveColor", Color.Lerp(Color.black, cEmissive, 0.008f * ((float)energy) / max_energy));
+
+            if (switchesOnFull)
+            {
+                renderer.materials[0].SetColor("_BaseColor", Color.Lerp(Color.red, Color.green, ((float)energy) / max_energy));
+            }
+            else
+            {
+                renderer.materials[0].SetColor("_BaseColor", Color.Lerp(Color.green, Color.red, ((float)energy) / max_energy));
+            }
         }
         else if (gameObject.tag == "Player") // players
         {

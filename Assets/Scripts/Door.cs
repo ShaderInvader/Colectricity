@@ -24,7 +24,6 @@ public class Door : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(areKnobsSwitched() + " : " + closed + " : " + isOpenWitKnobsSwitchedOn);
         if (areKnobsSwitched() && closed)
         {
             Vector3 epsilon = Vector3.right * Time.deltaTime;
