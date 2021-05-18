@@ -6,6 +6,7 @@ public class Door : MonoBehaviour
 {
     public float speed;
     public GameObject left, right;
+    public bool isOpenWithFullEnergy;
     bool closed;
 
     Energabler[] knobs;
@@ -23,7 +24,8 @@ public class Door : MonoBehaviour
 
     void Update()
     {
-        if (areKnobsFull() && closed)
+        Debug.Log(areKnobsSwitched() + " : " + closed + " : " + isOpenWithFullEnergy);
+        if (areKnobsSwitched() && closed)
         {
             Vector3 epsilon = Vector3.right * Time.deltaTime;
             right.transform.Translate(epsilon);
@@ -35,7 +37,7 @@ public class Door : MonoBehaviour
                 closed = false;
             }
         }   
-        else if (!closed && !areKnobsFull())
+        else if (!closed && !areKnobsSwitched())
         {
             Vector3 epsilon = Vector3.right * Time.deltaTime;
             right.transform.Translate(-epsilon);
@@ -49,11 +51,12 @@ public class Door : MonoBehaviour
         }
     }
 
-    bool areKnobsFull()
+    bool areKnobsSwitched()
     {
         foreach(Energabler knob in knobs)
         {
-            if(knob.IsFull() == false) return false;
+            if (isOpenWithFullEnergy && knob.IsFull() == false) return false;
+            if (!isOpenWithFullEnergy && knob.IsEmpty() == false) return false;
         }
         return true;
     }
