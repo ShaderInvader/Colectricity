@@ -3,6 +3,7 @@ public class Energabler : MonoBehaviour
 {
     public int energy = 0;
     public int max_energy = 100;
+    public bool switchesOnFull = true;
     MeshRenderer renderer;
 
     Transform[] children;
@@ -63,6 +64,13 @@ public class Energabler : MonoBehaviour
         }
         energy -= size_of_energy;
         return true;
+    }
+
+    public bool isSwitchedOn()
+    {
+        if (switchesOnFull && IsFull()) return true;
+        if (!switchesOnFull && IsEmpty()) return true;
+        return false;
     }
 
     public bool IsFull(int size=1)
