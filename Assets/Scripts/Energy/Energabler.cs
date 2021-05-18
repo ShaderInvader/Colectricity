@@ -5,10 +5,19 @@ public class Energabler : MonoBehaviour
     public int max_energy = 100;
     MeshRenderer renderer;
 
+    Transform[] children;
+
     private void Start()
     {
         renderer = GetComponent<MeshRenderer>();
         renderer.materials[0].SetFloat("_EmissiveIntensity", 0.2f);
+        children = new Transform[transform.childCount];
+        int i = 0;
+        foreach (Transform T in transform)
+        {
+            children[i] = T;
+            i++;
+        }
     }
 
     private void Update()
@@ -21,7 +30,18 @@ public class Energabler : MonoBehaviour
         else if (gameObject.tag == "Player") // players
         {
             float s = 1f * ((float)energy) / max_energy + 1;
+            Transform camera = transform.Find("Camera");
+            transform.DetachChildren();
             transform.localScale = new Vector3(s, s, s);
+            AttachChildren();
+        }
+    }
+
+    public void AttachChildren()
+    {
+        for(int i=0; i<children.Length; i++)
+        {
+            children[i].parent = transform;
         }
     }
 
