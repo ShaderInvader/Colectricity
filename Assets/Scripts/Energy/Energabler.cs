@@ -45,10 +45,7 @@ public class Energabler : MonoBehaviour
         else if (gameObject.tag == "Player") // players
         {
             float s = 1f * ((float)energy) / max_energy + 1;
-            Transform camera = transform.Find("Camera");
-            transform.DetachChildren();
             transform.localScale = new Vector3(s, s, s);
-            AttachChildren();
         }
     }
 

@@ -5,8 +5,10 @@ using UnityEngine;
 public class MovementPrototype : MonoBehaviour
 {
     public float speed = 1;
+    public float scale_speed_factor = 0.1f;
 
     Rigidbody rb;
+    Vector3 start_scale = new Vector3(1,1,1);
     List<KeyCode> keys;
     int forward, right;
 
@@ -20,15 +22,15 @@ public class MovementPrototype : MonoBehaviour
     }
     void FixedUpdate()
     {
+        rb.velocity = Vector3.zero;
         (forward, right) = (0, 0);
         
         forward = Input.GetKey(keys[0]) ? ++forward : forward;
         forward = Input.GetKey(keys[1]) ? --forward : forward;
         right = Input.GetKey(keys[2]) ? right + 1 : right;
         right = Input.GetKey(keys[3]) ? right - 1 : right;
-
-        Vector3 vel = new Vector3(right, 0, forward).normalized * speed;
-
+        float add = (transform.localScale - start_scale).magnitude*scale_speed_factor;
+        Vector3 vel = new Vector3(right, 0, forward).normalized * (speed + add);
         rb.velocity = vel;
     }
 }
