@@ -6,10 +6,9 @@ public class Door : MonoBehaviour
 {
     public float speed;
     public GameObject left, right;
-    public bool isOpenWitKnobsSwitchedOn = true;
     bool closed;
 
-    Energabler[] knobs;
+    public Diode[] diodes;
     
     float distance = 1f;
     Vector3 startPosRight, startPosLeft;
@@ -18,13 +17,12 @@ public class Door : MonoBehaviour
     {
         startPosRight = right.transform.localPosition;
         startPosLeft = left.transform.localPosition;
-        knobs = GetComponentsInChildren<Energabler>();
         closed = true;
     }
 
     void Update()
     {
-        if (areKnobsSwitched() && closed)
+        if (AreKnobsSwitched() && closed)
         {
             Vector3 epsilon = Vector3.right * Time.deltaTime;
             right.transform.Translate(epsilon);
@@ -36,7 +34,7 @@ public class Door : MonoBehaviour
                 closed = false;
             }
         }   
-        else if (!closed && !areKnobsSwitched())
+        else if (!closed && !AreKnobsSwitched())
         {
             Vector3 epsilon = Vector3.right * Time.deltaTime;
             right.transform.Translate(-epsilon);
@@ -50,12 +48,11 @@ public class Door : MonoBehaviour
         }
     }
 
-    bool areKnobsSwitched()
+    bool AreKnobsSwitched()
     {
-        foreach(Energabler knob in knobs)
+        foreach(Diode diode in diodes)
         {
-            if (isOpenWitKnobsSwitchedOn && knob.isSwitchedOn() == false) return false;
-            if (!isOpenWitKnobsSwitchedOn && knob.isSwitchedOn() == false) return false;
+            if (!diode.IsSwitchedOn()) return false;
         }
         return true;
     }

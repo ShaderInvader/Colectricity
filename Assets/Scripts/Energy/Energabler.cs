@@ -3,10 +3,8 @@ public class Energabler : MonoBehaviour
 {
     public int energy = 0;
     public int max_energy = 100;
-    public bool switchesOnFull = true;
     MeshRenderer renderer;
 
-    public MeshRenderer diodeRenderer;
     Transform[] children;
 
     private void Start()
@@ -27,20 +25,7 @@ public class Energabler : MonoBehaviour
         if(gameObject.tag == "Container")
         {
             Color cEmissive = new Color(93, 203, 255);
-
             renderer.materials[0].SetColor("_EmissiveColor", Color.Lerp(Color.black, cEmissive, 0.032f * ((float)energy) / max_energy));
-            
-            if(diodeRenderer != null)
-            {
-                if (switchesOnFull)
-                {
-                    diodeRenderer.materials[0].SetColor("_BaseColor", Color.Lerp(Color.red, Color.green, ((float)energy) / max_energy));
-                }
-                else
-                {
-                    diodeRenderer.materials[0].SetColor("_BaseColor", Color.Lerp(Color.green, Color.red, ((float)energy) / max_energy));
-                }
-            }
         }
         else if (gameObject.tag == "Player") // players
         {
@@ -75,13 +60,6 @@ public class Energabler : MonoBehaviour
         }
         energy -= size_of_energy;
         return true;
-    }
-
-    public bool isSwitchedOn()
-    {
-        if (switchesOnFull && IsFull()) return true;
-        if (!switchesOnFull && IsEmpty()) return true;
-        return false;
     }
 
     public bool IsFull(int size=1)
