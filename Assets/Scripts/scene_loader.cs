@@ -55,6 +55,22 @@ public class scene_loader : MonoBehaviour
         {
             SceneManager.LoadScene("7");
         }
+        if (Input.GetKeyDown("8"))
+        {
+            SceneManager.LoadScene("8");
+        }
+        if (Input.GetKeyDown("9"))
+        {
+            SceneManager.LoadScene("9");
+        }
+        if (Input.GetKeyDown("z"))
+        {
+            SceneManager.LoadScene("10");
+        }
+        if (Input.GetKeyDown("x"))
+        {
+            SceneManager.LoadScene("11");
+        }
         if (Input.GetKeyDown("escape"))
         {
             Application.Quit();
