@@ -23,6 +23,8 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+        if (GetComponent<Energabler>().energy == 0) GameObject.Destroy(this.gameObject);
+
         if (timer > 0)
         {
             GetComponent<Rigidbody>().velocity = Vector3.zero;
