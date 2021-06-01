@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5391355551600127549}
   - component: {fileID: 6954144551470465689}
   - component: {fileID: 6060440170730462316}
+  - component: {fileID: -1678506082115022486}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Container
@@ -127,4 +128,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   energy: 100
-  max_energy: 100
+  max_energy: 100000
+--- !u!114 &-1678506082115022486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7534041168720851981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b394cd3c521f91346ba587d643432c21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stealingRadius: 5
+  stealingAmmount: 10
+  timeBetweenStealing: 2
