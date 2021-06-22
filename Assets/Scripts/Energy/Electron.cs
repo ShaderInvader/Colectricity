@@ -7,14 +7,16 @@ public class Electron : MonoBehaviour
     public enum Type { giver, receiver };
     public Type player;
     public float time_to_shot_ms = 20;
-    public int size_of_energy = 20;
     public float distance_limit = 5;
     public ParticleSystem shockWaveParticleSystem;
 
+    int size_of_energy;
     KeyCode enviro_key, player_key;
     float timer=0;
+
     private void Start()
     {
+        size_of_energy = GlobalVars.energy_amount_unit;
         bool isWSAD = gameObject.GetComponent<SelectKeys>().selection == SelectKeys.Keys.wsad;
         enviro_key = isWSAD ? KeyCode.E : KeyCode.Slash;
         player_key = isWSAD ? KeyCode.Q : KeyCode.Quote;

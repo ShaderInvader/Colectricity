@@ -16,17 +16,12 @@ public class GetNearElectron : State
         ai = go.GetComponent<SimpleAI>();
         agent = go.GetComponent<NavMeshAgent>();
         agent.isStopped = false;
+        go.GetComponent<Stealer>().enabled = true;
     }
 
     public override void Update()
     {
         base.Update();
-        
-        if (go.GetComponent<Energabler>().energy == 0)
-        {
-            Object.Destroy(go);
-            return;
-        }
 
         float dist = ai.GetDistance(ai.target.transform);
         if (ai.deativationDistance < dist)
@@ -40,4 +35,9 @@ public class GetNearElectron : State
         agent.SetDestination(ai.target.transform.position);
     }
 
+    public override void Exit()
+    {
+        base.Exit();
+        go.GetComponent<Stealer>().enabled = false;
+    }
 }

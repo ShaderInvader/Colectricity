@@ -1,18 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Stealer : MonoBehaviour
 {
     public float stealingRadius;
-    public int stealingAmmount;
+    public int stealEnergyUnits;
     public float timeBetweenStealing;
+    
     GameObject[] all;
+    int stealingAmmount;
 
     private float sinceLast;
 
     private void Start()
     {
+        stealingAmmount = GlobalVars.energy_amount_unit;
         all = GameObject.FindGameObjectsWithTag("Player");
     }
 
@@ -25,12 +26,18 @@ public class Stealer : MonoBehaviour
             {
                 if (Vector3.Distance(g.transform.position, transform.position) < stealingRadius)
                 {
-                    int before = g.GetComponent<Energabler>().energy;
-                    g.GetComponent<Energabler>().energy = Mathf.Max(0, g.GetComponent<Energabler>().energy - stealingAmmount);
-                    GetComponent<Energabler>().energy += before - g.GetComponent<Energabler>().energy;
+                    for(int i=0; i<stealEnergyUnits; i++)
+                    {
+                        bool res = g.GetComponent<Energabler>().RemEnergy(stealingAmmount);
+                        if (res)
+                        {
+                            GameObject.FindGameObjectsWithTag("Container")[0].GetComponent<Energabler>().AddEnergy(stealingAmmount);
+                        }
+                    }
+                    break;
                 }
             }
         }
-        sinceLast = sinceLast - Time.deltaTime;
+        sinceLast -= Time.deltaTime;
     }
 }

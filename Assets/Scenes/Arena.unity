@@ -15534,6 +15534,14 @@ PrefabInstance:
       propertyPath: max_energy
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 1829431116882320000, guid: f2d849152c506bc4b850e49ebf5934b4, type: 3}
+      propertyPath: energy_units
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1829431116882320000, guid: f2d849152c506bc4b850e49ebf5934b4, type: 3}
+      propertyPath: max_energy_units
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1829431116882320004, guid: f2d849152c506bc4b850e49ebf5934b4, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -15778,9 +15786,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5532216961475482801, guid: 54278160a093ad44d9f78d551832dc0a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: afd078d30975fec44bb26e939e90cc82, type: 2}
+    - target: {fileID: 5578321572462792791, guid: 54278160a093ad44d9f78d551832dc0a, type: 3}
+      propertyPath: energy
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5578321572462792791, guid: 54278160a093ad44d9f78d551832dc0a, type: 3}
+      propertyPath: max_energy
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 5578321572462792791, guid: 54278160a093ad44d9f78d551832dc0a, type: 3}
+      propertyPath: max_energy_units
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8214395662698608694, guid: 54278160a093ad44d9f78d551832dc0a, type: 3}
       propertyPath: m_Name
       value: SimpleAI
+      objectReference: {fileID: 0}
+    - target: {fileID: 8214395662698608694, guid: 54278160a093ad44d9f78d551832dc0a, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54278160a093ad44d9f78d551832dc0a, type: 3}
@@ -15794,6 +15822,14 @@ PrefabInstance:
     - target: {fileID: 2557528580249769610, guid: 7e40a1979db231248b7a0fa8f9ee7198, type: 3}
       propertyPath: m_Name
       value: Oddawacz
+      objectReference: {fileID: 0}
+    - target: {fileID: 2557528580249769612, guid: 7e40a1979db231248b7a0fa8f9ee7198, type: 3}
+      propertyPath: energy_units
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2557528580249769612, guid: 7e40a1979db231248b7a0fa8f9ee7198, type: 3}
+      propertyPath: max_energy_units
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2557528580249769613, guid: 7e40a1979db231248b7a0fa8f9ee7198, type: 3}
       propertyPath: shockWaveParticleSystem
@@ -15856,6 +15892,10 @@ PrefabInstance:
       propertyPath: shockWaveParticleSystem
       value: 
       objectReference: {fileID: 72732532}
+    - target: {fileID: 5822440272893144626, guid: f613f2c32a01e9f4894bc655ada41a7b, type: 3}
+      propertyPath: max_energy_units
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5822440272893144628, guid: f613f2c32a01e9f4894bc655ada41a7b, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -15926,7 +15966,7 @@ MonoBehaviour:
   activationDistance: 10
   deativationDistance: 13
   target: {fileID: 0}
---- !u!114 &9179753832912318414
+--- !u!114 &9179753832912318413
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15935,9 +15975,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 9179753832912318411}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0977f43a9717f8f4eb206ce098c35f2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energyUnitsToDie: 3
+  endColor: {r: 0, g: 0, b: 1, a: 0}
+--- !u!114 &9179753832912318414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9179753832912318411}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b394cd3c521f91346ba587d643432c21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   stealingRadius: 4
-  stealingAmmount: 20
+  stealEnergyUnits: 1
   timeBetweenStealing: 3

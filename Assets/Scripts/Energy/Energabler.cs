@@ -1,14 +1,20 @@
 using UnityEngine;
 public class Energabler : MonoBehaviour
 {
-    public int energy = 0;
-    public int max_energy = 100;
+    public int energy_units;
+    public int max_energy_units;
+    [HideInInspector]
+    public int energy;
+    [HideInInspector]
+    public int max_energy;
     MeshRenderer renderer;
 
     Transform[] children;
 
     private void Start()
     {
+        energy = energy_units * GlobalVars.energy_amount_unit;
+        max_energy = max_energy_units * GlobalVars.energy_amount_unit;
         renderer = GetComponent<MeshRenderer>();
         renderer.materials[0].SetFloat("_EmissiveIntensity", 0.2f);
         children = new Transform[transform.childCount];
@@ -22,7 +28,8 @@ public class Energabler : MonoBehaviour
 
     private void Update()
     {
-        if(gameObject.tag == "Container")
+        energy_units = energy / GlobalVars.energy_amount_unit;
+        if (gameObject.tag == "Container")
         {
             Color cEmissive = new Color(93, 203, 255);
             renderer.materials[0].SetColor("_EmissiveColor", Color.Lerp(Color.black, cEmissive, 0.032f * ((float)energy) / max_energy));
