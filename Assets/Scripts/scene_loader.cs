@@ -71,6 +71,14 @@ public class scene_loader : MonoBehaviour
         {
             SceneManager.LoadScene("11");
         }
+        if (Input.GetKeyDown("c"))
+        {
+            SceneManager.LoadScene("Arena1");
+        }
+        if (Input.GetKeyDown("v"))
+        {
+            SceneManager.LoadScene("Arena2");
+        }
         if (Input.GetKeyDown("escape"))
         {
             Application.Quit();

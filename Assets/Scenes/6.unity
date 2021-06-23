@@ -456,6 +456,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e38b804087ea9846846fc618e906c62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  energy_units: 0
+  max_energy_units: 2
   energy: 0
   max_energy: 40
 --- !u!65 &112231783
@@ -1083,6 +1085,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e38b804087ea9846846fc618e906c62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  energy_units: 2
+  max_energy_units: 2
   energy: 40
   max_energy: 40
 --- !u!1 &202735480
@@ -2743,6 +2747,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e38b804087ea9846846fc618e906c62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  energy_units: 0
+  max_energy_units: 2
   energy: 0
   max_energy: 40
 --- !u!135 &595329820
@@ -8558,6 +8564,10 @@ PrefabInstance:
       propertyPath: range_of_connection
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2389893311223249199, guid: 20b843d1fe0270a47bb0f8e5a21fdcaa, type: 3}
+      propertyPath: max_energy_units
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2394629848554238460, guid: 20b843d1fe0270a47bb0f8e5a21fdcaa, type: 3}
       propertyPath: m_Name
       value: Cable (2)
@@ -8616,6 +8626,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e38b804087ea9846846fc618e906c62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  energy_units: 0
+  max_energy_units: 2
   energy: 0
   max_energy: 40
 --- !u!135 &1029183532
@@ -9617,6 +9629,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e38b804087ea9846846fc618e906c62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  energy_units: 2
+  max_energy_units: 2
   energy: 40
   max_energy: 40
 --- !u!135 &1433831430
@@ -9857,6 +9871,10 @@ PrefabInstance:
     - target: {fileID: 999462096977642998, guid: 20b843d1fe0270a47bb0f8e5a21fdcaa, type: 3}
       propertyPath: range_of_connection
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389893311223249199, guid: 20b843d1fe0270a47bb0f8e5a21fdcaa, type: 3}
+      propertyPath: max_energy_units
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2394629848554238460, guid: 20b843d1fe0270a47bb0f8e5a21fdcaa, type: 3}
       propertyPath: m_Name
