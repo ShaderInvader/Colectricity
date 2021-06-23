@@ -15800,7 +15800,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5578321572462792791, guid: 54278160a093ad44d9f78d551832dc0a, type: 3}
       propertyPath: max_energy_units
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8214395662698608694, guid: 54278160a093ad44d9f78d551832dc0a, type: 3}
       propertyPath: m_Name
@@ -15978,8 +15978,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0977f43a9717f8f4eb206ce098c35f2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energyUnitsToDie: 3
-  endColor: {r: 0, g: 0, b: 1, a: 0}
+  energyUnitsToDie: 1
+  endColor: {r: 0.21933071, g: 0.5640106, b: 0.9528302, a: 0}
 --- !u!114 &9179753832912318414
 MonoBehaviour:
   m_ObjectHideFlags: 0

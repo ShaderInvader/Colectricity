@@ -326,6 +326,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e38b804087ea9846846fc618e906c62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  energy_units: 2
+  max_energy_units: 2
   energy: 40
   max_energy: 40
 --- !u!1 &202735480
@@ -975,6 +977,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e38b804087ea9846846fc618e906c62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  energy_units: 0
+  max_energy_units: 4
   energy: 0
   max_energy: 80
 --- !u!135 &649881740
@@ -7674,6 +7678,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e38b804087ea9846846fc618e906c62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  energy_units: 2
+  max_energy_units: 2
   energy: 40
   max_energy: 40
 --- !u!1001 &1641468076
@@ -8002,6 +8008,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e38b804087ea9846846fc618e906c62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  energy_units: 0
+  max_energy_units: 2
   energy: 0
   max_energy: 40
 --- !u!135 &1819696806

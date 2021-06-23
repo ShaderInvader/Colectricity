@@ -795,6 +795,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e38b804087ea9846846fc618e906c62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  energy_units: 2
+  max_energy_units: 2
   energy: 40
   max_energy: 40
 --- !u!1 &202735480
@@ -1457,6 +1459,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e38b804087ea9846846fc618e906c62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  energy_units: 0
+  max_energy_units: 2
   energy: 0
   max_energy: 40
 --- !u!135 &442423863
@@ -4497,7 +4501,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1420969460
 Transform:
   m_ObjectHideFlags: 0
@@ -4524,6 +4528,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e38b804087ea9846846fc618e906c62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  energy_units: 0
+  max_energy_units: 0
   energy: 0
   max_energy: 40
 --- !u!65 &1420969462
@@ -20868,6 +20874,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e38b804087ea9846846fc618e906c62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  energy_units: 0
+  max_energy_units: 2
   energy: 0
   max_energy: 40
 --- !u!135 &2090206452

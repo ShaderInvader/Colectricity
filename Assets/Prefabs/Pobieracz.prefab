@@ -211,6 +211,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e79a96a2c09176a4a9433c5a06b69207, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  p: {fileID: 0}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &5822440272893144632
 GameObject:
   m_ObjectHideFlags: 0
@@ -353,7 +355,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: 1
   time_to_shot_ms: 200
-  size_of_energy: 20
   distance_limit: 4
   shockWaveParticleSystem: {fileID: 0}
 --- !u!114 &5822440272893144626
@@ -368,6 +369,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e38b804087ea9846846fc618e906c62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  energy_units: 0
+  max_energy_units: 5
   energy: 0
   max_energy: 100
 --- !u!54 &5822440272893144591
