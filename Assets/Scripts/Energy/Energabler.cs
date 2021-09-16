@@ -16,7 +16,7 @@ public class Energabler : MonoBehaviour
         energy = energy_units * GlobalVars.energy_amount_unit;
         max_energy = max_energy_units * GlobalVars.energy_amount_unit;
         renderer = GetComponent<MeshRenderer>();
-        renderer.materials[0].SetFloat("_EmissiveIntensity", 0.2f);
+        renderer.materials[0].SetFloat("_EmissiveIntensity", 0.5f);
         children = new Transform[transform.childCount];
         int i = 0;
         foreach (Transform T in transform)
@@ -32,7 +32,7 @@ public class Energabler : MonoBehaviour
         if (gameObject.tag == "Container")
         {
             Color cEmissive = new Color(93, 203, 255);
-            renderer.materials[0].SetColor("_EmissiveColor", Color.Lerp(Color.black, cEmissive, 0.032f * ((float)energy) / max_energy));
+            renderer.materials[0].SetColor("_EmissiveColor", Color.Lerp(Color.black, cEmissive, 0.01f * ((float)energy) / max_energy));
         }
         else if (gameObject.tag == "Player") // players
         {
