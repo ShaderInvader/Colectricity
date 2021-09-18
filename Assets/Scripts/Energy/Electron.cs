@@ -14,6 +14,8 @@ public class Electron : MonoBehaviour
     KeyCode enviro_key, player_key;
     float timer=0;
 
+    public CameraShake cameraShake;
+
     private void Start()
     {
         size_of_energy = GlobalVars.energy_amount_unit;
@@ -88,6 +90,8 @@ public class Electron : MonoBehaviour
             energabler.AddEnergy(size_of_energy);
             RenderLine(energabler.transform);
         }
+
+        StartCoroutine(cameraShake.Shake(0.07f, 0.2f));
     }
 
     void TransferToElectron()
