@@ -6,11 +6,19 @@ public class MovementPrototype : MonoBehaviour
 {
     public float speed = 1;
     public float scale_speed_factor = 0.1f;
+    public float angle = 0.0f;
+    public bool takeAngleFromCamera = true;
 
+    Camera cam;
     Rigidbody rb;
     Vector3 start_scale = new Vector3(1,1,1);
     List<KeyCode> keys;
     int forward, right;
+
+    private void OnEnable()
+    {
+        cam = gameObject.GetComponentInChildren<Camera>();
+    }
 
     private void Start()
     {
@@ -22,6 +30,11 @@ public class MovementPrototype : MonoBehaviour
     }
     void FixedUpdate()
     {
+        if (takeAngleFromCamera)
+        {
+            angle = cam.transform.eulerAngles.y;
+        }
+
         rb.velocity = Vector3.zero;
         (forward, right) = (0, 0);
         
@@ -31,6 +44,7 @@ public class MovementPrototype : MonoBehaviour
         right = Input.GetKey(keys[3]) ? right - 1 : right;
         float add = (transform.localScale - start_scale).magnitude*scale_speed_factor;
         Vector3 vel = new Vector3(right, 0, forward).normalized * (speed + add);
-        rb.velocity = vel;
+        Vector3 rotatedVel = Quaternion.Euler(0, angle, 0) * vel;
+        rb.velocity = rotatedVel;
     }
 }
