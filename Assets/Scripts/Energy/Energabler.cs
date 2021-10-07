@@ -7,8 +7,8 @@ public class Energabler : MonoBehaviour
     public int energy;
     [HideInInspector]
     public int max_energy;
-    MeshRenderer renderer;
 
+    new MeshRenderer renderer;
     Transform[] children;
 
     private void Start()

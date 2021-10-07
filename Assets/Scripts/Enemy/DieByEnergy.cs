@@ -9,7 +9,7 @@ public class DieByEnergy : MonoBehaviour
     Color startColor;
     int current = 0, previous=0;
     int max;
-    MeshRenderer renderer;
+    new MeshRenderer renderer;
 
     private void Start()
     {
