@@ -12602,6 +12602,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2557528580558625968, guid: 7e40a1979db231248b7a0fa8f9ee7198, type: 3}
   m_PrefabInstance: {fileID: 2557528581112496618}
   m_PrefabAsset: {fileID: 0}
+--- !u!20 &1144532304 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 2557528580558625972, guid: 7e40a1979db231248b7a0fa8f9ee7198, type: 3}
+  m_PrefabInstance: {fileID: 2557528581112496618}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1144532305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20807,10 +20812,7 @@ MonoBehaviour:
   m_Script: {fileID: 1715909099}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Entries:
-  - id: 0
-    category: 0
-    gameObject: {fileID: 2118579542}
+  m_Entries: []
 --- !u!4 &1710115295
 Transform:
   m_ObjectHideFlags: 19
@@ -27804,6 +27806,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneName: 2
   count: 0
+--- !u!20 &2082502480 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 5822440271533540634, guid: f613f2c32a01e9f4894bc655ada41a7b, type: 3}
+  m_PrefabInstance: {fileID: 5822440273401942127}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2089180236
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29512,6 +29519,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4396705048862875310, guid: e27c3adf2a1cff34a9e5634eb6fa520a, type: 3}
+      propertyPath: camera1
+      value: 
+      objectReference: {fileID: 2082502480}
+    - target: {fileID: 4396705048862875310, guid: e27c3adf2a1cff34a9e5634eb6fa520a, type: 3}
+      propertyPath: camera2
+      value: 
+      objectReference: {fileID: 1144532304}
     - target: {fileID: 4396705048862875310, guid: e27c3adf2a1cff34a9e5634eb6fa520a, type: 3}
       propertyPath: player1
       value: 

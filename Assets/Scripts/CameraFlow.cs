@@ -8,13 +8,13 @@ public class CameraFlow : MonoBehaviour
     public Transform player2;
     public Camera mainCamera; // main Camera
 
-    private Camera camera1;
-    private Camera camera2;
+    public Camera camera1;
+    public Camera camera2;
 
     void Start()
     {
-        camera1 = player1.GetComponentInChildren<Camera>();
-        camera2 = player2.GetComponentInChildren<Camera>();
+        //camera1 = player1.GetComponentInChildren<Camera>();
+        //camera2 = player2.GetComponentInChildren<Camera>();
     }
 
     void Update()
