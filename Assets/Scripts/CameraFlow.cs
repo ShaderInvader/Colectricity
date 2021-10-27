@@ -17,15 +17,15 @@ public class CameraFlow : MonoBehaviour
         //camera2 = player2.GetComponentInChildren<Camera>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        mainCamera.transform.position = Vector3.Lerp(camera1.transform.position, camera2.transform.position, 0.5f);
-        if (isVisibleFrom(camera1, player2.position) && isVisibleFrom(camera2, player1.position))
+        mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, Vector3.Lerp(camera1.transform.position, camera2.transform.position, 0.5f), 0.1f);
+        if (isVisibleFrom(mainCamera, player2.position) && isVisibleFrom(mainCamera, player1.position))
         {
             camera1.enabled = false;
             camera2.enabled = false;
             mainCamera.enabled = true;
-        } 
+        }
         else
         {
             camera1.enabled = true;
@@ -37,6 +37,6 @@ public class CameraFlow : MonoBehaviour
     private bool isVisibleFrom(Camera camera, Vector3 realPosition)
     {
         Vector3 screenPoint = camera.WorldToViewportPoint(realPosition);
-        return screenPoint.z > 0 && screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1;
+        return screenPoint.z > 0.25 && screenPoint.x > 0.25 && screenPoint.x < 0.75 && screenPoint.y > 0.25 && screenPoint.y < 0.75;
     }
 }
