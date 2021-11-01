@@ -36,7 +36,7 @@ public class Energabler : MonoBehaviour
         }
         else if (gameObject.tag == "Player") // players
         {
-            float s = 1f * ((float)energy) / max_energy + 1;
+            float s = 1.5f * ((float)energy) / max_energy + 1;
             transform.localScale = new Vector3(s, s, s);
         }
     }
