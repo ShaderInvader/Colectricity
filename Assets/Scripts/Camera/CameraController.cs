@@ -47,27 +47,31 @@ public class CameraController : MonoBehaviour
 
     private void calculateOffset()
     {
+        float value = (mainCamera.orthographicSize * mainCamera.aspect) / (2 * Mathf.Sqrt(2));
         rightOffset = new Vector3(
-                mainCamera.transform.position.x + 5.7f,
+                mainCamera.transform.position.x + value,
                 mainCamera.transform.position.y,
-                mainCamera.transform.position.z + 5.7f);
+                mainCamera.transform.position.z + value);
         leftOffset = new Vector3(
-                mainCamera.transform.position.x - 5.7f,
+                mainCamera.transform.position.x - value,
                 mainCamera.transform.position.y,
-                mainCamera.transform.position.z - 5.7f);
+                mainCamera.transform.position.z - value);
     }
 
     private void assignCameras()
     {
-        if(isOnRight(mainCamera, player1.position))
+        if(mainCamera.enabled)
         {
-            leftCamera.GetComponent<CameraFollow>().parent = player2;
-            rightCamera.GetComponent<CameraFollow>().parent = player1;
-        }
-        else
-        {
-            leftCamera.GetComponent<CameraFollow>().parent = player1;
-            rightCamera.GetComponent<CameraFollow>().parent = player2;
+            if (isOnRight(mainCamera, player1.position))
+            {
+                leftCamera.GetComponent<CameraFollow>().parent = player2;
+                rightCamera.GetComponent<CameraFollow>().parent = player1;
+            }
+            else
+            {
+                leftCamera.GetComponent<CameraFollow>().parent = player1;
+                rightCamera.GetComponent<CameraFollow>().parent = player2;
+            }
         }
     }
 
@@ -90,8 +94,8 @@ public class CameraController : MonoBehaviour
 
     private void changeToTwoCameras()
     {
-        leftCamera.transform.position = rightOffset;
-        rightCamera.transform.position = leftOffset;
+        leftCamera.transform.position = leftOffset;
+        rightCamera.transform.position = rightOffset;
         leftCamera.enabled = true;
         rightCamera.enabled = true;
         mainCamera.enabled = false;
