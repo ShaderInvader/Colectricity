@@ -1,4 +1,4 @@
 # Bzzz
 Bzzz! - game from DVD Unicorns original
 
-Unity 2020.3.4f1 (LTS) with HDRP
+Unity 2021.1.24f1 (LTS) with HDRP
