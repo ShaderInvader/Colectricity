@@ -97,7 +97,17 @@ public class Electron : MonoBehaviour
     void TransferToElectron()
     {
         Energabler elec = GetNearestEnergable(full_acc: false);
-        if (elec != null && (elec.gameObject.GetComponent<Electron>() != null
+        if (elec == null)
+        {
+            return;
+        }
+        RaycastHit hit;
+        Physics.Raycast(transform.position, elec.transform.position - transform.position, out hit);
+        if (hit.transform.gameObject != elec.gameObject)
+        {
+            return;
+        }
+        if ((elec.gameObject.GetComponent<Electron>() != null
             || (elec.gameObject.GetComponent<Cable>() != null && elec.GetComponent<Cable>().IsGoodToTransfer()))
             && GetComponent<Energabler>().RemEnergy(size_of_energy))
         {
