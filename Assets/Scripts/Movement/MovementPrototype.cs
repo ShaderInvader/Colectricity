@@ -18,7 +18,7 @@ public class MovementPrototype : MonoBehaviour
     Vector3 start_scale = new Vector3(1,1,1);
     List<KeyCode> keys;
     int forward, right;
-    bool isDashing = false;
+    bool isDashing = false, readyDash = true;
     private Vector3 movement_vector;
 
     List<KeyCode> WSAD = new List<KeyCode>() { KeyCode.W, KeyCode.S, KeyCode.D, KeyCode.A, KeyCode.R };
@@ -59,9 +59,14 @@ public class MovementPrototype : MonoBehaviour
         movement_vector = Quaternion.Euler(0, angle, 0) * vel;
 
         Move(movement_vector);
-        if (Input.GetKeyDown(keys[4]))
+        if (Input.GetKey(keys[4]) && readyDash)
         {
             isDashing = true;
+            readyDash = false;
+        }
+        else if(!Input.GetKey(keys[4]))
+        {
+            readyDash = true;
         }
     }
 
