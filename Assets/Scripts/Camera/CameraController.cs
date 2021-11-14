@@ -7,6 +7,7 @@ public class CameraController : MonoBehaviour
     public float minDistanceBetweenPlayers;
     public float twoToOneLinearSpeed = 0.6f;
     public float oneToTwoAcceleratingSpeed = 0.1f;
+    public int cameraChangeCooldownSeconds = 1;
 
     public Transform player1;
     public Transform player2;
@@ -18,6 +19,8 @@ public class CameraController : MonoBehaviour
     private float defaultPlayerCameraFollowSpeed;
     private Vector3 rightOffset;
     private Vector3 leftOffset;
+    private float toNextChange = 0;
+
 
     void OnEnable()
     {
@@ -43,15 +46,16 @@ public class CameraController : MonoBehaviour
         mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, Vector3.Lerp(leftCamera.transform.position, rightCamera.transform.position, 0.5f), 0.1f);
         calculateOffset();
 
-        if (mainCamera.enabled && Vector3.Distance(player1.position, player2.position) > minDistanceBetweenPlayers)
+        if (toNextChange == 0 && mainCamera.enabled && Vector3.Distance(player1.position, player2.position) > minDistanceBetweenPlayers)
         {
             assignCameras();
             changeToTwoCameras();
         }
-        else if (!mainCamera.enabled && Vector3.Distance(player1.position, player2.position) < minDistanceBetweenPlayers)
+        else if (toNextChange == 0 && !mainCamera.enabled && Vector3.Distance(player1.position, player2.position) < minDistanceBetweenPlayers)
         {
             changeToOneCamera();
         }
+        toNextChange = constraint(toNextChange - Time.deltaTime, 0, cameraChangeCooldownSeconds);
     }
 
     private void calculateOffset()
@@ -98,6 +102,7 @@ public class CameraController : MonoBehaviour
             leftCamera.enabled = false;
             rightCamera.enabled = false;
             mainCamera.enabled = true;
+            toNextChange = cameraChangeCooldownSeconds;
         }
     }
 
@@ -110,6 +115,7 @@ public class CameraController : MonoBehaviour
         leftCamera.enabled = true;
         rightCamera.enabled = true;
         mainCamera.enabled = false;
+        toNextChange = cameraChangeCooldownSeconds;
     }
 
     private bool isOnRight(Camera camera, Vector3 realPosition)
