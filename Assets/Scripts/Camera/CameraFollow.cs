@@ -8,8 +8,11 @@ public class CameraFollow : MonoBehaviour
     public Vector3 offset;
     public float followSpeed = 0.1f;
 
+    private float defaultFollowSpeed;
+
     void Start()
     {
+        defaultFollowSpeed = followSpeed;
         if (this.transform.parent != null)
         {
             parent = transform.parent;
@@ -21,5 +24,9 @@ public class CameraFollow : MonoBehaviour
     void FixedUpdate()
     {
         transform.position = Vector3.Lerp(transform.position, parent.position + offset, followSpeed);
+        if (transform.position == parent.position + offset)
+        {
+            followSpeed = defaultFollowSpeed;
+        }
     }
 }

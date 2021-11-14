@@ -5,7 +5,8 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public float minDistanceBetweenPlayers;
-    public float oneToTwoLinearSpeed;
+    public float twoToOneLinearSpeed = 0.6f;
+    public float oneToTwoAcceleratingSpeed = 0.1f;
 
     public Transform player1;
     public Transform player2;
@@ -14,6 +15,7 @@ public class CameraController : MonoBehaviour
     private Camera rightCamera;
     private Camera mainCamera;
 
+    private float defaultPlayerCameraFollowSpeed;
     private Vector3 rightOffset;
     private Vector3 leftOffset;
 
@@ -22,15 +24,22 @@ public class CameraController : MonoBehaviour
         leftCamera = player1.GetComponentInChildren<Camera>();
         rightCamera = player2.GetComponentInChildren<Camera>();
         mainCamera = GetComponentInChildren<Camera>();
+        Debug.Log("after enable " + leftCamera.GetComponent<CameraFollow>().parent + " " + rightCamera.GetComponent<CameraFollow>().parent);
     }
 
     void Start()
     {
         assignCameras();
+        defaultPlayerCameraFollowSpeed = leftCamera.GetComponent<CameraFollow>().followSpeed;
+        Debug.Log("after start " + leftCamera.GetComponent<CameraFollow>().parent + " " + rightCamera.GetComponent<CameraFollow>().parent);
     }
 
     void FixedUpdate()
     {
+        if(leftCamera.GetComponent<CameraFollow>().parent == rightCamera.GetComponent<CameraFollow>().parent) // why the f this situation happens?
+        {
+            assignCameras();
+        }
         mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, Vector3.Lerp(leftCamera.transform.position, rightCamera.transform.position, 0.5f), 0.1f);
         calculateOffset();
 
@@ -77,8 +86,8 @@ public class CameraController : MonoBehaviour
 
     private void changeToOneCamera()
     {
-        leftCamera.transform.position = Vector3.MoveTowards(leftCamera.transform.position, leftOffset, oneToTwoLinearSpeed);
-        rightCamera.transform.position = Vector3.MoveTowards(rightCamera.transform.position, rightOffset, oneToTwoLinearSpeed);
+        leftCamera.transform.position = Vector3.MoveTowards(leftCamera.transform.position, leftOffset, twoToOneLinearSpeed);
+        rightCamera.transform.position = Vector3.MoveTowards(rightCamera.transform.position, rightOffset, twoToOneLinearSpeed);
         leftCamera.GetComponent<CameraFollow>().enabled = false;
         rightCamera.GetComponent<CameraFollow>().enabled = false;
         if (Vector3.Distance(leftCamera.transform.position, leftOffset) == 0f
@@ -96,6 +105,8 @@ public class CameraController : MonoBehaviour
     {
         leftCamera.transform.position = leftOffset;
         rightCamera.transform.position = rightOffset;
+        leftCamera.GetComponent<CameraFollow>().followSpeed = oneToTwoAcceleratingSpeed;
+        rightCamera.GetComponent<CameraFollow>().followSpeed = oneToTwoAcceleratingSpeed;
         leftCamera.enabled = true;
         rightCamera.enabled = true;
         mainCamera.enabled = false;
