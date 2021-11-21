@@ -15,8 +15,11 @@ public class Energabler : MonoBehaviour
     {
         energy = energy_units * GlobalVars.energy_amount_unit;
         max_energy = max_energy_units * GlobalVars.energy_amount_unit;
-        renderer = GetComponent<MeshRenderer>();
-        renderer.materials[0].SetFloat("_EmissiveIntensity", 0.5f);
+        if (GetComponent<MeshRenderer>())
+        {
+            renderer = GetComponent<MeshRenderer>();
+            renderer.materials[0].SetFloat("_EmissiveIntensity", 0.5f);
+        }
         children = new Transform[transform.childCount];
         int i = 0;
         foreach (Transform T in transform)
