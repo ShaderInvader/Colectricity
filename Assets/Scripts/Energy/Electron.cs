@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Energabler))]
@@ -15,6 +16,7 @@ public class Electron : MonoBehaviour
     float timer=0;
 
     public CameraShake cameraShake;
+    private int blockadeMask;
 
     private void Start()
     {
@@ -22,6 +24,7 @@ public class Electron : MonoBehaviour
         bool isWSAD = gameObject.GetComponent<SelectKeys>().selection == SelectKeys.Keys.wsad;
         enviro_key = isWSAD ? KeyCode.E : KeyCode.Slash;
         player_key = isWSAD ? KeyCode.Q : KeyCode.Quote;
+        blockadeMask = 1 << LayerMask.NameToLayer("Blockade");
     }
 
     void Update()
@@ -101,9 +104,11 @@ public class Electron : MonoBehaviour
         {
             return;
         }
+
         RaycastHit hit;
-        Physics.Raycast(transform.position, elec.transform.position - transform.position, out hit);
-        if (hit.transform.gameObject != elec.gameObject)
+        float distance = Vector3.Distance(transform.position, elec.transform.position);
+        bool isColliding = Physics.Raycast(transform.position, elec.transform.position - transform.position, out hit, distance, blockadeMask);
+        if (isColliding)
         {
             return;
         }
