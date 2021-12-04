@@ -9831,7 +9831,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 120000
+  m_Intensity: 80000
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -9954,7 +9954,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.30535775, g: 0.7574355, b: 0.8867924, a: 1}
-  m_Intensity: 9549.296
+  m_Intensity: 6366.1978
   m_Range: 130
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -13345,15 +13345,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4945013205739873291, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
       propertyPath: m_Color.b
-      value: 1
+      value: 0.20784314
       objectReference: {fileID: 0}
     - target: {fileID: 4945013205739873291, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
       propertyPath: m_Color.g
-      value: 0.8189527
+      value: 0.02745098
       objectReference: {fileID: 0}
     - target: {fileID: 4945013205739873291, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
       propertyPath: m_Color.r
-      value: 0.4666667
+      value: 0.1764706
       objectReference: {fileID: 0}
     - target: {fileID: 4945013205739873291, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
       propertyPath: m_Intensity
@@ -16900,7 +16900,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5420714688814619336, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
       propertyPath: m_Intensity
-      value: 20000
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 5420714688814619339, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
       propertyPath: m_Color.b
@@ -16916,11 +16916,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5420714688814619339, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
       propertyPath: m_Intensity
-      value: 10610.329
+      value: 5305.1646
       objectReference: {fileID: 0}
     - target: {fileID: 5420714690277376226, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
       propertyPath: m_Intensity
-      value: 20000
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 5420714690277376229, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
       propertyPath: m_Color.b
@@ -16936,7 +16936,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5420714690277376229, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
       propertyPath: m_Intensity
-      value: 10610.329
+      value: 5305.1646
       objectReference: {fileID: 0}
     - target: {fileID: 5555183621043764885, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
       propertyPath: m_LocalPosition.x
