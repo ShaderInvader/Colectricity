@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    public static CameraController instance;
+
     public float minDistanceBetweenPlayers;
     public float twoToOneLinearSpeed = 0.6f;
     public float oneToTwoAcceleratingSpeed = 0.1f;
@@ -20,21 +22,24 @@ public class CameraController : MonoBehaviour
     private Vector3 rightOffset;
     private Vector3 leftOffset;
     private float toNextChange = 0;
-
+   
+    [SerializeField]
+    private bool isChangingState = false; 
 
     void OnEnable()
     {
+        if (instance == null) instance = this;
+        else Debug.LogError("There are two instances of CameraController in the scene!");
+
         leftCamera = player1.GetComponentInChildren<Camera>();
         rightCamera = player2.GetComponentInChildren<Camera>();
         mainCamera = GetComponentInChildren<Camera>();
-        Debug.Log("after enable " + leftCamera.GetComponent<CameraFollow>().parent + " " + rightCamera.GetComponent<CameraFollow>().parent);
     }
 
     void Start()
     {
         assignCameras();
         defaultPlayerCameraFollowSpeed = leftCamera.GetComponent<CameraFollow>().followSpeed;
-        Debug.Log("after start " + leftCamera.GetComponent<CameraFollow>().parent + " " + rightCamera.GetComponent<CameraFollow>().parent);
     }
 
     void FixedUpdate()
@@ -51,7 +56,7 @@ public class CameraController : MonoBehaviour
             assignCameras();
             changeToTwoCameras();
         }
-        else if (toNextChange == 0 && !mainCamera.enabled && Vector3.Distance(player1.position, player2.position) < minDistanceBetweenPlayers)
+        else if ((toNextChange == 0 && !mainCamera.enabled && Vector3.Distance(player1.position, player2.position) < minDistanceBetweenPlayers) || isChangingState)
         {
             changeToOneCamera();
         }
@@ -94,6 +99,7 @@ public class CameraController : MonoBehaviour
         rightCamera.transform.position = Vector3.MoveTowards(rightCamera.transform.position, rightOffset, twoToOneLinearSpeed);
         leftCamera.GetComponent<CameraFollow>().enabled = false;
         rightCamera.GetComponent<CameraFollow>().enabled = false;
+        isChangingState = true;
         if (Vector3.Distance(leftCamera.transform.position, leftOffset) == 0f
             && Vector3.Distance(rightCamera.transform.position, rightOffset) == 0f)
         {
@@ -103,6 +109,7 @@ public class CameraController : MonoBehaviour
             rightCamera.enabled = false;
             mainCamera.enabled = true;
             toNextChange = cameraChangeCooldownSeconds;
+            isChangingState = false;
         }
     }
 
@@ -116,6 +123,7 @@ public class CameraController : MonoBehaviour
         rightCamera.enabled = true;
         mainCamera.enabled = false;
         toNextChange = cameraChangeCooldownSeconds;
+        isChangingState = false;
     }
 
     private bool isOnRight(Camera camera, Vector3 realPosition)
@@ -129,5 +137,28 @@ public class CameraController : MonoBehaviour
         if (a < min) return min;
         if (a > max) return max;
         return a;
+    }
+
+    public static CameraController getInstance()
+    {
+        return instance;
+    }
+
+    public Camera getCameraFor(Transform player)
+    {
+        if (leftCamera.GetComponent<CameraFollow>().parent == player) return leftCamera;
+        else if (rightCamera.GetComponent<CameraFollow>().parent == player) return rightCamera;
+        else return null;
+    }
+
+    public bool isVisibleFrom(Camera camera, Vector3 realPosition)
+    {
+        Vector3 screenPoint = camera.WorldToViewportPoint(realPosition);
+        return screenPoint.z > 0 && screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1;
+    }
+
+    public bool isOneCameraMode()
+    {
+        return mainCamera.enabled || isChangingState;
     }
 }
