@@ -6,7 +6,7 @@ public class SimpleAI : MonoBehaviour
 {
     private StateMachine sm;
     public List<State> states = new List<State>();
-    int stateNumber = 0;
+    int stateNumber;
     public float activationDistance = 1f;
     public float deativationDistance = 1.5f;
     public Electron target;

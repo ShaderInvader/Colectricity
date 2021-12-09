@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 1481.7754, g: 1835.8867, b: 2430.4492, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -16008,29 +16008,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5532216961475482801, guid: 54278160a093ad44d9f78d551832dc0a, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: afd078d30975fec44bb26e939e90cc82, type: 2}
-    - target: {fileID: 5578321572462792791, guid: 54278160a093ad44d9f78d551832dc0a, type: 3}
-      propertyPath: energy
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5578321572462792791, guid: 54278160a093ad44d9f78d551832dc0a, type: 3}
-      propertyPath: max_energy
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 5578321572462792791, guid: 54278160a093ad44d9f78d551832dc0a, type: 3}
-      propertyPath: max_energy_units
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8214395662698608694, guid: 54278160a093ad44d9f78d551832dc0a, type: 3}
       propertyPath: m_Name
-      value: SimpleAI
-      objectReference: {fileID: 0}
-    - target: {fileID: 8214395662698608694, guid: 54278160a093ad44d9f78d551832dc0a, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
+      value: Melee
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54278160a093ad44d9f78d551832dc0a, type: 3}
@@ -16041,6 +16021,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 933057203, guid: 7e40a1979db231248b7a0fa8f9ee7198, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2557528580249769610, guid: 7e40a1979db231248b7a0fa8f9ee7198, type: 3}
       propertyPath: m_Name
       value: Oddawacz
@@ -16101,6 +16085,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3305559685506255736, guid: 7e40a1979db231248b7a0fa8f9ee7198, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e40a1979db231248b7a0fa8f9ee7198, type: 3}
 --- !u!1001 &5822440273401942127
@@ -16110,6 +16098,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 196121113, guid: f613f2c32a01e9f4894bc655ada41a7b, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5822440272893144625, guid: f613f2c32a01e9f4894bc655ada41a7b, type: 3}
       propertyPath: shockWaveParticleSystem
       value: 
@@ -16168,52 +16160,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f613f2c32a01e9f4894bc655ada41a7b, type: 3}
---- !u!1 &9179753832912318411 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8214395662698608694, guid: 54278160a093ad44d9f78d551832dc0a, type: 3}
-  m_PrefabInstance: {fileID: 1052272402935584765}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &9179753832912318412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9179753832912318411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c31ee38a8954bb8438ff97ba87cf9604, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activationDistance: 10
-  deativationDistance: 13
-  target: {fileID: 0}
---- !u!114 &9179753832912318413
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9179753832912318411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0977f43a9717f8f4eb206ce098c35f2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  energyUnitsToDie: 1
-  endColor: {r: 0.21933071, g: 0.5640106, b: 0.9528302, a: 0}
---- !u!114 &9179753832912318414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9179753832912318411}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b394cd3c521f91346ba587d643432c21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stealingRadius: 4
-  stealEnergyUnits: 1
-  timeBetweenStealing: 3

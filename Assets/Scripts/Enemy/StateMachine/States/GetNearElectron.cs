@@ -10,18 +10,32 @@ public class GetNearElectron : State
 
     public GetNearElectron(GameObject go) : base(go) { }
 
+    private ActionBase[] actions;
+
     public override void Enter()
     {
         base.Enter();
         ai = go.GetComponent<SimpleAI>();
         agent = go.GetComponent<NavMeshAgent>();
         agent.isStopped = false;
-        go.GetComponent<Stealer>().enabled = true;
+        actions = go.GetComponents<ActionBase>();
+        foreach (ActionBase act in actions)
+        {
+            act.enabled = true;
+        }
     }
 
     public override void Update()
     {
         base.Update();
+
+        if (ai.target.dead)
+        {
+            ai.target = null;
+            agent.isStopped = true;
+            ai.NextState();
+            return;
+        }
 
         float dist = ai.GetDistance(ai.target.transform);
         if (ai.deativationDistance < dist)
@@ -37,7 +51,10 @@ public class GetNearElectron : State
 
     public override void Exit()
     {
+        foreach (ActionBase act in actions)
+        {
+            act.enabled = false;
+        }
         base.Exit();
-        go.GetComponent<Stealer>().enabled = false;
     }
 }

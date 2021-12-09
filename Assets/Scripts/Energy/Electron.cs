@@ -7,9 +7,14 @@ public class Electron : MonoBehaviour
 {
     public enum Type { giver, receiver };
     public Type player;
+    public int health = 1;
+    public bool dead = false;
     public float time_to_shot_ms = 20;
     public float distance_limit = 5;
     public ParticleSystem shockWaveParticleSystem;
+
+    public Material liveMaterial;
+    public Material deadMaterial;
 
     int size_of_energy;
     KeyCode enviro_key, player_key;
@@ -59,6 +64,28 @@ public class Electron : MonoBehaviour
         }
         timer -= Time.deltaTime;
         timer = timer < 0 ? 0 : timer;
+    }
+
+    public void ReceiveDamage(int damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        dead = true;
+        GetComponent<DeathMinigame>().enabled = true;
+        GetComponent<MeshRenderer>().material = deadMaterial;
+    }
+
+    public void Reborn()
+    {
+        dead = false;
+        GetComponent<MeshRenderer>().material = liveMaterial;
     }
 
     void Receive()

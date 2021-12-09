@@ -5038,6 +5038,7 @@ GameObject:
   - component: {fileID: 5822440272893144626}
   - component: {fileID: 5822440272893144591}
   - component: {fileID: 4085717137651116116}
+  - component: {fileID: 3104055127489447053}
   m_Layer: 0
   m_Name: Pobieracz
   m_TagString: Player
@@ -5168,9 +5169,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: 1
+  health: 1
+  dead: 0
   time_to_shot_ms: 200
   distance_limit: 4
-  shockWaveParticleSystem: {fileID: 196121111}
+  shockWaveParticleSystem: {fileID: 0}
+  liveMaterial: {fileID: 2100000, guid: b85018c601f108b4391bd1c97500f92d, type: 2}
+  deadMaterial: {fileID: 2100000, guid: a4ea6bc327555634fa72f799bd47be9e, type: 2}
   cameraShake: {fileID: 0}
 --- !u!114 &5822440272893144626
 MonoBehaviour:
@@ -5218,3 +5223,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 0}
   indicatorDistanceFromScreen: 0.4
+--- !u!114 &3104055127489447053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5822440272893144632}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97cbd9e995e605d4ba4845c5d85469a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectable: {fileID: 2579957690014533035, guid: 6c8892377713fae479e98679ec39c9e7, type: 3}
+  howMany: 3

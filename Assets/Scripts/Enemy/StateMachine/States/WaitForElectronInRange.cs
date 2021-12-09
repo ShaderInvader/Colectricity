@@ -22,6 +22,10 @@ public class WaitForElectronInRange : State
         float dist;
         foreach (Electron e in electrons)
         {
+            if (e.dead)
+            {
+                continue;
+            }
             dist = ai.GetDistance(e.transform);
             if (ai.activationDistance > dist)
             {
