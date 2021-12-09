@@ -7,9 +7,11 @@ public class Fan : MonoBehaviour
 {
     public float speed = 10;
     public float acceleration = 10;
+    public bool rotationDirection = true;
     public List<Energabler> energablers = new List<Energabler>();
 
     private float currentSpeed = 0;
+    private Vector3 direction = Vector3.up;
 
     void Start()
     {
@@ -21,6 +23,8 @@ public class Fan : MonoBehaviour
     
     void Update()
     {
+        direction = rotationDirection ? direction = Vector3.down : Vector3.up;
+
         float vel = Time.deltaTime * currentSpeed;
 
         float changeOfSpeed = Time.deltaTime * acceleration;
@@ -29,7 +33,7 @@ public class Fan : MonoBehaviour
         currentSpeed = currentSpeed < 0 ? 0 : currentSpeed;
         currentSpeed = currentSpeed > speed ? speed : currentSpeed;
 
-        transform.Rotate(Vector3.up, Time.deltaTime * currentSpeed);
+        transform.Rotate(direction, Time.deltaTime * currentSpeed);
     }
 
     private bool IsFull()
