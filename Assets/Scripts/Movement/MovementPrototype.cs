@@ -6,7 +6,8 @@ using UnityEngine;
 [RequireComponent(typeof(SelectKeys))]
 public class MovementPrototype : MonoBehaviour
 {
-    public float speed = 1;
+    public float lifeSpeed = 6f;
+    public float deathSpeed = 4f;
     public float scale_speed_factor = 0.1f;
     public float angle = 0.0f;
     public bool takeAngleFromCamera = true;
@@ -54,6 +55,7 @@ public class MovementPrototype : MonoBehaviour
         forward = Input.GetKey(keys[1]) ? --forward : forward;
         right = Input.GetKey(keys[2]) ? right + 1 : right;
         right = Input.GetKey(keys[3]) ? right - 1 : right;
+        float speed = GetComponent<Electron>().isDead ? deathSpeed : lifeSpeed;
         float add = (transform.localScale - start_scale).magnitude * scale_speed_factor;
         Vector3 vel = new Vector3(right, 0, forward).normalized * (speed + add);
         movement_vector = Quaternion.Euler(0, angle, 0) * vel;
