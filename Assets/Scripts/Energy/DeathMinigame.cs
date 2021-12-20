@@ -8,6 +8,7 @@ public class DeathMinigame : MonoBehaviour
     public GameObject collectable;
     public int howMany;
     public float howFar = 3;
+    public string cubeName = "cube1";
 
     private List<GameObject> collectables = new List<GameObject>();
 
@@ -17,7 +18,7 @@ public class DeathMinigame : MonoBehaviour
         {
             GameObject go = Instantiate(collectable, transform.position + RandomOffset(), Quaternion.identity);
             go.GetComponent<MeshRenderer>().material = GetComponent<Electron>().liveMaterial;
-
+            go.name = cubeName;
             collectables.Add(go);
         }
     }
@@ -34,6 +35,10 @@ public class DeathMinigame : MonoBehaviour
     {
         GameObject coll = other.gameObject;
         if (coll.GetComponent<Collectable>() == null)
+        {
+            return;
+        }
+        if (coll.name != cubeName)
         {
             return;
         }
