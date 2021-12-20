@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Energabler))]
 [RequireComponent(typeof(SelectKeys))]
@@ -80,6 +81,20 @@ public class Electron : MonoBehaviour
         isDead = true;
         GetComponent<DeathMinigame>().enabled = true;
         GetComponent<MeshRenderer>().material = deadMaterial;
+        ResetIfAllDead();
+    }
+
+    public void ResetIfAllDead()
+    {
+        Electron[] electrons = FindObjectsOfType<Electron>();
+        foreach (Electron e in electrons)
+        {
+            if (!e.isDead)
+            {
+                return;
+            }
+        }
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void Reborn()
