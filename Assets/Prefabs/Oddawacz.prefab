@@ -9803,7 +9803,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d4fd34ee03267d468e83c7904802815, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
+  lifeSpeed: 6
+  deathSpeed: 3
   scale_speed_factor: 1
   angle: 0
   takeAngleFromCamera: 1
@@ -9823,7 +9824,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: 0
   health: 1
-  dead: 0
+  isDead: 0
   time_to_shot_ms: 200
   distance_limit: 0
   shockWaveParticleSystem: {fileID: 0}
@@ -9890,6 +9891,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collectable: {fileID: 2579957690014533035, guid: 6c8892377713fae479e98679ec39c9e7, type: 3}
   howMany: 3
+  howFar: 3
+  cubeName: cube2
 --- !u!1 &2557528580558625968
 GameObject:
   m_ObjectHideFlags: 0

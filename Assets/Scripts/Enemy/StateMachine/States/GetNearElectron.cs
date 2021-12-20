@@ -29,7 +29,7 @@ public class GetNearElectron : State
     {
         base.Update();
 
-        if (ai.target.dead)
+        if (ai.target.isDead)
         {
             ai.target = null;
             agent.isStopped = true;

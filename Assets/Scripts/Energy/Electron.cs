@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Energabler))]
 [RequireComponent(typeof(SelectKeys))]
@@ -8,7 +9,7 @@ public class Electron : MonoBehaviour
     public enum Type { giver, receiver };
     public Type player;
     public int health = 1;
-    public bool dead = false;
+    public bool isDead = false;
     public float time_to_shot_ms = 20;
     public float distance_limit = 5;
     public ParticleSystem shockWaveParticleSystem;
@@ -77,14 +78,28 @@ public class Electron : MonoBehaviour
 
     void Die()
     {
-        dead = true;
+        isDead = true;
         GetComponent<DeathMinigame>().enabled = true;
         GetComponent<MeshRenderer>().material = deadMaterial;
+        ResetIfAllDead();
+    }
+
+    public void ResetIfAllDead()
+    {
+        Electron[] electrons = FindObjectsOfType<Electron>();
+        foreach (Electron e in electrons)
+        {
+            if (!e.isDead)
+            {
+                return;
+            }
+        }
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void Reborn()
     {
-        dead = false;
+        isDead = false;
         GetComponent<MeshRenderer>().material = liveMaterial;
     }
 

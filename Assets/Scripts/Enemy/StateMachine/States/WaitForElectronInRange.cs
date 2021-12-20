@@ -22,7 +22,7 @@ public class WaitForElectronInRange : State
         float dist;
         foreach (Electron e in electrons)
         {
-            if (e.dead)
+            if (e.isDead)
             {
                 continue;
             }

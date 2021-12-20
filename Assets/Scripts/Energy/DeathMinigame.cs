@@ -7,6 +7,8 @@ public class DeathMinigame : MonoBehaviour
 {
     public GameObject collectable;
     public int howMany;
+    public float howFar = 3;
+    public string cubeName = "cube1";
 
     private List<GameObject> collectables = new List<GameObject>();
 
@@ -16,14 +18,14 @@ public class DeathMinigame : MonoBehaviour
         {
             GameObject go = Instantiate(collectable, transform.position + RandomOffset(), Quaternion.identity);
             go.GetComponent<MeshRenderer>().material = GetComponent<Electron>().liveMaterial;
-
+            go.name = cubeName;
             collectables.Add(go);
         }
     }
 
     Vector3 RandomOffset()
     {
-        Vector2 randPosition = Random.insideUnitCircle * 2;
+        Vector2 randPosition = Random.insideUnitCircle * howFar;
         randPosition.x = randPosition.x > 0 ? randPosition.x + Random.value : randPosition.x - Random.value;
         randPosition.y = randPosition.y > 0 ? randPosition.y + Random.value : randPosition.y - Random.value;
         return new Vector3(randPosition.x, 0, randPosition.y);
@@ -33,6 +35,10 @@ public class DeathMinigame : MonoBehaviour
     {
         GameObject coll = other.gameObject;
         if (coll.GetComponent<Collectable>() == null)
+        {
+            return;
+        }
+        if (coll.name != cubeName)
         {
             return;
         }
