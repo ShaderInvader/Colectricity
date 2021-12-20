@@ -7,6 +7,7 @@ public class DeathMinigame : MonoBehaviour
 {
     public GameObject collectable;
     public int howMany;
+    public float howFar = 3;
 
     private List<GameObject> collectables = new List<GameObject>();
 
@@ -23,7 +24,7 @@ public class DeathMinigame : MonoBehaviour
 
     Vector3 RandomOffset()
     {
-        Vector2 randPosition = Random.insideUnitCircle * 2;
+        Vector2 randPosition = Random.insideUnitCircle * howFar;
         randPosition.x = randPosition.x > 0 ? randPosition.x + Random.value : randPosition.x - Random.value;
         randPosition.y = randPosition.y > 0 ? randPosition.y + Random.value : randPosition.y - Random.value;
         return new Vector3(randPosition.x, 0, randPosition.y);
