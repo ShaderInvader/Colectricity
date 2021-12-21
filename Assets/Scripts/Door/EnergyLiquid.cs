@@ -45,7 +45,7 @@ public class EnergyLiquid : MonoBehaviour
 
         time += Time.deltaTime * speed;
         time = time > 1 ? 1 : time;
-        
+
         float yVal = Mathf.Lerp(transform.localScale[1], yScale[status], time);
         transform.localScale = new Vector3(transform.localScale.x, yVal, transform.localScale.z);
     }
