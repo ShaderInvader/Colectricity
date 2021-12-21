@@ -92,7 +92,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3242924057289997709}
   - component: {fileID: 3129653032284588474}
-  - component: {fileID: 4550636617996773201}
   m_Layer: 0
   m_Name: Battery
   m_TagString: Untagged
@@ -112,7 +111,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6907805484335388360}
-  - {fileID: 301513745793477392}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -130,18 +128,6 @@ CapsuleCollider:
   m_Height: 6.8863397
   m_Direction: 1
   m_Center: {x: -0.02524209, y: 1.7189381, z: 0.01316309}
---- !u!114 &4550636617996773201
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3242924057289997706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84f1b29eb046245488b36cfad340f607, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3242924057621256014
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,12 +369,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5184078013647907307}
-  m_LocalRotation: {x: -0, y: 0.7014781, z: -0, w: 0.712691}
-  m_LocalPosition: {x: -0.03, y: 2.8192883, z: 0.11}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.000000064231614, y: -0.6150327, z: 0.00000005010076, w: 0.78850156}
+  m_LocalPosition: {x: 0.0012699654, y: 7.0482206, z: -0.2850415}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_Children: []
-  m_Father: {fileID: 3242924057289997709}
-  m_RootOrder: 1
+  m_Father: {fileID: 6907805484335388360}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 89.091, z: 0}
 --- !u!108 &5443508461358885041
 Light:
@@ -588,6 +574,7 @@ GameObject:
   - component: {fileID: 6095240366435208308}
   - component: {fileID: 7526271339888466285}
   - component: {fileID: 5734868626353270183}
+  - component: {fileID: 6359240392806288558}
   m_Layer: 0
   m_Name: battery_mdl_akt
   m_TagString: Untagged
@@ -612,6 +599,7 @@ Transform:
   - {fileID: 5255182068311225115}
   - {fileID: 838351027871019757}
   - {fileID: 3242924057828469760}
+  - {fileID: 301513745793477392}
   m_Father: {fileID: 3242924057289997709}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -700,6 +688,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6359240392806288558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6095240366435208306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84f1b29eb046245488b36cfad340f607, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7522011352679011787
 GameObject:
   m_ObjectHideFlags: 0
