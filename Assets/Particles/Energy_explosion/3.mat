@@ -135,6 +135,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - _AORemapMax: 1
     - _AORemapMin: 0
@@ -195,8 +196,8 @@ Material:
     - _DstBlend: 10
     - _EmissionEnabled: 0
     - _EmissiveColorMode: 1
-    - _EmissiveExposureWeight: 0.016
-    - _EmissiveIntensity: 14
+    - _EmissiveExposureWeight: 0.033
+    - _EmissiveIntensity: 24
     - _EmissiveIntensityUnit: 0
     - _EnableBlendModePreserveSpecularLighting: 1
     - _EnableFogOnTransparent: 1
@@ -289,7 +290,7 @@ Material:
     - _DiffusionProfileAsset: {r: 0, g: 0, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissiveColor: {r: 4.919856, g: 7.663928, b: 14, a: 14}
+    - _EmissiveColor: {r: 8.434039, g: 13.138163, b: 24, a: 24}
     - _EmissiveColorLDR: {r: 0.6273585, g: 0.7657682, b: 1, a: 1}
     - _InvPrimScale: {r: 1, g: 1, b: 0, a: 0}
     - _IridescenceThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
