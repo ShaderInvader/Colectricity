@@ -326,7 +326,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  yScale: []
+  yScale:
+  - 0
+  - 7
+  - 14
   fanEnergy: {fileID: 0}
 --- !u!1 &5069974278205727791
 GameObject:
@@ -393,6 +396,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84f1b29eb046245488b36cfad340f607, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minLightIntensity: 0
+  maxLightIntensity: 20000
 --- !u!114 &8471488573060230400
 MonoBehaviour:
   m_ObjectHideFlags: 0
