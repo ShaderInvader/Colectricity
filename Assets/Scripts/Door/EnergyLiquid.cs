@@ -29,11 +29,14 @@ public class EnergyLiquid : MonoBehaviour
         {
             fanEnergy = transform.GetComponentInParent<Energabler>();
         }
+        Status = fanEnergy.energy_units;
+        time = 1;
+        transform.localScale = new Vector3(transform.localScale.x, yScale[status], transform.localScale.z);
     }
 
     void Update()
     {
-        if (status != fanEnergy.energy)
+        if (status != fanEnergy.energy_units)
         {
             Status = fanEnergy.energy_units;
         }
