@@ -9412,6 +9412,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: 2
+  changeLevel: 0
   count: 0
 --- !u!135 &839533485
 SphereCollider:
@@ -15533,17 +15534,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 367346265556757578, guid: 19ae13a58210f8642b01c508034d8cd0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 500470793305230048, guid: 19ae13a58210f8642b01c508034d8cd0, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 633323086178768719, guid: 19ae13a58210f8642b01c508034d8cd0, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1059366769163596886, guid: 19ae13a58210f8642b01c508034d8cd0, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1097007006177049675, guid: 19ae13a58210f8642b01c508034d8cd0, type: 3}
       propertyPath: m_Name
       value: spawn_cable_exit_pref
       objectReference: {fileID: 0}
+    - target: {fileID: 2533931588534789117, guid: 19ae13a58210f8642b01c508034d8cd0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4062194141004737089, guid: 19ae13a58210f8642b01c508034d8cd0, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19ae13a58210f8642b01c508034d8cd0, type: 3}

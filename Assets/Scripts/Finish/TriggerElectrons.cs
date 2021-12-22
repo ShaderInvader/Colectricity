@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class TriggerElectrons : MonoBehaviour
 {
-    private enum Type { none, giver, receiver };
-    private Type type = Type.none;
+    public enum Type { None, Giver, Receiver };
+    [HideInInspector]
+    public Type type = Type.None;
     private GameObject receiver = null;
     private GameObject giver = null;
+    private FinishLevel fl;
+
+    void Start()
+    {
+        fl = GetComponentInParent<FinishLevel>();
+    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -19,16 +26,18 @@ public class TriggerElectrons : MonoBehaviour
         if (other.GetComponent<Electron>().player == Electron.Type.giver)
         {
             giver = other.gameObject;
-            if (type == Type.none)
+            if (type == Type.None)
             {
-                type = Type.giver;
+                type = Type.Giver;
+                fl.Add(Type.Giver);
             }
             return;
         }
         receiver = other.gameObject;
-        if (type == Type.none)
+        if (type == Type.None)
         {
-            type = Type.receiver;
+            type = Type.Receiver;
+            fl.Add(Type.Receiver);
         }
     }
 
@@ -42,20 +51,24 @@ public class TriggerElectrons : MonoBehaviour
         if (other.GetComponent<Electron>().player == Electron.Type.giver)
         {
             giver = null;
+            fl.Remove(Type.Giver);
             if (receiver == null)
             {
-                type = Type.none;
+                type = Type.None;
                 return;
             }
-            type = Type.receiver;
+            type = Type.Receiver;
+            fl.Add(Type.Receiver);
             return;
         }
         receiver = null;
+        fl.Remove(Type.Receiver);
         if (giver == null)
         {
-            type = Type.none;
+            type = Type.None;
             return;
         }
-        type = Type.giver;
+        type = Type.Giver;
+        fl.Add(Type.Giver);
     }
 }

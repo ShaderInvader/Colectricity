@@ -7,6 +7,7 @@ public class scene_loader : MonoBehaviour
 {
 
     public string sceneName;
+    public bool changeLevel = true;
     public int count = 0;
 
     void Start()
@@ -16,7 +17,7 @@ public class scene_loader : MonoBehaviour
 
     void Update()
     {
-        if(count==2)
+        if(count==2 && changeLevel)
         {
             SceneManager.LoadScene(sceneName); 
         }

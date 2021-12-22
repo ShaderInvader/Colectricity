@@ -3210,6 +3210,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: spawn_cable_exit_pref
       objectReference: {fileID: 0}
+    - target: {fileID: 3931938426365912721, guid: 19ae13a58210f8642b01c508034d8cd0, type: 3}
+      propertyPath: sceneName
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19ae13a58210f8642b01c508034d8cd0, type: 3}
 --- !u!1 &315658263 stripped
@@ -46125,6 +46129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: 4
+  changeLevel: 0
   count: 0
 --- !u!135 &2117245439
 SphereCollider:
