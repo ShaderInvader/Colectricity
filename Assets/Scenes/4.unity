@@ -408,6 +408,10 @@ PrefabInstance:
       propertyPath: max_energy_units
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 6359240392806288558, guid: e3b9db78a7207c04fbbe9b6eb9460358, type: 3}
+      propertyPath: maxLightIntensity
+      value: 10000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3b9db78a7207c04fbbe9b6eb9460358, type: 3}
 --- !u!1001 &14021234
@@ -19177,6 +19181,10 @@ PrefabInstance:
     - target: {fileID: 6095240366435208309, guid: e3b9db78a7207c04fbbe9b6eb9460358, type: 3}
       propertyPath: max_energy_units
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6359240392806288558, guid: e3b9db78a7207c04fbbe9b6eb9460358, type: 3}
+      propertyPath: maxLightIntensity
+      value: 10000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3b9db78a7207c04fbbe9b6eb9460358, type: 3}
