@@ -6788,7 +6788,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1265336581145595834, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5420714688814619336, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
       propertyPath: m_Intensity
@@ -6865,6 +6865,10 @@ PrefabInstance:
     - target: {fileID: 6122435013361293033, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: -180
+      objectReference: {fileID: 0}
+    - target: {fileID: 6656756127721237805, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
+      propertyPath: maxLightIntensity
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6745581380489110705, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
       propertyPath: m_Mesh
@@ -7973,6 +7977,7 @@ MonoBehaviour:
   m_Script: {fileID: 1715909099}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Entries: []
 --- !u!4 &414048308
 Transform:
   m_ObjectHideFlags: 19
@@ -9020,14 +9025,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 286916358720633132, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
-      propertyPath: m_Intensity
-      value: 20000
-      objectReference: {fileID: 0}
-    - target: {fileID: 1265336581145595834, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5420714688814619336, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
       propertyPath: m_Intensity
       value: 10000
@@ -9200,10 +9197,6 @@ PrefabInstance:
       propertyPath: curves.Array.data[1].n2.direction.z
       value: 16.606855
       objectReference: {fileID: 0}
-    - target: {fileID: 7700564169792271598, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
-      propertyPath: m_Intensity
-      value: 1591.5494
-      objectReference: {fileID: 0}
     - target: {fileID: 8384824853501693571, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -9316,6 +9309,10 @@ MonoBehaviour:
   m_Script: {fileID: 1715909099}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Entries:
+  - id: 0
+    category: 0
+    gameObject: {fileID: 2118579542}
 --- !u!4 &578342034
 Transform:
   m_ObjectHideFlags: 19
@@ -10646,7 +10643,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &777495249
 Transform:
   m_ObjectHideFlags: 0
@@ -26767,6 +26764,7 @@ MonoBehaviour:
   m_Script: {fileID: 1715909099}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Entries: []
 --- !u!4 &1710115295
 Transform:
   m_ObjectHideFlags: 19
