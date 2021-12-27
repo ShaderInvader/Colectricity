@@ -10,10 +10,12 @@ public class DeathMinigame : MonoBehaviour
     public float howFar = 3;
     public string cubeName = "cube1";
 
+    private Electron elec;
     private List<GameObject> collectables = new List<GameObject>();
 
     void OnEnable()
     {
+        elec = GetComponent<Electron>();
         for (int i = 0; i < howMany; i++)
         {
             GameObject go = Instantiate(collectable, transform.position + RandomOffset(), Quaternion.identity);
@@ -28,7 +30,8 @@ public class DeathMinigame : MonoBehaviour
                 continue;
             }
 
-            go.GetComponent<MeshRenderer>().material = GetComponent<Electron>().liveMaterial;
+            go.GetComponent<MeshRenderer>().material = elec.liveMaterial;
+            go.GetComponent<Light>().color = elec.liveMaterial.color;
             go.name = cubeName;
             collectables.Add(go);
         }
@@ -55,6 +58,9 @@ public class DeathMinigame : MonoBehaviour
         }
         Destroy(coll);
         collectables.Remove(coll);
+
+        GetComponent<MeshRenderer>().material.color = Color.Lerp(elec.liveMaterial.color, elec.deadMaterial.color, collectables.Count / (float)howMany);
+
         if (collectables.Count == 0)
         {
             gameObject.GetComponent<Electron>().Reborn();
