@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TriggerElectrons : MonoBehaviour
 {
-    public enum Type { None, Giver, Receiver };
+    public enum Type { None, Giver, Receiver, All };
     [HideInInspector]
     public Type type = Type.None;
     private GameObject receiver = null;
@@ -26,19 +26,24 @@ public class TriggerElectrons : MonoBehaviour
         if (other.GetComponent<Electron>().player == Electron.Type.giver)
         {
             giver = other.gameObject;
+            fl.Add(Type.Giver);
             if (type == Type.None)
             {
                 type = Type.Giver;
-                fl.Add(Type.Giver);
+                return;
             }
+            type = Type.All;
             return;
         }
         receiver = other.gameObject;
+        fl.Add(Type.Receiver);
         if (type == Type.None)
         {
             type = Type.Receiver;
-            fl.Add(Type.Receiver);
+            return;
         }
+
+        type = Type.All;
     }
 
     void OnTriggerExit(Collider other)
