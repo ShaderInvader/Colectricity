@@ -17,6 +17,17 @@ public class DeathMinigame : MonoBehaviour
         for (int i = 0; i < howMany; i++)
         {
             GameObject go = Instantiate(collectable, transform.position + RandomOffset(), Quaternion.identity);
+
+            RaycastHit hit;
+            float distance = Vector3.Distance(transform.position, go.transform.position);
+            bool isColliding = Physics.Raycast(transform.position, go.transform.position - transform.position, out hit, distance);
+            if (hit.transform.gameObject.GetComponent<Collectable>() == null)
+            {
+                Destroy(go);
+                i--;
+                continue;
+            }
+
             go.GetComponent<MeshRenderer>().material = GetComponent<Electron>().liveMaterial;
             go.name = cubeName;
             collectables.Add(go);
