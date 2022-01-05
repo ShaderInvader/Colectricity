@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
+using UnityEditor;
 using UnityEngine;
 
 public class DeathMinigame : MonoBehaviour
@@ -9,6 +10,7 @@ public class DeathMinigame : MonoBehaviour
     public int howMany;
     public float howFar = 3;
     public string cubeName = "cube1";
+    public Material particle_mat;
 
     private Electron elec;
     private List<GameObject> collectables = new List<GameObject>();
@@ -30,7 +32,7 @@ public class DeathMinigame : MonoBehaviour
                 continue;
             }
 
-            go.GetComponent<MeshRenderer>().material = elec.liveMaterial;
+            go.GetComponent<MeshRenderer>().material = particle_mat;
             go.GetComponent<Light>().color = elec.liveMaterial.color;
             go.name = cubeName;
             collectables.Add(go);
@@ -59,7 +61,10 @@ public class DeathMinigame : MonoBehaviour
         Destroy(coll);
         collectables.Remove(coll);
 
-        GetComponent<MeshRenderer>().material.color = Color.Lerp(elec.liveMaterial.color, elec.deadMaterial.color, collectables.Count / (float)howMany);
+        float progress = collectables.Count / (float) howMany;
+
+        GetComponent<MeshRenderer>().material.color = Color.Lerp(elec.liveMaterial.color, elec.deadMaterial.color, progress);
+        //GetComponent<Light>().intensity = 
 
         if (collectables.Count == 0)
         {
