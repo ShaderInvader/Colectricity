@@ -9823,11 +9823,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: 0
-  health: 1
+  health: 2
   isDead: 0
   time_to_shot_ms: 200
   distance_limit: 0
-  shockWaveParticleSystem: {fileID: 0}
+  shockWaveParticleSystem: {fileID: 3305559685506255737}
   liveMaterial: {fileID: 2100000, guid: 8405cfabedd512245bb1309715da8a39, type: 2}
   deadMaterial: {fileID: 2100000, guid: a4ea6bc327555634fa72f799bd47be9e, type: 2}
   cameraShake: {fileID: 275429197}
@@ -10670,5 +10670,10 @@ PrefabInstance:
 --- !u!4 &3305559685506255736 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3305559686461857163, guid: 2e22a4c66f42a6c4d8f11babf4ededa4, type: 3}
+  m_PrefabInstance: {fileID: 1494931187}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &3305559685506255737 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3305559686461857162, guid: 2e22a4c66f42a6c4d8f11babf4ededa4, type: 3}
   m_PrefabInstance: {fileID: 1494931187}
   m_PrefabAsset: {fileID: 0}
