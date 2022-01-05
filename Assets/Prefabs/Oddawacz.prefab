@@ -9891,7 +9891,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collectable: {fileID: 2579957690014533035, guid: 6c8892377713fae479e98679ec39c9e7, type: 3}
   howMany: 3
-  howFar: 3
+  howFarMax: 5.5
+  howFarMin: 4
   cubeName: cube2
   particle_mat: {fileID: 2100000, guid: 63107c4b459327040aa045a19d857fce, type: 2}
 --- !u!1 &2557528580558625968

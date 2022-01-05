@@ -8,7 +8,8 @@ public class DeathMinigame : MonoBehaviour
 {
     public GameObject collectable;
     public int howMany;
-    public float howFar = 3;
+    public float howFarMax = 5.5f;
+    public float howFarMin = 3.5f;
     public string cubeName = "cube1";
     public Material particle_mat;
 
@@ -41,9 +42,10 @@ public class DeathMinigame : MonoBehaviour
 
     Vector3 RandomOffset()
     {
-        Vector2 randPosition = Random.insideUnitCircle * howFar;
-        randPosition.x = randPosition.x > 0 ? randPosition.x + Random.value : randPosition.x - Random.value;
-        randPosition.y = randPosition.y > 0 ? randPosition.y + Random.value : randPosition.y - Random.value;
+        Vector2 randPosition = Random.insideUnitCircle * howFarMin;
+        float randDist = howFarMax - howFarMin;
+        randPosition.x = randPosition.x > 0 ? randPosition.x + randDist * Random.value : randPosition.x - randDist * Random.value;
+        randPosition.y = randPosition.y > 0 ? randPosition.y + randDist * Random.value : randPosition.y - randDist * Random.value;
         return new Vector3(randPosition.x, 0, randPosition.y);
     }
 
