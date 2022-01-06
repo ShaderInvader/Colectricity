@@ -1,6 +1,10 @@
 using System;
+using System.Collections;
+using System.Linq;
+using Unity.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Image = UnityEngine.UI.Image;
 
 [RequireComponent(typeof(Energabler))]
 [RequireComponent(typeof(SelectKeys))]
@@ -21,11 +25,14 @@ public class Electron : MonoBehaviour
     KeyCode enviro_key, player_key;
     float timer=0;
 
+    private int originalHeath;
     public CameraShake cameraShake;
     private int blockadeMask;
+    private Color originalColor;
 
     private void Start()
     {
+        originalHeath = health;
         size_of_energy = GlobalVars.energy_amount_unit;
         bool isWSAD = gameObject.GetComponent<SelectKeys>().selection == SelectKeys.Keys.wsad;
         enviro_key = isWSAD ? KeyCode.E : KeyCode.Slash;
@@ -74,6 +81,80 @@ public class Electron : MonoBehaviour
         {
             Die();
         }
+        else
+        {
+            StartCoroutine(BlinkDamage(0.4f, Time.deltaTime));
+            StartCoroutine(DamageBlink(0.4f, Time.deltaTime));
+        }
+    }
+
+    private IEnumerator BlinkDamage(float duration, float delta)
+    {
+        originalColor = GetComponent<MeshRenderer>().material.color;
+        GetComponent<MeshRenderer>().material.color = Color.red;
+        float timeLeft = duration;
+        while (timeLeft > 0)
+        {
+            yield return new WaitForSeconds(delta);
+            timeLeft -= delta;
+            float progress = timeLeft / duration;
+            GetComponent<MeshRenderer>().material.color = Color.Lerp(originalColor, Color.red, progress);
+        }
+        GetComponent<MeshRenderer>().material.color = originalColor;
+    }
+
+    private IEnumerator DamageBlink(float duration, float delta)
+    {
+        Camera[] cameras = FindObjectsOfType<Camera>();
+        Camera mutualCam = null;
+        Camera electronsCam = null;
+
+        foreach (Camera cam in cameras)
+        {
+            CameraFollow cf = cam.GetComponent<CameraFollow>();
+            if (cf == null)
+            {
+                mutualCam = cam;
+            }
+            else if (ReferenceEquals(cf.parent.gameObject, gameObject))
+            {
+                electronsCam = cam;
+            }
+        }
+        if (electronsCam == null)
+        {
+            yield break;
+        }
+
+        Image mutualImg = mutualCam == null ? null : mutualCam.GetComponentInChildren<Image>();
+        Image electronsImage = electronsCam.GetComponentInChildren<Image>();
+
+        float r = electronsImage.color.r, g = electronsImage.color.g, b = electronsImage.color.b;
+
+        float timeLeft = duration;
+
+        if (mutualImg != null)
+        {
+            mutualImg.color = new Color(r, g, b, 1);
+        }
+        electronsImage.color = new Color(r, g, b, 1);
+
+        while (timeLeft > 0)
+        {
+            yield return new WaitForSeconds(delta);
+            timeLeft -= delta;
+            float progress = timeLeft / duration;
+            if (mutualImg != null)
+            {
+                mutualImg.color = new Color(r, g, b, progress);
+            }
+            electronsImage.color = new Color(r, g, b, progress);
+        }
+        if (mutualImg != null)
+        {
+            mutualImg.color = new Color(r, g, b, 0);
+        }
+        electronsImage.color = new Color(r, g, b, 0);
     }
 
     void Die()
@@ -99,6 +180,7 @@ public class Electron : MonoBehaviour
 
     public void Reborn()
     {
+        health = originalHeath;
         isDead = false;
         GetComponent<MeshRenderer>().material = liveMaterial;
     }

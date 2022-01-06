@@ -13,7 +13,12 @@ public class MeleeAttack : ActionBase
     {
         sai = GetComponent<SimpleAI>();
     }
-    
+
+    void OnEnable()
+    {
+        sinceLast = timeBetween;
+    }
+
     void Update()
     {
         sinceLast -= Time.deltaTime;
