@@ -419,7 +419,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8d789e80b583ae489f331b9d478564d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDistanceBetweenPlayers: 8
+  minDistanceBetweenPlayers2To1: 5
+  minDistanceBetweenPlayers1To2: 10
   twoToOneLinearSpeed: 0.6
   oneToTwoAcceleratingSpeed: 0.1
   cameraChangeCooldownSeconds: 1

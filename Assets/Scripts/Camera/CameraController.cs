@@ -6,7 +6,8 @@ public class CameraController : MonoBehaviour
 {
     public static CameraController instance;
 
-    public float minDistanceBetweenPlayers;
+    public float minDistanceBetweenPlayers2To1;
+    public float minDistanceBetweenPlayers1To2;
     public float twoToOneLinearSpeed = 0.6f;
     public float oneToTwoAcceleratingSpeed = 0.1f;
     public int cameraChangeCooldownSeconds = 1;
@@ -51,12 +52,12 @@ public class CameraController : MonoBehaviour
         mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, Vector3.Lerp(leftCamera.transform.position, rightCamera.transform.position, 0.5f), 0.1f);
         calculateOffset();
 
-        if (toNextChange == 0 && mainCamera.enabled && Vector3.Distance(player1.position, player2.position) > minDistanceBetweenPlayers)
+        if (toNextChange == 0 && mainCamera.enabled && Vector3.Distance(player1.position, player2.position) > minDistanceBetweenPlayers1To2)
         {
             assignCameras();
             changeToTwoCameras();
         }
-        else if ((toNextChange == 0 && !mainCamera.enabled && Vector3.Distance(player1.position, player2.position) < minDistanceBetweenPlayers) || isChangingState)
+        else if ((toNextChange == 0 && !mainCamera.enabled && Vector3.Distance(player1.position, player2.position) < minDistanceBetweenPlayers2To1) || isChangingState)
         {
             changeToOneCamera();
         }
