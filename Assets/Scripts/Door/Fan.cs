@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class Fan : MonoBehaviour
 {
-    public float speed = 10;
-    public float acceleration = 10;
+    public float speed = 80;
+    public float acceleration = 30;
     public bool rotationDirection = true;
     public List<Energabler> energablers = new List<Energabler>();
 
