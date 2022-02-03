@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 9179753832912318412}
   - component: {fileID: 9179753832912318413}
   - component: {fileID: 9179753832912318414}
-  - component: {fileID: 2657634191815356362}
+  - component: {fileID: 7225401270156866050}
   m_Layer: 0
   m_Name: SimpleAI
   m_TagString: Untagged
@@ -202,3 +202,20 @@ MonoBehaviour:
   radius: 3
   units: 1
   timeBetween: 2
+--- !u!114 &7225401270156866050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8214395662698608694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aaddd7a108c2424b90e9004e4580485, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockbackForce: 20
+  knockbackSlowDown: 0.9
+  afterKnockbackTime: 1
+  pobieraczDealingDmg: 1
+  oddawaczDealingDmg: 1
