@@ -201,21 +201,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 3
   units: 1
-  timeBetween: 4
---- !u!114 &2657634191815356362
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8214395662698608694}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5aaddd7a108c2424b90e9004e4580485, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  knockbackForce: 20
-  knockbackSlowDown: 0.9
-  knockbackTime: 1
-  pobieraczDealingDmg: 1
-  oddawaczDealingDmg: 1
+  timeBetween: 2

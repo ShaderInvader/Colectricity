@@ -7079,6 +7079,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8471488573050063739, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
+      propertyPath: speed
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 8471488573050063739, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
+      propertyPath: acceleration
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 8471488574006543818, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
       propertyPath: m_Name
       value: FullDoor
@@ -8131,6 +8139,7 @@ MonoBehaviour:
   m_Script: {fileID: 1715909099}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Entries: []
 --- !u!4 &414048308
 Transform:
   m_ObjectHideFlags: 19
@@ -9763,6 +9772,10 @@ MonoBehaviour:
   m_Script: {fileID: 1715909099}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Entries:
+  - id: 0
+    category: 0
+    gameObject: {fileID: 2118579542}
 --- !u!4 &578342034
 Transform:
   m_ObjectHideFlags: 19
@@ -17017,27 +17030,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e06016178b19704ea4d9f3d265e4800, type: 3}
---- !u!1 &947026132 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8411324443682693089, guid: c1151610b3233c4458e7e63dbc26107d, type: 3}
-  m_PrefabInstance: {fileID: 965559674}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &947026136
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 947026132}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f688bf781ce40aa43960b0fbce23b115, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 20
-  acceleration: 15
-  rotationDirection: 1
-  energablers: []
 --- !u!1001 &965559674
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27031,6 +27023,7 @@ MonoBehaviour:
   m_Script: {fileID: 1715909099}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Entries: []
 --- !u!4 &1710115295
 Transform:
   m_ObjectHideFlags: 19

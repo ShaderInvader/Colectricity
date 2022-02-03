@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Linq;
-using Unity.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Image = UnityEngine.UI.Image;
