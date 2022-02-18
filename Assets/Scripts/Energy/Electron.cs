@@ -21,27 +21,26 @@ public class Electron : MonoBehaviour
     public Material deadMaterial;
 
     int size_of_energy;
-    KeyCode enviro_key, player_key;
     float timer=0;
 
     private int originalHeath;
     public CameraShake cameraShake;
     private int blockadeMask;
     private Color originalColor;
+    private SelectKeys selectKeys;
 
     private void Start()
     {
+        selectKeys = GetComponent<SelectKeys>();
         originalHeath = health;
         size_of_energy = GlobalVars.energy_amount_unit;
-        bool isWSAD = gameObject.GetComponent<SelectKeys>().selection == SelectKeys.Keys.wsad;
-        enviro_key = isWSAD ? KeyCode.E : KeyCode.Slash;
-        player_key = isWSAD ? KeyCode.Q : KeyCode.Quote;
+        bool isWSAD = gameObject.GetComponent<SelectKeys>().selection == SelectKeys.Keys.left;
         blockadeMask = 1 << LayerMask.NameToLayer("Blockade");
     }
 
     void Update()
     {
-        bool enviro_pressed = Input.GetKey(enviro_key), player_pressed = Input.GetKey(player_key);
+        bool enviro_pressed = selectKeys.Env, player_pressed = selectKeys.Play;
 
         if ((enviro_pressed || player_pressed) && timer==0)
         {

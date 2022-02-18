@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnergablerLight : MonoBehaviour
 {
-    private Light light;
+    private Light eLight;
     private Energabler energabler;
 
     public int minLightIntensity = 0;
@@ -12,14 +12,14 @@ public class EnergablerLight : MonoBehaviour
 
     void Start()
     {
-        light = GetComponentInChildren<Light>();
+        eLight = GetComponentInChildren<Light>();
         energabler = GetComponent<Energabler>();
         if (energabler == null) Debug.LogError("Energabler Light needs Energabler in the same Object!");
-        if (light == null) Debug.LogError("Energabler Light needs Light in the children Object!");
+        if (eLight == null) Debug.LogError("Energabler Light needs Light in the children Object!");
     }
 
     private void Update()
     {
-        light.intensity = Mathf.Lerp(minLightIntensity, maxLightIntensity, ((float)energabler.energy_units) / ((float)energabler.max_energy_units));
+        eLight.intensity = Mathf.Lerp(minLightIntensity, maxLightIntensity, ((float)energabler.energy_units) / ((float)energabler.max_energy_units));
     }
 }

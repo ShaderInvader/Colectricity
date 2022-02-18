@@ -17,13 +17,10 @@ public class MovementPrototype : MonoBehaviour
     Camera cam;
     Rigidbody rb;
     Vector3 start_scale = new Vector3(1,1,1);
-    List<KeyCode> keys;
-    int forward, right;
+    float forward, right;
     bool isDashing = false, readyDash = true;
     private Vector3 movement_vector;
-
-    List<KeyCode> WSAD = new List<KeyCode>() { KeyCode.W, KeyCode.S, KeyCode.D, KeyCode.A, KeyCode.R };
-    List<KeyCode> Arrows = new List<KeyCode>() { KeyCode.UpArrow, KeyCode.DownArrow, KeyCode.RightArrow, KeyCode.LeftArrow, KeyCode.Period };
+    private SelectKeys selectKeys;
 
     private void OnEnable()
     {
@@ -33,9 +30,9 @@ public class MovementPrototype : MonoBehaviour
     private void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
-        bool isWSAD = gameObject.GetComponent<SelectKeys>().selection == SelectKeys.Keys.wsad;
-        keys = isWSAD ? WSAD : Arrows; 
+        selectKeys = GetComponent<SelectKeys>();
     }
+    
     void FixedUpdate()
     {
         if (isDashing)
@@ -51,22 +48,20 @@ public class MovementPrototype : MonoBehaviour
 
         rb.velocity = Vector3.zero;
         (forward, right) = (0, 0);
-        forward = Input.GetKey(keys[0]) ? ++forward : forward;
-        forward = Input.GetKey(keys[1]) ? --forward : forward;
-        right = Input.GetKey(keys[2]) ? right + 1 : right;
-        right = Input.GetKey(keys[3]) ? right - 1 : right;
+        forward = selectKeys.Vertical;
+        right = selectKeys.Horizontal;
         float speed = GetComponent<Electron>().isDead ? deathSpeed : lifeSpeed;
         float add = (transform.localScale - start_scale).magnitude * scale_speed_factor;
         Vector3 vel = new Vector3(right, 0, forward).normalized * (speed + add);
         movement_vector = Quaternion.Euler(0, angle, 0) * vel;
 
         Move(movement_vector);
-        if (Input.GetKey(keys[4]) && readyDash)
+        if (selectKeys.Dash && readyDash)
         {
             isDashing = true;
             readyDash = false;
         }
-        else if(!Input.GetKey(keys[4]))
+        else if(!selectKeys.Dash)
         {
             readyDash = true;
         }
