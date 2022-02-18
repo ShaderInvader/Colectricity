@@ -8005,7 +8005,6 @@ MonoBehaviour:
   m_Script: {fileID: 1715909099}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Entries: []
 --- !u!4 &414048308
 Transform:
   m_ObjectHideFlags: 19
@@ -9638,10 +9637,6 @@ MonoBehaviour:
   m_Script: {fileID: 1715909099}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Entries:
-  - id: 0
-    category: 0
-    gameObject: {fileID: 2118579542}
 --- !u!4 &578342034
 Transform:
   m_ObjectHideFlags: 19
@@ -16790,10 +16785,10 @@ MonoBehaviour:
   speed: 2
   yScale:
   - 0
-  - 0
-  - 0
-  - 0
-  - 0
+  - 6
+  - 12
+  - 17
+  - 21
   fanEnergy: {fileID: 0}
 --- !u!1 &914823750 stripped
 GameObject:
@@ -16903,6 +16898,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 966242670}
     m_Modifications:
+    - target: {fileID: 4736363588467629413, guid: c1151610b3233c4458e7e63dbc26107d, type: 3}
+      propertyPath: energablers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4736363588467629413, guid: c1151610b3233c4458e7e63dbc26107d, type: 3}
+      propertyPath: energablers.Array.data[0]
+      value: 
+      objectReference: {fileID: 180203755}
+    - target: {fileID: 5127601147656671504, guid: c1151610b3233c4458e7e63dbc26107d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8288359124846166024, guid: c1151610b3233c4458e7e63dbc26107d, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -26065,9 +26072,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1633350320}
-  m_LocalRotation: {x: -0, y: 0.99996865, z: -0, w: 0.007928312}
-  m_LocalPosition: {x: 6.6879916, y: 1.5567741, z: 0.5621176}
-  m_LocalScale: {x: 1.00001, y: 1, z: 1.04829}
+  m_LocalRotation: {x: -0, y: 0.7014781, z: -0, w: 0.712691}
+  m_LocalPosition: {x: 0.01, y: 1.1692884, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 180203753}
   m_RootOrder: 4
@@ -26696,7 +26703,6 @@ MonoBehaviour:
   m_Script: {fileID: 1715909099}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Entries: []
 --- !u!4 &1710115295
 Transform:
   m_ObjectHideFlags: 19
