@@ -26,8 +26,11 @@ public class NarrowPassageEmisiveChangeOnDistance : MonoBehaviour
 
         foreach(Electron player in players)
         {
-            float actDistance = Vector3.Distance(player.transform.position, this.transform.position);
-            nearestPlayerDistanceFromPassage = actDistance < nearestPlayerDistanceFromPassage ? actDistance : nearestPlayerDistanceFromPassage; 
+            if(player.GetComponent<Energabler>().energy_units > 0)
+            {
+                float actDistance = Vector3.Distance(player.transform.position, this.transform.position);
+                nearestPlayerDistanceFromPassage = actDistance < nearestPlayerDistanceFromPassage ? actDistance : nearestPlayerDistanceFromPassage;
+            }
         }
 
         if (minDistance >= nearestPlayerDistanceFromPassage)
