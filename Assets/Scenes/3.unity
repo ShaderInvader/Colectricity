@@ -7134,6 +7134,10 @@ PrefabInstance:
       propertyPath: acceleration
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 8471488573060230400, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
+      propertyPath: energablers.Array.data[0].energabler
+      value: 
+      objectReference: {fileID: 1158661321}
     - target: {fileID: 8471488574006543818, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
       propertyPath: m_Name
       value: FullDoor (2)
@@ -30200,6 +30204,17 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2036429612429198522, guid: 3b0c3ab7149d26f41b592a24f6b05ab6, type: 3}
+--- !u!114 &1158661321 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8471488574377188476, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
+  m_PrefabInstance: {fileID: 580852321}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e38b804087ea9846846fc618e906c62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1162154881
 GameObject:
   m_ObjectHideFlags: 0
@@ -31432,6 +31447,10 @@ PrefabInstance:
       propertyPath: acceleration
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 8471488573060230400, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
+      propertyPath: energablers.Array.data[0].energabler
+      value: 
+      objectReference: {fileID: 2137847483}
     - target: {fileID: 8471488574006543818, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
       propertyPath: m_Name
       value: FullDoor (1)
@@ -39688,6 +39707,10 @@ PrefabInstance:
       propertyPath: acceleration
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 8471488573060230400, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
+      propertyPath: energablers.Array.data[0].energabler
+      value: 
+      objectReference: {fileID: 2131058856}
     - target: {fileID: 8471488574006543818, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
       propertyPath: m_Name
       value: FullDoor
@@ -50509,6 +50532,17 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3458659952104945862, guid: 6e06016178b19704ea4d9f3d265e4800, type: 3}
+--- !u!114 &2131058856 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8471488574377188476, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
+  m_PrefabInstance: {fileID: 1448512594}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e38b804087ea9846846fc618e906c62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2134471330 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3408503087757798458, guid: f9482dffa5c453545bd6ce96dc2db3c4, type: 3}
@@ -50528,6 +50562,17 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1463682053287589242, guid: 3b0c3ab7149d26f41b592a24f6b05ab6, type: 3}
+--- !u!114 &2137847483 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8471488574377188476, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
+  m_PrefabInstance: {fileID: 1231915645}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e38b804087ea9846846fc618e906c62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2138622691
 GameObject:
   m_ObjectHideFlags: 0

@@ -7015,9 +7015,21 @@ PrefabInstance:
     - target: {fileID: 8471488573060230400, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
       propertyPath: energablers.Array.data[0]
       value: 
-      objectReference: {fileID: 270305080}
+      objectReference: {fileID: 0}
     - target: {fileID: 8471488573060230400, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
       propertyPath: energablers.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8471488573060230400, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
+      propertyPath: energablers.Array.data[1].isInvert
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8471488573060230400, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
+      propertyPath: energablers.Array.data[0].energabler
+      value: 
+      objectReference: {fileID: 270305080}
+    - target: {fileID: 8471488573060230400, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
+      propertyPath: energablers.Array.data[1].energabler
       value: 
       objectReference: {fileID: 1965633106}
     - target: {fileID: 8471488574006543818, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
@@ -9409,6 +9421,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8471488573060230400, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
       propertyPath: energablers.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8471488573060230400, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
+      propertyPath: energablers.Array.data[0].energabler
       value: 
       objectReference: {fileID: 180203755}
     - target: {fileID: 8471488573318338322, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
@@ -35871,6 +35887,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 196121113, guid: f613f2c32a01e9f4894bc655ada41a7b, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5822440271533540634, guid: f613f2c32a01e9f4894bc655ada41a7b, type: 3}
       propertyPath: orthographic
       value: 1

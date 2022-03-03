@@ -1,7 +1,6 @@
 using UnityEngine;
 public class Energabler : MonoBehaviour
 {
-    public bool invert = false;
     public int energy_units;
     public int max_energy_units;
     [HideInInspector]
@@ -80,7 +79,7 @@ public class Energabler : MonoBehaviour
 
     public bool IsEmpty(int size=1)
     {
-        return invert ^ (energy - size < 0);
+        return energy - size < 0;
     }
 
     public static void UpdateEmissiveColorFromIntensityAndEmissiveColorLDR(Material material)

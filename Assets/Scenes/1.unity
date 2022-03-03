@@ -12148,6 +12148,10 @@ PrefabInstance:
       propertyPath: acceleration
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 8471488573060230400, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
+      propertyPath: energablers.Array.data[0].energabler
+      value: 
+      objectReference: {fileID: 8471488572576968471}
     - target: {fileID: 8471488573318338322, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
       propertyPath: yScale.Array.size
       value: 3
@@ -12210,3 +12214,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
+--- !u!114 &8471488572576968471 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8471488574377188476, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
+  m_PrefabInstance: {fileID: 8471488572576968470}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e38b804087ea9846846fc618e906c62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

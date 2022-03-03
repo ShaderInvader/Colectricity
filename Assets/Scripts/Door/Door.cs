@@ -7,7 +7,7 @@ public class Door : MonoBehaviour
     public float speed = 1;
     public float offset = 2;
 
-    public List<Energabler> energablers;
+    public List<EnergyInvertStruct> energablers;
 
     public List<MeshRenderer> doorPanels;
     public List<Light> doorLights;
@@ -110,6 +110,16 @@ public class Door : MonoBehaviour
 
     bool IsFull()
     {
-        return energablers.All(e => e.IsFull());
+        bool isOpen = true;
+        foreach (EnergyInvertStruct eis in energablers)
+        {
+            isOpen = eis.isInvert ? eis.energabler.IsEmpty() : eis.energabler.IsFull();
+           
+            if(!isOpen)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 }
