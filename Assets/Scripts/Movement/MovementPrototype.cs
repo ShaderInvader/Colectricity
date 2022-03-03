@@ -48,8 +48,8 @@ public class MovementPrototype : MonoBehaviour
 
         rb.velocity = Vector3.zero;
         (forward, right) = (0, 0);
-        forward = selectKeys.Vertical;
-        right = selectKeys.Horizontal;
+        forward = Math.Abs(selectKeys.Vertical) > selectKeys.ignoreBelow ? selectKeys.Vertical : 0;
+        right = Math.Abs(selectKeys.Horizontal) > selectKeys.ignoreBelow ? selectKeys.Horizontal : 0;
         float speed = GetComponent<Electron>().isDead ? deathSpeed : lifeSpeed;
         float add = (transform.localScale - start_scale).magnitude * scale_speed_factor;
         Vector3 vel = new Vector3(right, 0, forward).normalized * (speed + add);
