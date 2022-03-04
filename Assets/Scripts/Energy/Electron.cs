@@ -206,8 +206,8 @@ public class Electron : MonoBehaviour
         }
         else if (GetComponent<Energabler>().AddEnergy(size_of_energy))
         {
-            shockWaveParticleSystem.Play();
-            StartCoroutine(cameraShake.Shake(0.07f, 0.2f));
+            //shockWaveParticleSystem.Play();
+            //StartCoroutine(cameraShake.Shake(0.07f, 0.2f));
 
             energabler.RemEnergy(size_of_energy);
             RenderLine(energabler.transform);
