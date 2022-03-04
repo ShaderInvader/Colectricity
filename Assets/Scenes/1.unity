@@ -726,7 +726,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8537736, g: 0.9751462, b: 1, a: 1}
+  m_Color: {r: 0.85490197, g: 0.9764706, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -904,6 +904,10 @@ PrefabInstance:
       propertyPath: image
       value: 
       objectReference: {fileID: 2026537572}
+    - target: {fileID: 199451706478258343, guid: 7e40a1979db231248b7a0fa8f9ee7198, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -24.999985
+      objectReference: {fileID: 0}
     - target: {fileID: 2557528580249769610, guid: 7e40a1979db231248b7a0fa8f9ee7198, type: 3}
       propertyPath: m_Name
       value: Oddawacz
@@ -10095,6 +10099,31 @@ Transform:
   m_Father: {fileID: 1626214702}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1844218041 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4603235236317611368, guid: 826f101084323fb4baf465f197af4f28, type: 3}
+  m_PrefabInstance: {fileID: 548566909}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1844218042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844218041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a90f30b90121414f853392e95b56b8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  texts:
+  - {fileID: 106675891}
+  - {fileID: 186075017}
+  - {fileID: 1397654973}
+  pobieracz: {fileID: 1750146173}
+  oddawacz: {fileID: 1610704135}
+  windmill: {fileID: 1859328809}
+  opacityChangeSpeed: 0.07
 --- !u!1 &1855396940 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b0d27db022a703343aa4465d9a35657d, type: 3}
@@ -10114,6 +10143,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 6761965238731057254, guid: b0d27db022a703343aa4465d9a35657d, type: 3}
+--- !u!4 &1859328809 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5555183621043764885, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
+  m_PrefabInstance: {fileID: 8471488572576968470}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1891163880 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4636729232e8ae343a2e34dd7ad6c1b9, type: 3}
