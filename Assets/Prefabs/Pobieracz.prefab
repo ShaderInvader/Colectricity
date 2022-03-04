@@ -5215,6 +5215,7 @@ GameObject:
   - component: {fileID: 5822440272893144591}
   - component: {fileID: 4085717137651116116}
   - component: {fileID: 3104055127489447053}
+  - component: {fileID: 940670382254764657}
   m_Layer: 0
   m_Name: Pobieracz
   m_TagString: Player
@@ -5420,3 +5421,20 @@ MonoBehaviour:
   howFarMin: 4
   cubeName: cube1
   particle_mat: {fileID: 2100000, guid: 1a2dfd2041415544d9c42a2a3efcffb6, type: 2}
+--- !u!114 &940670382254764657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5822440272893144632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e65a97b5844939e4da03668c0ff8ac23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minDistanceWithMinOpacity: 10
+  minDistanceWithMaxOpacity: 5
+  minOpacity: 0
+  maxOpacity: 5
+  line: {fileID: 0}
