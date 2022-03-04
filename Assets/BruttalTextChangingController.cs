@@ -15,12 +15,13 @@ public class BruttalTextChangingController : MonoBehaviour
 
     private bool needToChange;
     private int activeText;
-    private string controller = "pc";
+    private string controller;
 
     private void Start()
     {
         activeText = 0;
         needToChange = false;
+        controller = getControllerType();
         texts.ForEach(text => text.gameObject.SetActive(false));
         texts[activeText].gameObject.SetActive(true);
         texts[activeText].Find(controller).gameObject.SetActive(true);
@@ -28,7 +29,8 @@ public class BruttalTextChangingController : MonoBehaviour
 
     private void Update()
     {
-        if(isPobieraczFullOfEnergy() && !didPobieraczGaveOddawaczEnergyAndCooookies() && !didWindmillGoBruuuum() && activeText == 0) // first change
+        controller = getControllerType();
+        if (isPobieraczFullOfEnergy() && !didPobieraczGaveOddawaczEnergyAndCooookies() && !didWindmillGoBruuuum() && activeText == 0) // first change
         {
             needToChange = true;
         }
@@ -97,5 +99,26 @@ public class BruttalTextChangingController : MonoBehaviour
     private bool didWindmillGoBruuuum()
     {
         return windmill.GetComponent<Energabler>().energy_units == 2;
+    }
+
+    private string getControllerType()
+    {
+        string[] joystickNames = Input.GetJoystickNames();
+        foreach (string joystickName in joystickNames)
+        {
+            if (joystickName.ToLower().Contains("xbox"))
+            {
+                return "xbox";
+            }
+            else if (joystickName.ToLower().Contains("playstation"))
+            {
+                return "ps";
+            }
+            else
+            {
+                return "pc";
+            }
+        }
+        return "pc";
     }
 }
