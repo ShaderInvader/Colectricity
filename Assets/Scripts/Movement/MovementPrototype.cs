@@ -46,16 +46,9 @@ public class MovementPrototype : MonoBehaviour
             angle = cam.transform.eulerAngles.y;
         }
 
-        rb.velocity = Vector3.zero;
-        (forward, right) = (0, 0);
-        forward = Math.Abs(selectKeys.Vertical) > selectKeys.ignoreBelow ? selectKeys.Vertical : 0;
-        right = Math.Abs(selectKeys.Horizontal) > selectKeys.ignoreBelow ? selectKeys.Horizontal : 0;
-        float speed = GetComponent<Electron>().isDead ? deathSpeed : lifeSpeed;
-        float add = (transform.localScale - start_scale).magnitude * scale_speed_factor;
-        Vector3 vel = new Vector3(right, 0, forward).normalized * (speed + add);
-        movement_vector = Quaternion.Euler(0, angle, 0) * vel;
-
+        UpdateMovementVect();
         Move(movement_vector);
+
         if (selectKeys.Dash && readyDash)
         {
             isDashing = true;
@@ -67,9 +60,26 @@ public class MovementPrototype : MonoBehaviour
         }
     }
 
+    void UpdateMovementVect()
+    {
+        rb.velocity = Vector3.zero;
+        forward = Math.Abs(selectKeys.Vertical) > selectKeys.ignoreBelow ? selectKeys.Vertical : 0;
+        right = Math.Abs(selectKeys.Horizontal) > selectKeys.ignoreBelow ? selectKeys.Horizontal : 0;
+        float speed = GetComponent<Electron>().isDead ? deathSpeed : lifeSpeed;
+        float add = (transform.localScale - start_scale).magnitude * scale_speed_factor;
+        Vector3 vel = new Vector3(right, 0, forward).normalized * (speed + add);
+        movement_vector = Quaternion.Euler(0, angle, 0) * vel;
+    }
+
+    void RotateBall(Vector3 vect)
+    {
+        rb.angularVelocity = new Vector3(vect.z, 0, -vect.x);
+    }
+
     void Move(Vector3 vect)
     {
         rb.velocity = vect;
+        RotateBall(vect);
     }
 
     IEnumerator Dash(Vector3 vect)
