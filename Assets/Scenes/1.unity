@@ -966,6 +966,10 @@ PrefabInstance:
       propertyPath: LightsModule.enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6869640568939486419, guid: 7e40a1979db231248b7a0fa8f9ee7198, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e40a1979db231248b7a0fa8f9ee7198, type: 3}
 --- !u!1001 &135631117
@@ -3445,7 +3449,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2094851157, guid: 826f101084323fb4baf465f197af4f28, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4603235236317611364, guid: 826f101084323fb4baf465f197af4f28, type: 3}
       propertyPath: m_Pivot.x
@@ -3535,13 +3539,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 5681818037587362872, guid: 826f101084323fb4baf465f197af4f28, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6074035608754214601, guid: 826f101084323fb4baf465f197af4f28, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6936317334704259093, guid: 826f101084323fb4baf465f197af4f28, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8562854923215382723, guid: 826f101084323fb4baf465f197af4f28, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 826f101084323fb4baf465f197af4f28, type: 3}
@@ -5617,6 +5629,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 200622673, guid: 840cdc606ff0f8a488f854c30642f650, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4281346437646083814, guid: 840cdc606ff0f8a488f854c30642f650, type: 3}
       propertyPath: player1
       value: 
@@ -10978,6 +10994,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3875438094156925777, guid: f613f2c32a01e9f4894bc655ada41a7b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4085717137651116116, guid: f613f2c32a01e9f4894bc655ada41a7b, type: 3}
       propertyPath: image
       value: 
