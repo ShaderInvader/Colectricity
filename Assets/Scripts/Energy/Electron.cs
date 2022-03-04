@@ -20,6 +20,8 @@ public class Electron : MonoBehaviour
     public Material liveMaterial;
     public Material deadMaterial;
 
+    public double intensityPower = 0.5;
+
     int size_of_energy;
     float timer=0;
 
@@ -28,6 +30,7 @@ public class Electron : MonoBehaviour
     private int blockadeMask;
     private Color originalColor;
     private SelectKeys selectKeys;
+    private int prevEnergy;
 
     private void Start()
     {
@@ -40,6 +43,7 @@ public class Electron : MonoBehaviour
 
     void Update()
     {
+        prevEnergy = GetComponent<Energabler>().energy_units;
         bool enviro_pressed = selectKeys.Env, player_pressed = selectKeys.Play;
 
         if ((enviro_pressed || player_pressed) && timer==0)
@@ -70,6 +74,16 @@ public class Electron : MonoBehaviour
         }
         timer -= Time.deltaTime;
         timer = timer < 0 ? 0 : timer;
+    }
+
+    void UpdateEmission()
+    {
+        int nextEnergy = GetComponent<Energabler>().energy / GlobalVars.energy_amount_unit;
+        double emmisionIntensity = Math.Pow((nextEnergy + 0.01f) / (prevEnergy + 0.01f), intensityPower);
+
+        MeshRenderer mr = gameObject.GetComponent<MeshRenderer>();
+        Color currColor = mr.material.GetColor("_EmissiveColor");
+        mr.material.SetColor("_EmissiveColor", currColor * (float)emmisionIntensity);
     }
 
     public void ReceiveDamage(int damage)
@@ -196,6 +210,7 @@ public class Electron : MonoBehaviour
             energabler.RemEnergy(size_of_energy);
             RenderLine(energabler.transform);
         }
+        UpdateEmission();
     }
 
     void Give()
@@ -215,7 +230,7 @@ public class Electron : MonoBehaviour
             energabler.AddEnergy(size_of_energy);
             RenderLine(energabler.transform);
         }
-
+        UpdateEmission();
         StartCoroutine(cameraShake.Shake(0.07f, 0.2f));
     }
 
@@ -241,7 +256,8 @@ public class Electron : MonoBehaviour
             shockWaveParticleSystem.Play();
             elec.AddEnergy(size_of_energy);
             RenderLine(elec.transform);
-            return;
+            UpdateEmission();
+            elec.GetComponent<Electron>().UpdateEmission();
         }
     }
 
