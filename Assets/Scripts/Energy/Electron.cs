@@ -193,6 +193,8 @@ public class Electron : MonoBehaviour
         else if (GetComponent<Energabler>().AddEnergy(size_of_energy))
         {
             shockWaveParticleSystem.Play();
+            StartCoroutine(cameraShake.Shake(0.07f, 0.2f));
+
             energabler.RemEnergy(size_of_energy);
             RenderLine(energabler.transform);
         }
@@ -243,6 +245,7 @@ public class Electron : MonoBehaviour
             RenderLine(elec.transform);
             return;
         }
+        StartCoroutine(cameraShake.Shake(0.04f, 0.1f));
     }
 
     Energabler GetNearestEnergable(bool full_acc=true, bool empty_acc=true, bool cable=true, bool electron=true)
