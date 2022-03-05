@@ -76,11 +76,10 @@ public class Electron : MonoBehaviour
         timer = timer < 0 ? 0 : timer;
     }
 
-    void UpdateEmission()
+    public void UpdateEmission()
     {
         int nextEnergy = GetComponent<Energabler>().energy / GlobalVars.energy_amount_unit;
         double emmisionIntensity = Math.Pow((nextEnergy + 0.01f) / (prevEnergy + 0.01f), intensityPower);
-
         MeshRenderer mr = gameObject.GetComponent<MeshRenderer>();
         Color currColor = mr.material.GetColor("_EmissiveColor");
         mr.material.SetColor("_EmissiveColor", currColor * (float)emmisionIntensity);
@@ -195,6 +194,8 @@ public class Electron : MonoBehaviour
         health = originalHeath;
         isDead = false;
         GetComponent<MeshRenderer>().material = liveMaterial;
+        prevEnergy = 0;
+        UpdateEmission();
     }
 
     void Receive()
@@ -251,17 +252,28 @@ public class Electron : MonoBehaviour
         {
             return;
         }
-        if ((elec.gameObject.GetComponent<Electron>() != null
+
+        bool isElec = elec.gameObject.GetComponent<Electron>() != null;
+        if ((isElec
             || (elec.gameObject.GetComponent<Cable>() != null && elec.GetComponent<Cable>().IsGoodToTransfer()))
             && GetComponent<Energabler>().RemEnergy(size_of_energy))
         {
-            shockWaveParticleSystem.Play();
+            if (player == Type.giver)
+            {
+                shockWaveParticleSystem.Play();
+            }
             elec.AddEnergy(size_of_energy);
             RenderLine(elec.transform);
             UpdateEmission();
-            elec.GetComponent<Electron>().UpdateEmission();
+            if (isElec)
+            {
+                elec.GetComponent<Electron>().UpdateEmission();
+            }
         }
-        StartCoroutine(cameraShake.Shake(0.04f, 0.1f));
+        if (player == Type.giver)
+        {
+            StartCoroutine(cameraShake.Shake(0.04f, 0.1f));
+        }
     }
 
     Energabler GetNearestEnergable(bool full_acc=true, bool empty_acc=true, bool cable=true, bool electron=true)

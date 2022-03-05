@@ -8,10 +8,11 @@ public class Menu : MonoBehaviour
     public GameObject loadingScreen;
     public Slider slider;
     public Text percentage;
+    public string startLevelName;
 
     public void StartGame()
     {
-        StartCoroutine(LoadAsynchronously("1"));
+        StartCoroutine(LoadAsynchronously(startLevelName));
     }
 
     IEnumerator LoadAsynchronously(string sceneIndex)
