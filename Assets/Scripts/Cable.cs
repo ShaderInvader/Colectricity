@@ -37,6 +37,11 @@ public class Cable : MonoBehaviour
         }
     }
 
+    public Electron GetElectron()
+    {
+        return player;
+    }
+
     bool IsCableReady()
     {
         return ready;
@@ -50,6 +55,7 @@ public class Cable : MonoBehaviour
     public void SendEnergy(int ammount)
     {
         player.gameObject.GetComponent<Energabler>().AddEnergy(ammount);
+        player.UpdateEmission();
     }
 
     void TryConnectingElectron()
