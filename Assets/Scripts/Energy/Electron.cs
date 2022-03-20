@@ -37,6 +37,7 @@ public class Electron : MonoBehaviour
 
     private int originalHeath;
     public CameraShake cameraShake;
+    public CameraShake cameraShake2;
     private int blockadeMask;
     private Color originalColor;
     private SelectKeys selectKeys;
@@ -232,6 +233,7 @@ public class Electron : MonoBehaviour
         {
             shockWaveParticleSystem.Play();
             StartCoroutine(cameraShake.Shake(0.07f, 0.2f));
+            StartCoroutine(cameraShake2.Shake(0.07f, 0.2f));
             arc6_entry.transform.position = energabler.transform.position;
             visualEffect6.Play();
 
@@ -261,11 +263,13 @@ public class Electron : MonoBehaviour
             visualEffect2.Play();
             visualEffect3.Play();
             shockWaveParticleSystem.Play();
+            StartCoroutine(cameraShake.Shake(0.07f, 0.2f));
+            StartCoroutine(cameraShake2.Shake(0.07f, 0.2f));
             energabler.AddEnergy(size_of_energy);
             //RenderLine(energabler.transform);
         }
         UpdateEmission();
-        StartCoroutine(cameraShake.Shake(0.07f, 0.2f));
+        
     }
 
     void TransferToElectron()
@@ -309,10 +313,10 @@ public class Electron : MonoBehaviour
                 elec.GetComponent<Electron>().UpdateEmission();
             }
         }
-        if (player == Type.giver)
-        {
+
             StartCoroutine(cameraShake.Shake(0.04f, 0.1f));
-        }
+            StartCoroutine(cameraShake2.Shake(0.07f, 0.2f));
+
     }
 
     Energabler GetNearestEnergable(bool full_acc = true, bool empty_acc = true, bool cable = true, bool electron = true)

@@ -9833,7 +9833,15 @@ MonoBehaviour:
   liveMaterial: {fileID: 2100000, guid: 5346f44f741978544a48bf15775207d3, type: 2}
   deadMaterial: {fileID: 2100000, guid: a4ea6bc327555634fa72f799bd47be9e, type: 2}
   intensityPower: 0.7
+  arc1: {fileID: 0}
+  arc2: {fileID: 0}
+  arc3: {fileID: 0}
+  arc4: {fileID: 0}
+  arc5: {fileID: 0}
+  arc6: {fileID: 0}
+  arc6_entry: {fileID: 0}
   cameraShake: {fileID: 275429197}
+  cameraShake2: {fileID: 0}
 --- !u!114 &2557528580249769612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9914,7 +9922,7 @@ MonoBehaviour:
   minDistanceWithMaxOpacity: 5
   minOpacity: 0
   maxOpacity: 5
-  line: {fileID: 0}
+  material: {fileID: 2100000, guid: 8184f10eceff6ce43b7090f775dd7e1c, type: 2}
 --- !u!1 &2557528580558625968
 GameObject:
   m_ObjectHideFlags: 0
