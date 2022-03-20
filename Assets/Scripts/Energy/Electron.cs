@@ -4,6 +4,8 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Image = UnityEngine.UI.Image;
+using UnityEngine.VFX;
+using UnityEditor.VFX;
 
 [RequireComponent(typeof(Energabler))]
 [RequireComponent(typeof(SelectKeys))]
@@ -22,8 +24,16 @@ public class Electron : MonoBehaviour
 
     public double intensityPower = 0.5;
 
+    public GameObject arc1;
+    public GameObject arc2;
+    public GameObject arc3;
+    public GameObject arc4;
+    public GameObject arc5;
+    public GameObject arc6;
+    public GameObject arc6_entry;
+
     int size_of_energy;
-    float timer=0;
+    float timer = 0;
 
     private int originalHeath;
     public CameraShake cameraShake;
@@ -31,9 +41,22 @@ public class Electron : MonoBehaviour
     private Color originalColor;
     private SelectKeys selectKeys;
     private int prevEnergy;
+    private VisualEffect visualEffect1;
+    private VisualEffect visualEffect2;
+    private VisualEffect visualEffect3;
+    private VisualEffect visualEffect4;
+    private VisualEffect visualEffect5;
+    private VisualEffect visualEffect6;
+
 
     private void Start()
     {
+        visualEffect1 = arc1.GetComponent<VisualEffect>();
+        visualEffect2 = arc2.GetComponent<VisualEffect>();
+        visualEffect3 = arc3.GetComponent<VisualEffect>();
+        visualEffect4 = arc4.GetComponent<VisualEffect>();
+        visualEffect5 = arc5.GetComponent<VisualEffect>();
+        visualEffect6 = arc6.GetComponent<VisualEffect>();
         selectKeys = GetComponent<SelectKeys>();
         originalHeath = health;
         size_of_energy = GlobalVars.energy_amount_unit;
@@ -46,11 +69,11 @@ public class Electron : MonoBehaviour
         prevEnergy = GetComponent<Energabler>().energy_units;
         bool enviro_pressed = selectKeys.Env, player_pressed = selectKeys.Play;
 
-        if ((enviro_pressed || player_pressed) && timer==0)
+        if ((enviro_pressed || player_pressed) && timer == 0)
         {
-            if(player==Type.giver)
+            if (player == Type.giver)
             {
-                if(enviro_pressed)
+                if (enviro_pressed)
                 {
                     Give();
                 }
@@ -70,7 +93,7 @@ public class Electron : MonoBehaviour
                     TransferToElectron();
                 }
             }
-            timer += time_to_shot_ms/1000;
+            timer += time_to_shot_ms / 1000;
         }
         timer -= Time.deltaTime;
         timer = timer < 0 ? 0 : timer;
@@ -200,18 +223,20 @@ public class Electron : MonoBehaviour
 
     void Receive()
     {
-        Energabler energabler = GetNearestEnergable(empty_acc: false, electron:false, cable: false);
+        Energabler energabler = GetNearestEnergable(empty_acc: false, electron: false, cable: false);
         if (energabler == null)
         {
             return;
         }
         else if (GetComponent<Energabler>().AddEnergy(size_of_energy))
         {
-            //shockWaveParticleSystem.Play();
-            //StartCoroutine(cameraShake.Shake(0.07f, 0.2f));
+            shockWaveParticleSystem.Play();
+            StartCoroutine(cameraShake.Shake(0.07f, 0.2f));
+            arc6_entry.transform.position = energabler.transform.position;
+            visualEffect6.Play();
 
             energabler.RemEnergy(size_of_energy);
-            RenderLine(energabler.transform);
+            //RenderLine(energabler.transform);
         }
         UpdateEmission();
     }
@@ -223,15 +248,21 @@ public class Electron : MonoBehaviour
         {
             return;
         }
-        else if (energabler.GetComponent<Cable>()!=null && energabler.GetComponent<Cable>().IsGoodToTransfer())
+        else if (energabler.GetComponent<Cable>() != null && energabler.GetComponent<Cable>().IsGoodToTransfer())
         {
             return;
         }
         else if (GetComponent<Energabler>().RemEnergy(size_of_energy))
         {
+            arc1.transform.position = energabler.transform.position;
+            arc2.transform.position = energabler.transform.position;
+            arc3.transform.position = energabler.transform.position;
+            visualEffect1.Play();
+            visualEffect2.Play();
+            visualEffect3.Play();
             shockWaveParticleSystem.Play();
             energabler.AddEnergy(size_of_energy);
-            RenderLine(energabler.transform);
+            //RenderLine(energabler.transform);
         }
         UpdateEmission();
         StartCoroutine(cameraShake.Shake(0.07f, 0.2f));
@@ -260,10 +291,18 @@ public class Electron : MonoBehaviour
         {
             if (player == Type.giver)
             {
+                arc4.transform.position = elec.transform.position;
+                visualEffect4.Play();
                 shockWaveParticleSystem.Play();
             }
+            else
+            {
+                arc5.transform.position = elec.transform.position;
+                visualEffect5.Play();
+            }
+
             elec.AddEnergy(size_of_energy);
-            RenderLine(elec.transform);
+            //RenderLine(elec.transform);
             UpdateEmission();
             if (isElec)
             {
@@ -276,7 +315,7 @@ public class Electron : MonoBehaviour
         }
     }
 
-    Energabler GetNearestEnergable(bool full_acc=true, bool empty_acc=true, bool cable=true, bool electron=true)
+    Energabler GetNearestEnergable(bool full_acc = true, bool empty_acc = true, bool cable = true, bool electron = true)
     {
         Energabler[] energables = FindObjectsOfType<Energabler>();
         Energabler eMin = null;
@@ -299,7 +338,7 @@ public class Electron : MonoBehaviour
                 minDist = dist;
             }
         }
-        if(distance_limit>0 && minDist>distance_limit)
+        if (distance_limit > 0 && minDist > distance_limit)
         {
             return null;
         }
