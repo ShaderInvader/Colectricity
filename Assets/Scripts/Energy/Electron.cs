@@ -5,7 +5,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Image = UnityEngine.UI.Image;
 using UnityEngine.VFX;
-using UnityEditor.VFX;
 
 [RequireComponent(typeof(Energabler))]
 [RequireComponent(typeof(SelectKeys))]
