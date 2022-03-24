@@ -68,9 +68,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - Power: 33.37
-    - Speed: 0.5
-    - SweepSize: 0.2
+    - Power: 10
+    - Rotation: 0.26
+    - Speed: 1
+    - SweepSize: 0.3
     - _AddPrecomputedVelocity: 0
     - _AlphaCutoffEnable: 0
     - _AlphaDstBlend: 0
@@ -119,7 +120,8 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0, g: 4.956863, b: 8, a: 0}
+    - Tiling: {r: 3, g: 3, b: 0, a: 0}
+    - _Color: {r: 0, g: 15.466665, b: 15.999998, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
