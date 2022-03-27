@@ -9025,6 +9025,7 @@ MonoBehaviour:
   m_Script: {fileID: 1715909099}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Entries: []
 --- !u!4 &414048308
 Transform:
   m_ObjectHideFlags: 19
@@ -10896,6 +10897,10 @@ MonoBehaviour:
   m_Script: {fileID: 1715909099}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Entries:
+  - id: 0
+    category: 0
+    gameObject: {fileID: 2118579542}
 --- !u!4 &578342034
 Transform:
   m_ObjectHideFlags: 19
@@ -11385,6 +11390,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 384925610889206600, guid: 826f101084323fb4baf465f197af4f28, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4603235236317611364, guid: 826f101084323fb4baf465f197af4f28, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -11473,6 +11482,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 4890228449836496328, guid: 826f101084323fb4baf465f197af4f28, type: 3}
+      propertyPath: wEvents
+      value: 
+      objectReference: {fileID: 1958238902}
+    - target: {fileID: 4890228449836496328, guid: 826f101084323fb4baf465f197af4f28, type: 3}
+      propertyPath: pause_ui
+      value: 
+      objectReference: {fileID: 645242000}
     - target: {fileID: 5681818037587362872, guid: 826f101084323fb4baf465f197af4f28, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 80
@@ -11494,6 +11511,11 @@ PrefabInstance:
 --- !u!224 &645241999 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4603235236317611364, guid: 826f101084323fb4baf465f197af4f28, type: 3}
+  m_PrefabInstance: {fileID: 645241998}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &645242000 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1723844294493667747, guid: 826f101084323fb4baf465f197af4f28, type: 3}
   m_PrefabInstance: {fileID: 645241998}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &655143077
@@ -31163,6 +31185,7 @@ MonoBehaviour:
   m_Script: {fileID: 1715909099}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Entries: []
 --- !u!4 &1710115295
 Transform:
   m_ObjectHideFlags: 19
