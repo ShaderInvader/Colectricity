@@ -274,7 +274,7 @@ public class Electron : MonoBehaviour
 
     void TransferToElectron()
     {
-        Energabler elec = GetNearestEnergable(full_acc: false);
+        Energabler elec = GetNearestEnergable(full_acc: false, isTransfer: true);
         if (elec == null)
         {
             return;
@@ -319,7 +319,7 @@ public class Electron : MonoBehaviour
 
     }
 
-    Energabler GetNearestEnergable(bool full_acc = true, bool empty_acc = true, bool cable = true, bool electron = true, bool isTransfer = true)
+    Energabler GetNearestEnergable(bool full_acc = true, bool empty_acc = true, bool cable = true, bool electron = true, bool isTransfer = false)
     {
         float distance_limit = isTransfer ? transfer_distance_limit : enviro_distance_limit;
         Energabler[] energables = FindObjectsOfType<Energabler>();
