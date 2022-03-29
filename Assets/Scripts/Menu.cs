@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class Menu : MonoBehaviour
 {
@@ -12,15 +13,25 @@ public class Menu : MonoBehaviour
 
     public GameObject startButton;
     public GameObject quitButton;
+    public GameObject creditsButton;
 
     public GameObject controllerDialog;
+    public GameObject creditsDialog;
+
+    public EventSystem wEvents;
 
     public void Update()
     {
-        if(Input.GetKey(KeyCode.Escape) && controllerDialog.activeSelf)
+        wEvents.SetSelectedGameObject(null);
+
+        if (Input.GetKey(KeyCode.Escape) && controllerDialog.activeSelf)
         {
             getBackFromControllerDialog();
         }
+        else if(Input.GetKey(KeyCode.Escape) && creditsDialog.activeSelf)
+        {
+            getBackFromCreditsDialog();
+        }    
     }
     public void StartGame()
     {
@@ -53,6 +64,16 @@ public class Menu : MonoBehaviour
         controllerDialog.SetActive(true);
         startButton.SetActive(false);
         quitButton.SetActive(false);
+        creditsButton.SetActive(false);
+    }
+
+    public void showCreditsDialog()
+    {
+        controllerDialog.SetActive(false);
+        startButton.SetActive(false);
+        quitButton.SetActive(false);
+        creditsButton.SetActive(false);
+        creditsDialog.SetActive(true);
     }
 
     public void getBackFromControllerDialog()
@@ -60,6 +81,15 @@ public class Menu : MonoBehaviour
         controllerDialog.SetActive(false);
         startButton.SetActive(true);
         quitButton.SetActive(true);
+        creditsButton.SetActive(true);
+    }
+
+    public void getBackFromCreditsDialog()
+    {
+        creditsDialog.SetActive(false);
+        startButton.SetActive(true);
+        quitButton.SetActive(true);
+        creditsButton.SetActive(true);
     }
 
     IEnumerator LoadAsynchronously(string sceneIndex)
