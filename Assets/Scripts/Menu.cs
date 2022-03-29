@@ -15,11 +15,6 @@ public class Menu : MonoBehaviour
 
     public GameObject controllerDialog;
 
-    public void Start()
-    {
-        controllerDialog.SetActive(false);
-    }
-
     public void StartGame()
     {
         StartCoroutine(LoadAsynchronously(startLevelName));
