@@ -23,5 +23,5 @@ public static class ControllerInfo
         return null;
     }
 
-    public static controllerEnum controllerPick;
+    public static controllerEnum controllerPick = controllerEnum.KEYBOARD;
 }
