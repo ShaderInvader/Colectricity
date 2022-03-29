@@ -11,4 +11,9 @@ public class SelectKeys : MonoBehaviour
     public bool Env => Input.GetButtonDown(selection == Keys.left ? "LeftEnv" : "RightEnv");
     public bool Play => Input.GetButtonDown(selection == Keys.left ? "LeftPlay" : "RightPlay");
     public bool Dash => Input.GetButtonDown(selection == Keys.left ? "LeftDash" : "RightDash");
+
+    private void Update()
+    {
+        Debug.Log(Input.GetJoystickNames());
+    }
 }
