@@ -15,6 +15,13 @@ public class Menu : MonoBehaviour
 
     public GameObject controllerDialog;
 
+    public void Update()
+    {
+        if(Input.GetKey(KeyCode.Escape) && controllerDialog.activeSelf)
+        {
+            getBackFromControllerDialog();
+        }
+    }
     public void StartGame()
     {
         StartCoroutine(LoadAsynchronously(startLevelName));
@@ -46,6 +53,13 @@ public class Menu : MonoBehaviour
         controllerDialog.SetActive(true);
         startButton.SetActive(false);
         quitButton.SetActive(false);
+    }
+
+    public void getBackFromControllerDialog()
+    {
+        controllerDialog.SetActive(false);
+        startButton.SetActive(true);
+        quitButton.SetActive(true);
     }
 
     IEnumerator LoadAsynchronously(string sceneIndex)
