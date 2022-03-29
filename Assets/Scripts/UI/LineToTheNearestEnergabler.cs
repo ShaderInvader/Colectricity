@@ -52,7 +52,7 @@ public class LineToTheNearestEnergabler : MonoBehaviour
             float distance = Vector3.Distance(transform.position, e.transform.position);
             if (e.GetComponent<Electron>() != null)
             {
-                float d = this.type == Electron.Type.receiver ? this.GetComponent<Electron>().distance_limit : oddawaczMinDistanceToGiveEnergyToOtherPlayer;
+                float d = this.type == Electron.Type.receiver ? this.GetComponent<Electron>().transfer_distance_limit : oddawaczMinDistanceToGiveEnergyToOtherPlayer;
                 if ((distance <= d)
                     && (e.energy_units < e.max_energy_units && GetComponent<Energabler>().energy_units > 0)
                     && (this.gameObject != e.gameObject))

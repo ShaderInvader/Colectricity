@@ -5365,7 +5365,8 @@ MonoBehaviour:
   health: 2
   isDead: 0
   time_to_shot_ms: 200
-  distance_limit: 6
+  transfer_distance_limit: 6
+  enviro_distance_limit: 6
   shockWaveParticleSystem: {fileID: 6589879901555520720}
   liveMaterial: {fileID: 2100000, guid: df7e67dc2cdca7445bb37733a5ca7568, type: 2}
   deadMaterial: {fileID: 2100000, guid: a4ea6bc327555634fa72f799bd47be9e, type: 2}
@@ -5461,7 +5462,7 @@ MonoBehaviour:
   maxOpacity: 5
   materialForContainers: {fileID: 2100000, guid: 8184f10eceff6ce43b7090f775dd7e1c, type: 2}
   materialForPlayers: {fileID: 2100000, guid: 29ef5a73ad8f42a4fadc63ee666fe0fd, type: 2}
-  oddawaczMinDistanceToGiveEnergyToOtherPlayer: Infinity
+  oddawaczMinDistanceToGiveEnergyToOtherPlayer: 6
 --- !u!1001 &8551282216286218586
 PrefabInstance:
   m_ObjectHideFlags: 0

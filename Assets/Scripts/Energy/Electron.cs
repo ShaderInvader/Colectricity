@@ -15,7 +15,8 @@ public class Electron : MonoBehaviour
     public int health = 1;
     public bool isDead = false;
     public float time_to_shot_ms = 20;
-    public float distance_limit = 5;
+    public float transfer_distance_limit = 0;
+    public float enviro_distance_limit = 6;
     public ParticleSystem shockWaveParticleSystem;
 
     public Material liveMaterial;
@@ -318,8 +319,9 @@ public class Electron : MonoBehaviour
 
     }
 
-    Energabler GetNearestEnergable(bool full_acc = true, bool empty_acc = true, bool cable = true, bool electron = true)
+    Energabler GetNearestEnergable(bool full_acc = true, bool empty_acc = true, bool cable = true, bool electron = true, bool isTransfer = true)
     {
+        float distance_limit = isTransfer ? transfer_distance_limit : enviro_distance_limit;
         Energabler[] energables = FindObjectsOfType<Energabler>();
         Energabler eMin = null;
         float minDist = Mathf.Infinity;
