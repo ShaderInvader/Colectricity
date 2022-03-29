@@ -10,9 +10,47 @@ public class Menu : MonoBehaviour
     public Text percentage;
     public string startLevelName;
 
+    public GameObject startButton;
+    public GameObject quitButton;
+
+    public GameObject controllerDialog;
+
+    public void Start()
+    {
+        controllerDialog.SetActive(false);
+    }
+
     public void StartGame()
     {
         StartCoroutine(LoadAsynchronously(startLevelName));
+    }
+
+    public void pickBoth()
+    {
+        pickController(ControllerInfo.controllerEnum.BOTH);
+    }
+
+    public void pickKeyboard()
+    {
+        pickController(ControllerInfo.controllerEnum.KEYBOARD);
+    }
+
+    public void pickPad()
+    {
+        pickController(ControllerInfo.controllerEnum.PAD);
+    }
+
+    public void pickController(ControllerInfo.controllerEnum controllerType)
+    {
+        ControllerInfo.controllerPick = controllerType;
+        StartGame();
+    }
+
+    public void showControllerDialog()
+    {
+        controllerDialog.SetActive(true);
+        startButton.SetActive(false);
+        quitButton.SetActive(false);
     }
 
     IEnumerator LoadAsynchronously(string sceneIndex)
