@@ -12,8 +12,8 @@ public class pause : MonoBehaviour
 
     void Start()
     {
-       
-
+        Cursor.visible = false;
+        Time.timeScale = 1;
     }
 
 
