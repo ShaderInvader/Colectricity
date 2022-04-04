@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0066604614, g: 0.0062561035, b: 0.0066604614, a: 1}
+  m_IndirectSpecularColor: {r: 0.059783936, g: 0.093322754, b: 0.15332031, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 4890085278179872738, guid: ee2d11691bfc5384b89d821ffe96a394, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 09662e794df9fb949986b026af84ec5f, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2614,6 +2614,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4945013205739873286, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4945013205739873288, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
       propertyPath: m_Intensity
       value: 25000
@@ -2642,6 +2646,10 @@ PrefabInstance:
       propertyPath: m_ColorTemperature
       value: 10729
       objectReference: {fileID: 0}
+    - target: {fileID: 4945013206979002882, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4945013206979002884, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
       propertyPath: m_Intensity
       value: 25000
@@ -2669,6 +2677,10 @@ PrefabInstance:
     - target: {fileID: 4945013206979002887, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
       propertyPath: m_ColorTemperature
       value: 10021
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945013207151984504, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4945013207151984506, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
       propertyPath: m_Intensity
@@ -5688,9 +5700,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4945013205739873286, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4945013205739873288, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
       propertyPath: m_Intensity
-      value: 25000
+      value: 3866.8787
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945013205739873288, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
+      propertyPath: m_VolumetricShadowDimmer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4945013205739873291, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
       propertyPath: m_Range
@@ -5710,15 +5730,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4945013205739873291, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
       propertyPath: m_Intensity
-      value: 1989.4368
+      value: 307.71643
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945013205739873291, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4945013205739873291, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
       propertyPath: m_ColorTemperature
       value: 9244
       objectReference: {fileID: 0}
+    - target: {fileID: 4945013206979002882, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4945013206979002884, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
       propertyPath: m_Intensity
-      value: 25000
+      value: 3866.8787
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945013206979002884, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
+      propertyPath: m_ShadowUpdateMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945013206979002884, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
+      propertyPath: m_VolumetricShadowDimmer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945013206979002884, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
+      propertyPath: m_UpdateShadowOnLightMovement
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4945013206979002887, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
       propertyPath: m_Range
@@ -5738,15 +5778,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4945013206979002887, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
       propertyPath: m_Intensity
-      value: 1989.4368
+      value: 307.71643
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945013206979002887, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4945013206979002887, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
       propertyPath: m_ColorTemperature
       value: 12000
       objectReference: {fileID: 0}
+    - target: {fileID: 4945013206979002887, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
+      propertyPath: m_UseViewFrustumForShadowCasterCull
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945013207151984504, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4945013207151984506, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
       propertyPath: m_Intensity
-      value: 25000
+      value: 3866.8787
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945013207151984506, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
+      propertyPath: m_VolumetricShadowDimmer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4945013207151984509, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
       propertyPath: m_Range
@@ -5766,7 +5822,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4945013207151984509, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
       propertyPath: m_Intensity
-      value: 1989.4368
+      value: 307.71643
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945013207151984509, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4945013207151984509, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
       propertyPath: m_ColorTemperature
@@ -6317,7 +6377,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &800021913
 Transform:
   m_ObjectHideFlags: 0
@@ -6325,13 +6385,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 800021912}
-  m_LocalRotation: {x: 0.52594274, y: -0.036161397, z: -0.040995155, w: 0.84876144}
-  m_LocalPosition: {x: 2.7285693, y: 33.210712, z: -13.510567}
+  m_LocalRotation: {x: 0.55437326, y: -0.3230561, z: 0.16736843, w: 0.74852717}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 772348949}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 62.853, y: -13.241, z: -13.644}
+  m_LocalEulerAnglesHint: {x: 69.729, y: -59.352, z: -18.099}
 --- !u!114 &800021914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6344,13 +6404,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 35
+  m_Intensity: 0.9
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
   m_SpotIESCutoffPercent: 100
   m_LightDimmer: 1
-  m_VolumetricDimmer: 1.18
+  m_VolumetricDimmer: 2
   m_LightUnit: 2
   m_FadeDistance: 10000
   m_VolumetricFadeDistance: 10000
@@ -6467,7 +6527,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 0.74509805, g: 0.9019608, b: 0.9411765, a: 1}
-  m_Intensity: 35
+  m_Intensity: 0.9
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -6511,7 +6571,7 @@ Light:
   m_AreaSize: {x: 0.5, y: 0.5}
   m_BounceIntensity: 1
   m_ColorTemperature: 11000
-  m_UseColorTemperature: 1
+  m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 5.7e-43, y: 1.4675487e-24, z: 5.7e-43, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
@@ -8195,6 +8255,34 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4281346436456244044, guid: 840cdc606ff0f8a488f854c30642f650, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4281346436456244046, guid: 840cdc606ff0f8a488f854c30642f650, type: 3}
+      propertyPath: clearColorMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4281346436456244046, guid: 840cdc606ff0f8a488f854c30642f650, type: 3}
+      propertyPath: backgroundColorHDR.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4281346436456244046, guid: 840cdc606ff0f8a488f854c30642f650, type: 3}
+      propertyPath: backgroundColorHDR.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4281346436456244046, guid: 840cdc606ff0f8a488f854c30642f650, type: 3}
+      propertyPath: backgroundColorHDR.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4281346436456244046, guid: 840cdc606ff0f8a488f854c30642f650, type: 3}
+      propertyPath: backgroundColorHDR.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4281346436456244047, guid: 840cdc606ff0f8a488f854c30642f650, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4281346437646083814, guid: 840cdc606ff0f8a488f854c30642f650, type: 3}
       propertyPath: player1
       value: 
@@ -9331,8 +9419,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 441482e8936e35048a1dffac814e3ef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Profile: {fileID: 11400000, guid: 7f342610b85f4164f808a1f380dcc668, type: 2}
-  m_StaticLightingSkyUniqueID: 0
+  m_Profile: {fileID: 11400000, guid: 264589d508f59eb48afe0363fe8c192a, type: 2}
+  m_StaticLightingSkyUniqueID: 3
 --- !u!4 &1218016206
 Transform:
   m_ObjectHideFlags: 1
@@ -11363,11 +11451,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4945013205739873286, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4945013205739873288, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
       propertyPath: m_Intensity
-      value: 25000
+      value: 1670.3522
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945013205739873288, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
+      propertyPath: m_VolumetricShadowDimmer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4945013205739873291, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
       propertyPath: m_Range
@@ -11387,7 +11479,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4945013205739873291, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
       propertyPath: m_Intensity
-      value: 1989.4368
+      value: 132.9224
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945013205739873291, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4945013205739873291, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
       propertyPath: m_ColorTemperature
@@ -11395,11 +11491,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4945013206979002882, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4945013206979002884, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
       propertyPath: m_Intensity
-      value: 25000
+      value: 1670.3522
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945013206979002884, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
+      propertyPath: m_ShadowUpdateMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945013206979002884, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
+      propertyPath: m_VolumetricShadowDimmer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945013206979002884, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
+      propertyPath: m_UpdateShadowOnLightMovement
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4945013206979002887, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
       propertyPath: m_Range
@@ -11419,19 +11527,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4945013206979002887, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
       propertyPath: m_Intensity
-      value: 1989.4368
+      value: 132.9224
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945013206979002887, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4945013206979002887, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
       propertyPath: m_ColorTemperature
       value: 7100
       objectReference: {fileID: 0}
+    - target: {fileID: 4945013206979002887, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
+      propertyPath: m_UseViewFrustumForShadowCasterCull
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4945013207151984504, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4945013207151984506, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
       propertyPath: m_Intensity
-      value: 25000
+      value: 1670.3522
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945013207151984506, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
+      propertyPath: m_VolumetricShadowDimmer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4945013207151984509, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
       propertyPath: m_Range
@@ -11451,7 +11571,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4945013207151984509, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
       propertyPath: m_Intensity
-      value: 1989.4368
+      value: 132.9224
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945013207151984509, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4945013207151984509, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
       propertyPath: m_ColorTemperature
@@ -12864,6 +12988,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4945013205739873286, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4945013205739873288, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
       propertyPath: m_Intensity
       value: 25000
@@ -12892,6 +13020,10 @@ PrefabInstance:
       propertyPath: m_ColorTemperature
       value: 9244
       objectReference: {fileID: 0}
+    - target: {fileID: 4945013206979002882, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4945013206979002884, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
       propertyPath: m_Intensity
       value: 25000
@@ -12919,6 +13051,10 @@ PrefabInstance:
     - target: {fileID: 4945013206979002887, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
       propertyPath: m_ColorTemperature
       value: 9815
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945013207151984504, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4945013207151984506, guid: 0430af52c0933b04199582def32bbc1f, type: 3}
       propertyPath: m_Intensity
@@ -16944,7 +17080,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 301513745793477392, guid: e3b9db78a7207c04fbbe9b6eb9460358, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.05
+      value: 6.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 301513745793477392, guid: e3b9db78a7207c04fbbe9b6eb9460358, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.29
       objectReference: {fileID: 0}
     - target: {fileID: 3242924057289997706, guid: e3b9db78a7207c04fbbe9b6eb9460358, type: 3}
       propertyPath: m_Name
@@ -16996,15 +17136,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3961653624737583455, guid: e3b9db78a7207c04fbbe9b6eb9460358, type: 3}
       propertyPath: m_Intensity
-      value: 30000
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 3961653624737583455, guid: e3b9db78a7207c04fbbe9b6eb9460358, type: 3}
+      propertyPath: m_VolumetricDimmer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5184078013647907307, guid: e3b9db78a7207c04fbbe9b6eb9460358, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5443508461358885041, guid: e3b9db78a7207c04fbbe9b6eb9460358, type: 3}
+      propertyPath: m_Range
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443508461358885041, guid: e3b9db78a7207c04fbbe9b6eb9460358, type: 3}
       propertyPath: m_Intensity
-      value: 2387.324
+      value: 119.3662
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443508461358885041, guid: e3b9db78a7207c04fbbe9b6eb9460358, type: 3}
+      propertyPath: m_UseColorTemperature
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5734868626353270183, guid: e3b9db78a7207c04fbbe9b6eb9460358, type: 3}
       propertyPath: m_CastShadows
@@ -17164,7 +17316,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 286916358720633132, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
       propertyPath: m_Intensity
-      value: 20000
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 286916358720633132, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
+      propertyPath: m_ShapeRadius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 286916358720633132, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
+      propertyPath: m_VolumetricDimmer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1265336581145595834, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
       propertyPath: m_IsActive
@@ -17176,7 +17336,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2544766881638604429, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 1.19
       objectReference: {fileID: 0}
     - target: {fileID: 2544766881638604429, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
       propertyPath: m_LocalPosition.z
@@ -17184,7 +17344,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5420714688814619336, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
       propertyPath: m_Intensity
-      value: 5000
+      value: 1200
+      objectReference: {fileID: 0}
+    - target: {fileID: 5420714688814619339, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
+      propertyPath: m_Range
+      value: 7.7
       objectReference: {fileID: 0}
     - target: {fileID: 5420714688814619339, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
       propertyPath: m_Color.b
@@ -17200,11 +17364,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5420714688814619339, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
       propertyPath: m_Intensity
-      value: 2652.5823
+      value: 636.61975
+      objectReference: {fileID: 0}
+    - target: {fileID: 5420714688814619339, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: 7.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5420714688814619382, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5420714690277376226, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
       propertyPath: m_Intensity
-      value: 5000
+      value: 1200
+      objectReference: {fileID: 0}
+    - target: {fileID: 5420714690277376229, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
+      propertyPath: m_Range
+      value: 7.7
       objectReference: {fileID: 0}
     - target: {fileID: 5420714690277376229, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
       propertyPath: m_Color.b
@@ -17220,7 +17396,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5420714690277376229, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
       propertyPath: m_Intensity
-      value: 2652.5823
+      value: 636.61975
+      objectReference: {fileID: 0}
+    - target: {fileID: 5420714690277376229, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: 7.7
       objectReference: {fileID: 0}
     - target: {fileID: 5555183621043764885, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17229,6 +17409,10 @@ PrefabInstance:
     - target: {fileID: 6656756127721237805, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
       propertyPath: maxLightIntensity
       value: 1250
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745581380330533895, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6745581380489110705, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
       propertyPath: m_Mesh
@@ -17243,8 +17427,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7700564169792271598, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
+      propertyPath: m_Range
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700564169792271598, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
       propertyPath: m_Intensity
-      value: 1591.5494
+      value: 79.57747
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700564169792271598, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
+      propertyPath: m_ShadowRadius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700564169792271598, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
+      propertyPath: m_UseColorTemperature
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8384824853501693571, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
       propertyPath: m_IsActive
