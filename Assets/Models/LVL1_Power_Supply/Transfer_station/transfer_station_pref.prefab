@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8272116053266163121}
   - component: {fileID: 6626710692084554078}
   - component: {fileID: 5624530466883435941}
+  - component: {fileID: 5730797465872646518}
   m_Layer: 0
   m_Name: Transfer_station_plane01_low
   m_TagString: Untagged
@@ -82,6 +83,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5730797465872646518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 85491472470754267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad2d517fd4b72d348869ed0863f5be63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 0
 --- !u!1 &442685738819068093
 GameObject:
   m_ObjectHideFlags: 0
@@ -337,6 +351,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2793832805951880092}
+  - component: {fileID: 4933938452422672479}
   m_Layer: 0
   m_Name: transfer_station_pref
   m_TagString: Untagged
@@ -371,6 +386,54 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
+--- !u!114 &4933938452422672479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3282667345195589926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19fc0bdc67c7aba489315f971115b74e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minDistanceToTrigger: 5
+  startingStates:
+  - refPlane: {fileID: 6613825397202615886}
+    position: {x: -0.7375683, y: 2.197243, z: 0}
+    rotationSpeed: 0
+    opacity: 0
+  - refPlane: {fileID: 5730797465872646518}
+    position: {x: -0.7375683, y: 2.197243, z: 0}
+    rotationSpeed: 0
+    opacity: 0
+  - refPlane: {fileID: 3637598380952232280}
+    position: {x: -0.7375683, y: 2.197243, z: 0}
+    rotationSpeed: 0
+    opacity: 0
+  - refPlane: {fileID: 2312379592154583980}
+    position: {x: -0.7375683, y: 2.197243, z: 0}
+    rotationSpeed: 0
+    opacity: 0
+  finalStates:
+  - refPlane: {fileID: 6613825397202615886}
+    position: {x: -1.162414, y: 2.197243, z: 0}
+    rotationSpeed: 2
+    opacity: 5
+  - refPlane: {fileID: 5730797465872646518}
+    position: {x: -0.7375683, y: 2.197243, z: 0}
+    rotationSpeed: -2
+    opacity: 5
+  - refPlane: {fileID: 3637598380952232280}
+    position: {x: -0.8770947, y: 2.197243, z: 0}
+    rotationSpeed: 2
+    opacity: 5
+  - refPlane: {fileID: 2312379592154583980}
+    position: {x: -0.9982049, y: 2.197243, z: 0}
+    rotationSpeed: -2
+    opacity: 5
+  transferSpeed: 0.2
 --- !u!1 &3408503087757798458
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,6 +527,7 @@ GameObject:
   - component: {fileID: 5682504056149856557}
   - component: {fileID: 6329594535889240595}
   - component: {fileID: 584520379666854034}
+  - component: {fileID: 3637598380952232280}
   m_Layer: 0
   m_Name: Transfer_station_plane02_low
   m_TagString: Untagged
@@ -535,6 +599,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3637598380952232280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3504551260390191980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad2d517fd4b72d348869ed0863f5be63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 0
 --- !u!1 &3507683673103034649
 GameObject:
   m_ObjectHideFlags: 0
@@ -628,6 +705,7 @@ GameObject:
   - component: {fileID: 434703385910377080}
   - component: {fileID: 410603928988097242}
   - component: {fileID: 1326011839813820188}
+  - component: {fileID: 2312379592154583980}
   m_Layer: 0
   m_Name: Transfer_station_plane03_low
   m_TagString: Untagged
@@ -699,6 +777,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2312379592154583980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4032115168779340990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad2d517fd4b72d348869ed0863f5be63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 0
 --- !u!1 &5066293296394625305
 GameObject:
   m_ObjectHideFlags: 0
@@ -874,6 +965,7 @@ GameObject:
   - component: {fileID: 1515215679397123658}
   - component: {fileID: 7933202113017316306}
   - component: {fileID: 4891890536515567310}
+  - component: {fileID: 6613825397202615886}
   m_Layer: 0
   m_Name: Transfer_station_plane00_low
   m_TagString: Untagged
@@ -945,6 +1037,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6613825397202615886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8259369115270864649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad2d517fd4b72d348869ed0863f5be63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 0
 --- !u!1 &9062719904904788818
 GameObject:
   m_ObjectHideFlags: 0
