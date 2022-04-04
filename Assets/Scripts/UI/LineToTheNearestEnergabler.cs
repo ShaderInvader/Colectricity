@@ -13,6 +13,7 @@ public class LineToTheNearestEnergabler : MonoBehaviour
     public Material materialForContainers;
     public Material materialForPlayers;
     public float oddawaczMinDistanceToGiveEnergyToOtherPlayer = Mathf.Infinity;
+    public List<Energabler> energablersToExclude;
 
     private GameObject energablerLine;
     private GameObject playerLine;
@@ -49,6 +50,10 @@ public class LineToTheNearestEnergabler : MonoBehaviour
         Energabler[] energablers = GameObject.FindObjectsOfType<Energabler>();
         foreach(Energabler e in energablers)
         {
+            if(energablersToExclude.Contains(e))
+            {
+                continue;
+            }
             float distance = Vector3.Distance(transform.position, e.transform.position);
             if (e.GetComponent<Electron>() != null)
             {
@@ -58,10 +63,6 @@ public class LineToTheNearestEnergabler : MonoBehaviour
                     && (this.gameObject != e.gameObject))
                 {
                     possiblePlayers = e.gameObject;
-                    if (this.name == "Oddawacz")
-                    {
-                        Debug.Log(possiblePlayers.name);
-                    }
                 }
             }
             else if (distance < minDistanceWithMinOpacity)
