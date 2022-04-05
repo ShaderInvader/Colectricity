@@ -19,7 +19,7 @@ public class MovementPrototype : MonoBehaviour
     Vector3 start_scale = new Vector3(1,1,1);
     float forward, right;
     bool isDashing = false, readyDash = true;
-    private Vector3 movement_vector;
+    public Vector3 movement_vector;
     private SelectKeys selectKeys;
 
     private void OnEnable()
