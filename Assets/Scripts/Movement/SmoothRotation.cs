@@ -10,7 +10,6 @@ public class SmoothRotation : MonoBehaviour
     void Update()
     {
         Vector3 targetDirection = new Vector3(-mp.movement_vector.z, 0, mp.movement_vector.x);
-        Debug.Log(mp.movement_vector);
         float singleStep = speed * Time.deltaTime;
         Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, singleStep, 0.0f);
         transform.rotation = Quaternion.LookRotation(newDirection);

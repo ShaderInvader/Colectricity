@@ -108,18 +108,23 @@ public class Electron : MonoBehaviour
         timer = timer < 0 ? 0 : timer;
     }
 
-    public void UpdateEmission()
+    public void UpdateEmission(bool reborn=false)
     {
-        foreach(UpdateEmmision ue in wheretoupdateenergy)
-        {
-            ue.UpdateValue(GetComponent<Energabler>().energy, prevEnergy, intensityPower);
-        }
-
         int nextEnergy = GetComponent<Energabler>().energy / GlobalVars.energy_amount_unit;
         double emmisionIntensity = Math.Pow((nextEnergy + 0.01f) / (prevEnergy + 0.01f), intensityPower);
         MeshRenderer mr = gameObject.GetComponent<MeshRenderer>();
         Color currColor = mr.material.GetColor("_EmissiveColor");
         mr.material.SetColor("_EmissiveColor", currColor * (float)emmisionIntensity);
+
+        if(reborn)
+        {
+            return;
+        }
+
+        foreach (UpdateEmmision ue in wheretoupdateenergy)
+        {
+            ue.UpdateValue(GetComponent<Energabler>().energy, prevEnergy, intensityPower);
+        }
     }
 
     public void ReceiveDamage(int damage)
@@ -232,7 +237,7 @@ public class Electron : MonoBehaviour
         isDead = false;
         GetComponent<MeshRenderer>().material = liveMaterial;
         prevEnergy = 0;
-        UpdateEmission();
+        UpdateEmission(true);
     }
 
     void Receive()
