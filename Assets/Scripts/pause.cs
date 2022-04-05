@@ -52,6 +52,8 @@ public class pause : MonoBehaviour
 
     public void quit_game()
     {
+        Time.timeScale = 1;
+        Cursor.visible = true;
         SceneManager.LoadScene("Menu", LoadSceneMode.Single);
     }
 
