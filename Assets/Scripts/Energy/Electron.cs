@@ -32,6 +32,8 @@ public class Electron : MonoBehaviour
     public GameObject arc6;
     public GameObject arc6_entry;
 
+    public UpdateEmmision[] wheretoupdateenergy;
+
     int size_of_energy;
     float timer = 0;
 
@@ -49,9 +51,14 @@ public class Electron : MonoBehaviour
     private VisualEffect visualEffect5;
     private VisualEffect visualEffect6;
 
+    public SmoothFollowParent followCode;
+    float baseY;
+    public float mulYVal;
+
 
     private void Start()
     {
+        baseY = followCode.offset.y;
         visualEffect1 = arc1.GetComponent<VisualEffect>();
         visualEffect2 = arc2.GetComponent<VisualEffect>();
         visualEffect3 = arc3.GetComponent<VisualEffect>();
@@ -68,6 +75,7 @@ public class Electron : MonoBehaviour
     void Update()
     {
         prevEnergy = GetComponent<Energabler>().energy_units;
+        followCode.offset = new Vector3(followCode.offset.x, baseY + prevEnergy*mulYVal, followCode.offset.z);
         bool enviro_pressed = selectKeys.Env, player_pressed = selectKeys.Play;
 
         if ((enviro_pressed || player_pressed) && timer == 0)
@@ -102,6 +110,11 @@ public class Electron : MonoBehaviour
 
     public void UpdateEmission()
     {
+        foreach(UpdateEmmision ue in wheretoupdateenergy)
+        {
+            ue.UpdateValue(GetComponent<Energabler>().energy, prevEnergy, intensityPower);
+        }
+
         int nextEnergy = GetComponent<Energabler>().energy / GlobalVars.energy_amount_unit;
         double emmisionIntensity = Math.Pow((nextEnergy + 0.01f) / (prevEnergy + 0.01f), intensityPower);
         MeshRenderer mr = gameObject.GetComponent<MeshRenderer>();
