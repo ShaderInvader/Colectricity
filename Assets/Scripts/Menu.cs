@@ -31,7 +31,9 @@ public class Menu : MonoBehaviour
         else if(Input.GetKey(KeyCode.Escape) && creditsDialog.activeSelf)
         {
             getBackFromCreditsDialog();
-        }    
+        }
+
+        Destroy(GameObject.FindWithTag("music"));
     }
     public void StartGame()
     {
