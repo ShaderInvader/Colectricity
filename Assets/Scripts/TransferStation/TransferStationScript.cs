@@ -30,6 +30,11 @@ public class TransferStationScript : DistanceTriggeredOperation
         planeState.refPlane.rotationSpeed = Mathf.Lerp(planeState.refPlane.rotationSpeed, planeState.rotationSpeed, transferSpeed);
     }
 
+    private void Start()
+    {
+        transferToAllStates(startingStates, 1);
+    }
+
     private void Update()
     {
         foreach (Electron player in FindObjectsOfType<Electron>())
