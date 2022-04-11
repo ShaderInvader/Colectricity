@@ -16403,6 +16403,18 @@ PrefabInstance:
       propertyPath: maxLightIntensity
       value: 1250
       objectReference: {fileID: 0}
+    - target: {fileID: 6745581380489110704, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745581380489110704, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9173514699a259944aca64efd62de040, type: 2}
+    - target: {fileID: 6745581380489110704, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9173514699a259944aca64efd62de040, type: 2}
     - target: {fileID: 6745581380489110705, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
       propertyPath: m_Mesh
       value: 
