@@ -6,6 +6,7 @@ public class Levitation : MonoBehaviour
 {
     public float amplitude = 0.5f;
     public float frequency = 1f;
+    public float offset = 0f;
 
     private float yOffset = 0;
     private float yStart;
@@ -17,7 +18,7 @@ public class Levitation : MonoBehaviour
 
     void Update()
     {
-        yOffset += Mathf.Sin(Time.fixedTime * Mathf.PI * frequency) * amplitude;
+        yOffset = Mathf.Sin((Time.fixedTime + offset) * Mathf.PI * frequency) * amplitude;
         transform.position = new Vector3(transform.position.x, yStart + yOffset, transform.position.z);
     }
 }
