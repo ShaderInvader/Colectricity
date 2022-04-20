@@ -12,8 +12,8 @@ public class CameraController : MonoBehaviour
     public float oneToTwoAcceleratingSpeed = 0.1f;
     public int cameraChangeCooldownSeconds = 1;
 
-    public Transform player1;
-    public Transform player2;
+    private Transform player1;
+    private Transform player2;
 
     private Camera leftCamera;
     private Camera rightCamera;
@@ -29,6 +29,9 @@ public class CameraController : MonoBehaviour
 
     void OnEnable()
     {
+        player1 = GameObject.FindObjectsOfType<Electron>()[0].transform;
+        player2 = GameObject.FindObjectsOfType<Electron>()[1].transform;
+
         if (instance == null) instance = this;
         else Debug.LogError("There are two instances of CameraController in the scene!");
 

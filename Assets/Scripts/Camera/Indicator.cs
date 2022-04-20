@@ -4,9 +4,18 @@ using UnityEngine;
 
 public class Indicator : MonoBehaviour
 {
+    public string imageObjectName;
+
+    [HideInInspector]
     public Transform image;
+   
     [Tooltip("0 meaning center, 0.5 meaning edge of camera")]
     public float indicatorDistanceFromScreen = 0.4f;
+
+    private void Start()
+    {
+        image = GameObject.Find(imageObjectName).transform;
+    }
 
     void Update()
     {

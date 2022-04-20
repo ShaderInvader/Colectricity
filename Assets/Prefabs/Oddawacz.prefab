@@ -9895,6 +9895,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75cb26b0b1b0ab34bb28d1e01cdc6b80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  imageObjectName: OddawaczIndicator
   image: {fileID: 0}
   indicatorDistanceFromScreen: 0.4
 --- !u!114 &7284422505416109337
@@ -10254,7 +10255,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -25, y: 0}
+  m_AnchoredPosition: {x: -24.999985, y: 0}
   m_SizeDelta: {x: 50, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1844151503435943033
