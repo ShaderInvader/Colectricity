@@ -5,8 +5,7 @@ using UnityEngine;
 public class Indicator : MonoBehaviour
 {
     public string imageObjectName;
-
-    [HideInInspector]
+    //[HideInInspector]
     public Transform image;
    
     [Tooltip("0 meaning center, 0.5 meaning edge of camera")]
@@ -15,6 +14,7 @@ public class Indicator : MonoBehaviour
     private void Start()
     {
         image = GameObject.Find(imageObjectName).transform;
+        image.gameObject.SetActive(false);
     }
 
     void Update()
