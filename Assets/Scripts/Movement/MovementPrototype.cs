@@ -24,6 +24,11 @@ public class MovementPrototype : MonoBehaviour
     public float momentum_changer = 0.3f;
     private SelectKeys selectKeys;
 
+    public Vector3 GetMovementVector()
+    {
+        return cur_movement_vector;
+    }
+
     private void OnEnable()
     {
         cam = gameObject.GetComponentInChildren<Camera>();
