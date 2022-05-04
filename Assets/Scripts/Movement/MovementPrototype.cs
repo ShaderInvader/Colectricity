@@ -19,8 +19,15 @@ public class MovementPrototype : MonoBehaviour
     Vector3 start_scale = new Vector3(1,1,1);
     float forward, right;
     bool isDashing = false, readyDash = true;
-    private Vector3 movement_vector;
+    public Vector3 movement_vector;
+    private Vector3 cur_movement_vector = new Vector3(0, 0, 0);
+    public float momentum_changer = 0.3f;
     private SelectKeys selectKeys;
+
+    public Vector3 GetMovementVector()
+    {
+        return cur_movement_vector;
+    }
 
     private void OnEnable()
     {
@@ -47,7 +54,7 @@ public class MovementPrototype : MonoBehaviour
         }
 
         UpdateMovementVect();
-        Move(movement_vector);
+        Move(cur_movement_vector);
 
         if (selectKeys.Dash && readyDash)
         {
@@ -69,6 +76,7 @@ public class MovementPrototype : MonoBehaviour
         float add = (transform.localScale - start_scale).magnitude * scale_speed_factor;
         Vector3 vel = new Vector3(right, 0, forward).normalized * (speed + add);
         movement_vector = Quaternion.Euler(0, angle, 0) * vel;
+        cur_movement_vector = Vector3.Lerp(cur_movement_vector, movement_vector, momentum_changer);
     }
 
     void RotateBall(Vector3 vect)

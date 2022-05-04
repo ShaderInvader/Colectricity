@@ -10,33 +10,60 @@ public class LineToTheNearestEnergabler : MonoBehaviour
     public float minDistanceWithMaxOpacity;
     public float minOpacity;
     public float maxOpacity;
-    public Material material;
+    public Material materialForContainers;
+    public Material materialForPlayers;
+    public float oddawaczMinDistanceToGiveEnergyToOtherPlayer = Mathf.Infinity;
+    public List<Energabler> energablersToExclude;
 
-    private GameObject myLine;
+    private GameObject energablerLine;
+    private GameObject playerLine;
 
     void Start()
     {
         type = GetComponent<Electron>().player;
 
-        myLine = new GameObject();
-        myLine.AddComponent<LineRenderer>();
-        LineRenderer lr = myLine.GetComponent<LineRenderer>();
-        if (material != null)
+        energablerLine = new GameObject();
+        playerLine = new GameObject();
+
+        energablerLine.name = "Energabler line from " + this.gameObject.name;
+        playerLine.name = "Player line from " + this.gameObject.name;
+
+        energablerLine.AddComponent<LineRenderer>();
+        playerLine.AddComponent<LineRenderer>();
+
+        LineRenderer lr = energablerLine.GetComponent<LineRenderer>();
+        if (materialForContainers != null)
         {
-            lr.material = material;
+            lr.material = materialForContainers;
+        }
+        lr = playerLine.GetComponent<LineRenderer>();
+        if (materialForPlayers != null)
+        {
+            lr.material = materialForPlayers;
         }
     }
 
     void Update()
     {
         List<GameObject> possibleEnergablers = new List<GameObject>();
+        GameObject possiblePlayers = null;
         Energabler[] energablers = GameObject.FindObjectsOfType<Energabler>();
-        foreach(Energabler e in energablers) /* usun to */
+        foreach(Energabler e in energablers)
         {
+            if(energablersToExclude.Contains(e))
+            {
+                continue;
+            }
             float distance = Vector3.Distance(transform.position, e.transform.position);
             if (e.GetComponent<Electron>() != null)
             {
-                continue;
+                float d = this.type == Electron.Type.receiver ? this.GetComponent<Electron>().transfer_distance_limit : oddawaczMinDistanceToGiveEnergyToOtherPlayer;
+                if ((distance <= d)
+                    && (e.energy_units < e.max_energy_units && GetComponent<Energabler>().energy_units > 0)
+                    && (this.gameObject != e.gameObject))
+                {
+                    possiblePlayers = e.gameObject;
+                }
             }
             else if (distance < minDistanceWithMinOpacity)
             {
@@ -48,10 +75,10 @@ public class LineToTheNearestEnergabler : MonoBehaviour
                     || (type == Electron.Type.receiver && e.energy_units > 0))
                 {
                     possibleEnergablers.Add(e.gameObject);
-                   // DrawLine(this.transform.position, e.transform.position);
                 }
             }
         }
+
         if(possibleEnergablers.Count > 0)
         {
             GameObject nearest = possibleEnergablers[0];
@@ -64,21 +91,41 @@ public class LineToTheNearestEnergabler : MonoBehaviour
                     nearest = possibleEnergablers[i];
                 }
             }
-            myLine.SetActive(true);
-            DrawLine(this.transform.position, nearest.transform.position);
+            energablerLine.SetActive(true);
+            DrawLineToEnergablers(this.transform.position, nearest.transform.position);
         } 
         else
         {
-            myLine.SetActive(false);
+            energablerLine.SetActive(false);
+        }
+
+        if(possiblePlayers != null)
+        {
+            playerLine.SetActive(true);
+            DrawLineToPlayers(this.transform.position, possiblePlayers.transform.position);
+        }
+        else
+        {
+            playerLine.SetActive(false);
         }
     }
 
-    void DrawLine(Vector3 start, Vector3 end)
+    void DrawLineToEnergablers(Vector3 start, Vector3 end)
     {
-        LineRenderer lr = myLine.GetComponent<LineRenderer>();
-        myLine.transform.position = start;
+        LineRenderer lr = energablerLine.GetComponent<LineRenderer>();
+        energablerLine.transform.position = start;
         lr.startWidth = 0.1f;
         lr.endWidth = 0.1f;
+        lr.SetPosition(0, start);
+        lr.SetPosition(1, end);
+    }
+
+    void DrawLineToPlayers(Vector3 start, Vector3 end)
+    {
+        LineRenderer lr = playerLine.GetComponent<LineRenderer>();
+        playerLine.transform.position = start;
+        lr.startWidth = 0.05f;
+        lr.endWidth = 0.05f;
         lr.SetPosition(0, start);
         lr.SetPosition(1, end);
     }

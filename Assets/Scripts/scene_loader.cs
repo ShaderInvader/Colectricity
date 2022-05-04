@@ -80,10 +80,7 @@ public class scene_loader : MonoBehaviour
         {
             SceneManager.LoadScene("Arena2");
         }
-        if (Input.GetKeyDown("escape"))
-        {
-            Application.Quit();
-        }
+      
     }
 
     void OnTriggerEnter(Collider other)

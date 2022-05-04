@@ -15,7 +15,8 @@ public class Electron : MonoBehaviour
     public int health = 1;
     public bool isDead = false;
     public float time_to_shot_ms = 20;
-    public float distance_limit = 5;
+    public float transfer_distance_limit = 0;
+    public float enviro_distance_limit = 6;
     public ParticleSystem shockWaveParticleSystem;
 
     public Material liveMaterial;
@@ -30,6 +31,8 @@ public class Electron : MonoBehaviour
     public GameObject arc5;
     public GameObject arc6;
     public GameObject arc6_entry;
+
+    public UpdateEmmision[] wheretoupdateenergy;
 
     int size_of_energy;
     float timer = 0;
@@ -48,9 +51,14 @@ public class Electron : MonoBehaviour
     private VisualEffect visualEffect5;
     private VisualEffect visualEffect6;
 
+    public SmoothFollowParent followCode;
+    float baseY;
+    public float mulYVal;
+
 
     private void Start()
     {
+        baseY = followCode.offset.y;
         visualEffect1 = arc1.GetComponent<VisualEffect>();
         visualEffect2 = arc2.GetComponent<VisualEffect>();
         visualEffect3 = arc3.GetComponent<VisualEffect>();
@@ -67,6 +75,7 @@ public class Electron : MonoBehaviour
     void Update()
     {
         prevEnergy = GetComponent<Energabler>().energy_units;
+        followCode.offset = new Vector3(followCode.offset.x, baseY + prevEnergy*mulYVal, followCode.offset.z);
         bool enviro_pressed = selectKeys.Env, player_pressed = selectKeys.Play;
 
         if ((enviro_pressed || player_pressed) && timer == 0)
@@ -99,13 +108,23 @@ public class Electron : MonoBehaviour
         timer = timer < 0 ? 0 : timer;
     }
 
-    public void UpdateEmission()
+    public void UpdateEmission(bool reborn=false)
     {
         int nextEnergy = GetComponent<Energabler>().energy / GlobalVars.energy_amount_unit;
         double emmisionIntensity = Math.Pow((nextEnergy + 0.01f) / (prevEnergy + 0.01f), intensityPower);
         MeshRenderer mr = gameObject.GetComponent<MeshRenderer>();
         Color currColor = mr.material.GetColor("_EmissiveColor");
         mr.material.SetColor("_EmissiveColor", currColor * (float)emmisionIntensity);
+
+        if(reborn)
+        {
+            return;
+        }
+
+        foreach (UpdateEmmision ue in wheretoupdateenergy)
+        {
+            ue.UpdateValue(GetComponent<Energabler>().energy, prevEnergy, intensityPower);
+        }
     }
 
     public void ReceiveDamage(int damage)
@@ -218,7 +237,7 @@ public class Electron : MonoBehaviour
         isDead = false;
         GetComponent<MeshRenderer>().material = liveMaterial;
         prevEnergy = 0;
-        UpdateEmission();
+        UpdateEmission(true);
     }
 
     void Receive()
@@ -273,7 +292,7 @@ public class Electron : MonoBehaviour
 
     void TransferToElectron()
     {
-        Energabler elec = GetNearestEnergable(full_acc: false);
+        Energabler elec = GetNearestEnergable(full_acc: false, isTransfer: true);
         if (elec == null)
         {
             return;
@@ -318,8 +337,9 @@ public class Electron : MonoBehaviour
 
     }
 
-    Energabler GetNearestEnergable(bool full_acc = true, bool empty_acc = true, bool cable = true, bool electron = true)
+    Energabler GetNearestEnergable(bool full_acc = true, bool empty_acc = true, bool cable = true, bool electron = true, bool isTransfer = false)
     {
+        float distance_limit = isTransfer ? transfer_distance_limit : enviro_distance_limit;
         Energabler[] energables = FindObjectsOfType<Energabler>();
         Energabler eMin = null;
         float minDist = Mathf.Infinity;
