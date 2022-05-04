@@ -8581,6 +8581,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minLightIntensity: 0
   maxLightIntensity: 1000
+  cableRenderer: {fileID: 0}
+  disabledEmissiveColor: {r: 0, g: 0, b: 0, a: 0}
+  enabledEmissiveColor: {r: 0, g: 0, b: 0, a: 0}
+  disabledDetailColor: {r: 0, g: 0, b: 0, a: 0}
+  enabledDetailColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!4 &211909492 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: edb0f751911ed114bb9a9bfa714f63d0, type: 3}
@@ -9200,6 +9205,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minLightIntensity: 0
   maxLightIntensity: 2000
+  cableRenderer: {fileID: 0}
+  disabledEmissiveColor: {r: 0, g: 0, b: 0, a: 0}
+  enabledEmissiveColor: {r: 0, g: 0, b: 0, a: 0}
+  disabledDetailColor: {r: 0, g: 0, b: 0, a: 0}
+  enabledDetailColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &228129011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22500,6 +22510,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minLightIntensity: 0
   maxLightIntensity: 2000
+  cableRenderer: {fileID: 0}
+  disabledEmissiveColor: {r: 0, g: 0, b: 0, a: 0}
+  enabledEmissiveColor: {r: 0, g: 0, b: 0, a: 0}
+  disabledDetailColor: {r: 0, g: 0, b: 0, a: 0}
+  enabledDetailColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &739472043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37521,6 +37536,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minLightIntensity: 0
   maxLightIntensity: 2000
+  cableRenderer: {fileID: 0}
+  disabledEmissiveColor: {r: 0, g: 0, b: 0, a: 0}
+  enabledEmissiveColor: {r: 0, g: 0, b: 0, a: 0}
+  disabledDetailColor: {r: 0, g: 0, b: 0, a: 0}
+  enabledDetailColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1264297297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49114,7 +49134,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 384925610889206600, guid: 826f101084323fb4baf465f197af4f28, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4603235236317611364, guid: 826f101084323fb4baf465f197af4f28, type: 3}
       propertyPath: m_Pivot.x
@@ -49212,6 +49232,10 @@ PrefabInstance:
       propertyPath: pause_ui
       value: 
       objectReference: {fileID: 1689479082}
+    - target: {fileID: 4969605856957763771, guid: 826f101084323fb4baf465f197af4f28, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 826f101084323fb4baf465f197af4f28, type: 3}
 --- !u!224 &1689479081 stripped
@@ -63428,7 +63452,7 @@ MonoBehaviour:
     camera:
       camera: 0
   m_ProxyVolume: {fileID: 0}
-  m_BakedTexture: {fileID: 8900000, guid: f04dda0a98ae17a4cb089ed58b433c35, type: 3}
+  m_BakedTexture: {fileID: 8900000, guid: 3868d90acc8b62d469f6903e90dba47e, type: 3}
   m_CustomTexture: {fileID: 0}
   m_BakedRenderData:
     m_WorldToCameraRHS:
@@ -63938,6 +63962,10 @@ PrefabInstance:
     - target: {fileID: 933057203, guid: 7e40a1979db231248b7a0fa8f9ee7198, type: 3}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 199451706478258343, guid: 7e40a1979db231248b7a0fa8f9ee7198, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -24.99997
       objectReference: {fileID: 0}
     - target: {fileID: 2557528580249769610, guid: 7e40a1979db231248b7a0fa8f9ee7198, type: 3}
       propertyPath: m_Name
