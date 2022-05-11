@@ -37,6 +37,7 @@ public class EnergablerLight : MonoBehaviour
 
         if (cableRenderer)
         {
+            energyPercent = Mathf.Floor(energyPercent);
             cableRenderer.material.SetColor(EmissiveColor, Color.Lerp(disabledEmissiveColor, enabledEmissiveColor, energyPercent));
             cableRenderer.material.SetColor(DetailColor, Color.Lerp(disabledDetailColor, enabledDetailColor, energyPercent));
         }
