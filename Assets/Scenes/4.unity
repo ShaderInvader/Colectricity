@@ -5574,7 +5574,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 384925610889206600, guid: 826f101084323fb4baf465f197af4f28, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1723844294493667747, guid: 826f101084323fb4baf465f197af4f28, type: 3}
       propertyPath: m_IsActive
@@ -5676,6 +5676,10 @@ PrefabInstance:
       propertyPath: pause_ui
       value: 
       objectReference: {fileID: 1705316712}
+    - target: {fileID: 4969605856957763771, guid: 826f101084323fb4baf465f197af4f28, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 826f101084323fb4baf465f197af4f28, type: 3}
 --- !u!224 &384838586 stripped
@@ -20029,6 +20033,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: transfer_station_pref (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4933938452422672479, guid: f9482dffa5c453545bd6ce96dc2db3c4, type: 3}
+      propertyPath: secondTransferStation
+      value: 
+      objectReference: {fileID: 2012875417}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9482dffa5c453545bd6ce96dc2db3c4, type: 3}
 --- !u!1 &934506180 stripped
@@ -20278,6 +20286,17 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2036429612429198522, guid: 3b0c3ab7149d26f41b592a24f6b05ab6, type: 3}
+--- !u!114 &934506206 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4933938452422672479, guid: f9482dffa5c453545bd6ce96dc2db3c4, type: 3}
+  m_PrefabInstance: {fileID: 934506179}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19fc0bdc67c7aba489315f971115b74e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &939338953
 GameObject:
   m_ObjectHideFlags: 0
@@ -23783,6 +23802,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: transfer_station_pref (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4933938452422672479, guid: f9482dffa5c453545bd6ce96dc2db3c4, type: 3}
+      propertyPath: secondTransferStation
+      value: 
+      objectReference: {fileID: 2021308501}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9482dffa5c453545bd6ce96dc2db3c4, type: 3}
 --- !u!1 &1065449096 stripped
@@ -24032,6 +24055,17 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2036429612429198522, guid: 3b0c3ab7149d26f41b592a24f6b05ab6, type: 3}
+--- !u!114 &1065449122 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4933938452422672479, guid: f9482dffa5c453545bd6ce96dc2db3c4, type: 3}
+  m_PrefabInstance: {fileID: 1065449095}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19fc0bdc67c7aba489315f971115b74e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1071929131
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47588,6 +47622,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: transfer_station_pref (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4933938452422672479, guid: f9482dffa5c453545bd6ce96dc2db3c4, type: 3}
+      propertyPath: secondTransferStation
+      value: 
+      objectReference: {fileID: 934506206}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9482dffa5c453545bd6ce96dc2db3c4, type: 3}
 --- !u!1 &2012875391 stripped
@@ -47837,6 +47875,17 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2036429612429198522, guid: 3b0c3ab7149d26f41b592a24f6b05ab6, type: 3}
+--- !u!114 &2012875417 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4933938452422672479, guid: f9482dffa5c453545bd6ce96dc2db3c4, type: 3}
+  m_PrefabInstance: {fileID: 2012875390}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19fc0bdc67c7aba489315f971115b74e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2014501732
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48325,6 +48374,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: transfer_station_pref
       objectReference: {fileID: 0}
+    - target: {fileID: 4933938452422672479, guid: f9482dffa5c453545bd6ce96dc2db3c4, type: 3}
+      propertyPath: secondTransferStation
+      value: 
+      objectReference: {fileID: 1065449122}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9482dffa5c453545bd6ce96dc2db3c4, type: 3}
 --- !u!1 &2021308475 stripped
@@ -48574,6 +48627,17 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2036429612429198522, guid: 3b0c3ab7149d26f41b592a24f6b05ab6, type: 3}
+--- !u!114 &2021308501 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4933938452422672479, guid: f9482dffa5c453545bd6ce96dc2db3c4, type: 3}
+  m_PrefabInstance: {fileID: 2021308474}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19fc0bdc67c7aba489315f971115b74e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2027354288
 PrefabInstance:
   m_ObjectHideFlags: 0
