@@ -6741,6 +6741,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 199451706478258343, guid: 7e40a1979db231248b7a0fa8f9ee7198, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -24.99997
+      objectReference: {fileID: 0}
     - target: {fileID: 2557528580249769610, guid: 7e40a1979db231248b7a0fa8f9ee7198, type: 3}
       propertyPath: m_Name
       value: Oddawacz
@@ -13518,6 +13522,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minLightIntensity: 0
   maxLightIntensity: 2000
+  cableRenderer: {fileID: 1915096410}
+  disabledEmissiveColor: {r: 0, g: 0, b: 0, a: 0}
+  enabledEmissiveColor: {r: 8.784314, g: 34.635296, b: 64, a: 0}
+  disabledDetailColor: {r: 0, g: 0, b: 0, a: 0}
+  enabledDetailColor: {r: 4.5235596, g: 17.424082, b: 31.999996, a: 0}
 --- !u!1001 &916393260
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22705,7 +22714,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 384925610889206600, guid: 826f101084323fb4baf465f197af4f28, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4603235236317611364, guid: 826f101084323fb4baf465f197af4f28, type: 3}
       propertyPath: m_Pivot.x
@@ -22803,6 +22812,10 @@ PrefabInstance:
       propertyPath: pause_ui
       value: 
       objectReference: {fileID: 2004708870}
+    - target: {fileID: 4969605856957763771, guid: 826f101084323fb4baf465f197af4f28, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 826f101084323fb4baf465f197af4f28, type: 3}
 --- !u!224 &1592435210 stripped
@@ -26343,6 +26356,11 @@ PrefabInstance:
 --- !u!4 &1915096409 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8471488574006543819, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
+  m_PrefabInstance: {fileID: 1915096408}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &1915096410 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 6745581380489110704, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
   m_PrefabInstance: {fileID: 1915096408}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1916121825

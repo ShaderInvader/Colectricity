@@ -398,6 +398,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minLightIntensity: 0
   maxLightIntensity: 1000
+  cableRenderer: {fileID: 6745581380489110704}
+  disabledEmissiveColor: {r: 0, g: 0, b: 0, a: 0}
+  enabledEmissiveColor: {r: 8.784314, g: 34.635296, b: 64, a: 0}
+  disabledDetailColor: {r: 0, g: 0, b: 0, a: 0}
+  enabledDetailColor: {r: 4.5235596, g: 17.424082, b: 31.999996, a: 0}
 --- !u!114 &8471488573060230400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -413,7 +418,8 @@ MonoBehaviour:
   speed: 0.4
   offset: 0.5
   energablers:
-  - {fileID: 8471488574377188476}
+  - energabler: {fileID: 0}
+    isInvert: 0
   doorPanels:
   - {fileID: 2114605908800836373}
   - {fileID: 4316089021525859488}
@@ -804,11 +810,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfb1e8a6bb594b9479c8ebe91422a7df, type: 3}
---- !u!1 &5186834622509727840 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3633159576656913244, guid: bfb1e8a6bb594b9479c8ebe91422a7df, type: 3}
-  m_PrefabInstance: {fileID: 8471488572683346748}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5526064314467982042 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4116364612000152038, guid: bfb1e8a6bb594b9479c8ebe91422a7df, type: 3}
@@ -837,6 +838,11 @@ Light:
 --- !u!108 &5420714688814619339 stripped
 Light:
   m_CorrespondingSourceObject: {fileID: 4515697223536474615, guid: bfb1e8a6bb594b9479c8ebe91422a7df, type: 3}
+  m_PrefabInstance: {fileID: 8471488572683346748}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5186834622509727840 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3633159576656913244, guid: bfb1e8a6bb594b9479c8ebe91422a7df, type: 3}
   m_PrefabInstance: {fileID: 8471488572683346748}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8471488573185590611
@@ -898,14 +904,27 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2886204277138186723, guid: 6e68038eac435c9478629002c1947b7b, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2886204277138186733, guid: 6e68038eac435c9478629002c1947b7b, type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2886204277138186735, guid: 6e68038eac435c9478629002c1947b7b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 126
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e68038eac435c9478629002c1947b7b, type: 3}
 --- !u!4 &6745581380946849555 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2886204277092608576, guid: 6e68038eac435c9478629002c1947b7b, type: 3}
+  m_PrefabInstance: {fileID: 8471488573185590611}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &6745581380489110704 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2886204277138186723, guid: 6e68038eac435c9478629002c1947b7b, type: 3}
   m_PrefabInstance: {fileID: 8471488573185590611}
   m_PrefabAsset: {fileID: 0}

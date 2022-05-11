@@ -6,15 +6,15 @@ public abstract class DistanceTriggeredOperation : MonoBehaviour
 {
     public float minDistanceToTrigger;
 
-    protected void checkForDistance(Transform other)
+    protected bool checkForDistance(Transform other)
     {
         if (Vector3.Distance(other.position, this.transform.position) < minDistanceToTrigger)
         {
-            triggerActionWhenInDistance();
+            return true;
         } 
         else
         {
-            triggerActionWhenOutOfDistance();
+            return false;
         }
     }
 
