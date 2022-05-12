@@ -25,6 +25,8 @@ public class button : MonoBehaviour
 
     public GameObject energabler;
 
+    public int button_type=0;
+
     private static readonly int EmissiveColor = Shader.PropertyToID("Emissive_Color");
     private static readonly int DetailColor = Shader.PropertyToID("Detail_Color");
 
@@ -61,20 +63,64 @@ public class button : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         Debug.Log("entr");
-        if (other.tag == "Player")
+        if(button_type==0)
         {
-            emission.SetActive(true);
-
-            flag = true;
-
-            // HACK HACK HACK THIS IS A HACK PLEASE MAKE IT MORE CIVILIZED IN THE FUTURE
-            if (cable)
+            if (other.tag == "Player")
             {
-                cable.material.SetColor(EmissiveColor, Color.Lerp(disabledEmissiveColor, enabledEmissiveColor, 1.0f));
-                cable.material.SetColor(DetailColor, Color.Lerp(disabledDetailColor, enabledDetailColor, 1.0f));
+                emission.SetActive(true);
+
+                flag = true;
+
+                // HACK HACK HACK THIS IS A HACK PLEASE MAKE IT MORE CIVILIZED IN THE FUTURE
+                if (cable)
+                {
+                    cable.material.SetColor(EmissiveColor, Color.Lerp(disabledEmissiveColor, enabledEmissiveColor, 1.0f));
+                    cable.material.SetColor(DetailColor, Color.Lerp(disabledDetailColor, enabledDetailColor, 1.0f));
+                }
             }
         }
-    
+        else if (button_type==1)
+        {
+            if (other.tag == "Player")
+            {
+                if(other.GetComponent<Energabler>().energy_units == 1)
+                {
+                    emission.SetActive(true);
+
+                    flag = true;
+
+                    // HACK HACK HACK THIS IS A HACK PLEASE MAKE IT MORE CIVILIZED IN THE FUTURE
+                    if (cable)
+                    {
+                        cable.material.SetColor(EmissiveColor, Color.Lerp(disabledEmissiveColor, enabledEmissiveColor, 1.0f));
+                        cable.material.SetColor(DetailColor, Color.Lerp(disabledDetailColor, enabledDetailColor, 1.0f));
+                    }
+                }    
+              
+            }
+        }
+        else if (button_type == 2)
+        {
+            if (other.tag == "Player")
+            {
+                if (other.GetComponent<Energabler>().energy_units ==2)
+                {
+                    emission.SetActive(true);
+
+                    flag = true;
+
+                    // HACK HACK HACK THIS IS A HACK PLEASE MAKE IT MORE CIVILIZED IN THE FUTURE
+                    if (cable)
+                    {
+                        cable.material.SetColor(EmissiveColor, Color.Lerp(disabledEmissiveColor, enabledEmissiveColor, 1.0f));
+                        cable.material.SetColor(DetailColor, Color.Lerp(disabledDetailColor, enabledDetailColor, 1.0f));
+                    }
+                }
+
+            }
+        }
+
+
     }
 
     private void OnTriggerExit(Collider other)
