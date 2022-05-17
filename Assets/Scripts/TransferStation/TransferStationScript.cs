@@ -84,24 +84,26 @@ public class TransferStationScript : DistanceTriggeredOperation
         Electron e1 = players[1];
         activatedBy = null;
 
-        if (!doStuff(e0, e1))
-        {
-            if(!doStuff(e1, e0))
-            {
-                triggerActionWhenOutOfDistance();
-            }
-            else
-            {
-                activatedBy = e1;
-                triggerActionWhenInDistance();
-            }
-        }
-        else
+        if (doStuff(e0, e1))
         {
             activatedBy = e0;
             triggerActionWhenInDistance();
+            secondTransferStation.triggerActionWhenInDistance();
         }
-
+        else
+        {
+            if(doStuff(e1, e0))
+            {
+                activatedBy = e1;
+                triggerActionWhenInDistance();
+                secondTransferStation.triggerActionWhenInDistance();
+            }
+            else
+            {
+                triggerActionWhenOutOfDistance();
+                secondTransferStation.triggerActionWhenOutOfDistance();
+            }
+        }
 
     }
 
@@ -109,7 +111,7 @@ public class TransferStationScript : DistanceTriggeredOperation
     {
         if (checkForDistance(electron1.transform) && electron1.GetComponent<Energabler>().energy > 0
             && secondTransferStation.checkForDistance(electron2.transform) && electron1.GetComponent<Energabler>().energy != electron1.GetComponent<Energabler>().max_energy
-            && secondTransferStation.activatedBy != electron1)
+            /*&& secondTransferStation.activatedBy != electron1*/)
         {
             return true;
         } 
