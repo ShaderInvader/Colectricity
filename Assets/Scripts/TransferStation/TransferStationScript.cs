@@ -12,7 +12,9 @@ public class TransferStationScript : DistanceTriggeredOperation
     //private TransferStationScript secondTransferStation;
     //private Cable cable;
     private Electron activatedBy;
+    private Transform standingPart;
     public TransferStationScript secondTransferStation;
+    public float standingPartMaxOpacity;
 
     [System.Serializable]
     public struct PlaneState {
@@ -47,22 +49,12 @@ public class TransferStationScript : DistanceTriggeredOperation
             Debug.LogError("TransferStation nie ma swojego kolegi! podlacz blizniaczy TransferStation zeby nikomu nie bylo smutno!");
         }
 
-        /*secondTransferStation = transferStations[0];
-        foreach (TransferStationScript ts in transferStations) {
-            if(distanceTo(ts) < distanceTo(secondTransferStation))
-            {
-                secondTransferStation = ts;
-            }
-        }
+        standingPart = transform.Find("transfer_station_part06_low");
 
-        cable = cables[0];
-        foreach (Cable c in cables)
+        if(standingPart == null)
         {
-            if (distanceTo(c) < distanceTo(cable))
-            {
-                cable = c;
-            }
-        }*/
+            Debug.LogError("Nie ma podstawki w transferStation! jest smutno :(");
+        }
     }
 
     private void Update()
@@ -105,6 +97,12 @@ public class TransferStationScript : DistanceTriggeredOperation
             }
         }
 
+        if(checkForDistance(e1.transform) || checkForDistance(e0.transform)) 
+        {
+            Material m = standingPart.GetComponent<Renderer>().material;
+            m.EnableKeyword("_EmissiveExposureWeight");
+            m.SetFloat("_EmissiveExposureWeight", standingPartMaxOpacity);
+        }
     }
 
     private bool doStuff(Electron electron1, Electron electron2)
