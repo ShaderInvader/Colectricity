@@ -34,7 +34,7 @@ public class DeathMinigame : MonoBehaviour
             }
 
             go.GetComponent<MeshRenderer>().material = particle_mat;
-            go.GetComponent<Light>().color = elec.liveMaterial.color;
+            go.GetComponent<Light>().color = elec.liveBodyMaterial.color;
             go.name = cubeName;
             collectables.Add(go);
         }
@@ -65,7 +65,8 @@ public class DeathMinigame : MonoBehaviour
 
         float progress = collectables.Count / (float) howMany;
 
-        GetComponent<MeshRenderer>().material.color = Color.Lerp(elec.liveMaterial.color, elec.deadMaterial.color, progress);
+        GetComponent<MeshRenderer>().material.color = Color.Lerp(elec.liveBodyMaterial.color, elec.deadBodyMaterial.color, progress);
+        //GetComponent<MeshRenderer>().material.color = Color.Lerp(elec.liveHeadMaterial.color, elec.deadHeadMaterial.color, progress);
         //GetComponent<Light>().intensity = 
 
         if (collectables.Count == 0)

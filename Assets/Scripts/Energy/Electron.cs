@@ -19,8 +19,13 @@ public class Electron : MonoBehaviour
     public float enviro_distance_limit = 6;
     public ParticleSystem shockWaveParticleSystem;
 
-    public Material liveMaterial;
-    public Material deadMaterial;
+    public Material liveBodyMaterial;
+    public Material deadBodyMaterial;
+
+    public GameObject head;
+
+    public Material liveHeadMaterial;
+    public Material deadHeadMaterial;
 
     public double intensityPower = 0.5;
 
@@ -136,12 +141,13 @@ public class Electron : MonoBehaviour
         }
         else
         {
-            StartCoroutine(BlinkDamage(0.4f, Time.deltaTime));
+            StartCoroutine(BlinkDamageBody(0.4f, Time.deltaTime));
+            StartCoroutine(BlinkDamageHead(0.4f, Time.deltaTime));
             StartCoroutine(DamageBlink(0.4f, Time.deltaTime));
         }
     }
 
-    private IEnumerator BlinkDamage(float duration, float delta)
+    private IEnumerator BlinkDamageBody(float duration, float delta)
     {
         originalColor = GetComponent<MeshRenderer>().material.color;
         GetComponent<MeshRenderer>().material.color = Color.red;
@@ -154,6 +160,21 @@ public class Electron : MonoBehaviour
             GetComponent<MeshRenderer>().material.color = Color.Lerp(originalColor, Color.red, progress);
         }
         GetComponent<MeshRenderer>().material.color = originalColor;
+    }
+
+    private IEnumerator BlinkDamageHead(float duration, float delta)
+    {
+        originalColor = head.GetComponent<MeshRenderer>().material.color;
+        head.GetComponent<MeshRenderer>().material.color = Color.red;
+        float timeLeft = duration;
+        while (timeLeft > 0)
+        {
+            yield return new WaitForSeconds(delta);
+            timeLeft -= delta;
+            float progress = timeLeft / duration;
+            head.GetComponent<MeshRenderer>().material.color = Color.Lerp(originalColor, Color.red, progress);
+        }
+        head.GetComponent<MeshRenderer>().material.color = originalColor;
     }
 
     private IEnumerator DamageBlink(float duration, float delta)
@@ -214,7 +235,8 @@ public class Electron : MonoBehaviour
     {
         isDead = true;
         GetComponent<DeathMinigame>().enabled = true;
-        GetComponent<MeshRenderer>().material = deadMaterial;
+        GetComponent<MeshRenderer>().material = deadBodyMaterial;
+        head.GetComponent<MeshRenderer>().material = deadHeadMaterial;
         ResetIfAllDead();
     }
 
@@ -235,7 +257,8 @@ public class Electron : MonoBehaviour
     {
         health = originalHeath;
         isDead = false;
-        GetComponent<MeshRenderer>().material = liveMaterial;
+        GetComponent<MeshRenderer>().material = liveBodyMaterial;
+        head.GetComponent<MeshRenderer>().material = liveHeadMaterial;
         prevEnergy = 0;
         UpdateEmission(true);
     }

@@ -9877,8 +9877,11 @@ MonoBehaviour:
   transfer_distance_limit: 6
   enviro_distance_limit: 0
   shockWaveParticleSystem: {fileID: 3305559685506255737}
-  liveMaterial: {fileID: 2100000, guid: 5346f44f741978544a48bf15775207d3, type: 2}
-  deadMaterial: {fileID: 2100000, guid: a4ea6bc327555634fa72f799bd47be9e, type: 2}
+  liveBodyMaterial: {fileID: 2100000, guid: 5346f44f741978544a48bf15775207d3, type: 2}
+  deadBodyMaterial: {fileID: 2100000, guid: a4ea6bc327555634fa72f799bd47be9e, type: 2}
+  head: {fileID: 3917806739413829126}
+  liveHeadMaterial: {fileID: 2100000, guid: 2094646258bf4bb4db457651a8a441f1, type: 2}
+  deadHeadMaterial: {fileID: 2100000, guid: a4ea6bc327555634fa72f799bd47be9e, type: 2}
   intensityPower: 0.7
   arc1: {fileID: 0}
   arc2: {fileID: 0}
