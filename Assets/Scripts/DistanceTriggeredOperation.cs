@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class DistanceTriggeredOperation : MonoBehaviour
 {
-    public float minDistanceToTrigger;
+    protected float minDistanceToTrigger;
 
     protected bool checkForDistance(Transform other)
     {

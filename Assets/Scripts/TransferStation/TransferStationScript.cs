@@ -10,8 +10,7 @@ public class TransferStationScript : DistanceTriggeredOperation
     public float transferSpeed; // from 0.5 to 1, higher = quicker
 
     //private TransferStationScript secondTransferStation;
-    //private Cable cable;
-    private Electron activatedBy;
+    private Cable cable;
     private Transform standingPart;
     public TransferStationScript secondTransferStation;
     public float standingPartMaxOpacity;
@@ -55,6 +54,20 @@ public class TransferStationScript : DistanceTriggeredOperation
         {
             Debug.LogError("Nie ma podstawki w transferStation! jest smutno :(");
         }
+
+        cable = cables[0];
+        foreach (Cable c in cables)
+        {
+            if (distanceTo(c) < distanceTo(cable))
+            {
+                cable = c;
+            }
+        }
+
+        if(cable == null)
+        {
+            Debug.LogError("TransferStationScript nie mogl znalezc najblizszego Cable! jest smutno :(");
+        }
     }
 
     private void Update()
@@ -74,30 +87,20 @@ public class TransferStationScript : DistanceTriggeredOperation
         // player 1
         Electron e0 = players[0];
         Electron e1 = players[1];
-        activatedBy = null;
 
-        if (doStuff(e0, e1))
+
+        if (doStuff(e0, e1) || doStuff(e1, e0))
         {
-            activatedBy = e0;
             triggerActionWhenInDistance();
             secondTransferStation.triggerActionWhenInDistance();
         }
         else
         {
-            if(doStuff(e1, e0))
-            {
-                activatedBy = e1;
-                triggerActionWhenInDistance();
-                secondTransferStation.triggerActionWhenInDistance();
-            }
-            else
-            {
-                triggerActionWhenOutOfDistance();
-                secondTransferStation.triggerActionWhenOutOfDistance();
-            }
+            triggerActionWhenOutOfDistance();
+            secondTransferStation.triggerActionWhenOutOfDistance();
         }
 
-        if(checkForDistance(e1.transform) || checkForDistance(e0.transform)) 
+        if(cable.IsCableReady()) 
         {
             Material m = standingPart.GetComponent<Renderer>().material;
             m.EnableKeyword("_EmissiveExposureWeight");
@@ -107,9 +110,8 @@ public class TransferStationScript : DistanceTriggeredOperation
 
     private bool doStuff(Electron electron1, Electron electron2)
     {
-        if (checkForDistance(electron1.transform) && electron1.GetComponent<Energabler>().energy > 0
-            && secondTransferStation.checkForDistance(electron2.transform) && electron1.GetComponent<Energabler>().energy != electron1.GetComponent<Energabler>().max_energy
-            /*&& secondTransferStation.activatedBy != electron1*/)
+        if (/*checkForDistance(electron1.transform)*/ cable.IsGoodToTransfer() && electron1.GetComponent<Energabler>().energy > 0
+            /*&& secondTransferStation.checkForDistance(electron2.transform)*/ && electron1.GetComponent<Energabler>().energy != electron1.GetComponent<Energabler>().max_energy)
         {
             return true;
         } 

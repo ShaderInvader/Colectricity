@@ -47,7 +47,7 @@ public class Cable : MonoBehaviour
         return range_of_connection;
     }
 
-    bool IsCableReady()
+    public bool IsCableReady()
     {
         return ready;
     }
