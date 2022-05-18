@@ -24,6 +24,11 @@ public class MovementPrototype : MonoBehaviour
     public float momentum_changer = 0.3f;
     private SelectKeys selectKeys;
 
+    public float bounceForce;
+    public float bounceTime;
+    private float timeToEndBounce;
+    private bool duringBounce = false;
+
     public Vector3 GetMovementVector()
     {
         return cur_movement_vector;
@@ -53,8 +58,19 @@ public class MovementPrototype : MonoBehaviour
             angle = cam.transform.eulerAngles.y;
         }
 
-        UpdateMovementVect();
-        Move(cur_movement_vector);
+        if (!duringBounce)
+        {
+            UpdateMovementVect();
+            Move(cur_movement_vector);
+        }
+        else
+        {
+            timeToEndBounce += Time.deltaTime;
+            if(timeToEndBounce > bounceTime)
+            {
+                duringBounce = false;
+            }
+        }
 
         if (selectKeys.Dash && readyDash)
         {
@@ -100,5 +116,25 @@ public class MovementPrototype : MonoBehaviour
             yield return null;
         }
         isDashing = false;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.tag == "Player")
+        {
+            float currSpeed = GetComponent<Electron>().isDead ? deathSpeed : lifeSpeed;
+            float movementMagnitude = collision.gameObject.GetComponent<MovementPrototype>().movement_vector.magnitude;
+            if (movementMagnitude < movement_vector.magnitude || movementMagnitude < currSpeed/2)
+            {
+                return;
+            }
+
+            Vector3 dir = transform.position - collision.transform.position;
+            dir.y = 0;
+            dir = dir.normalized;
+            gameObject.GetComponent<Rigidbody>().AddForce(dir * bounceForce);
+            duringBounce = true;
+            timeToEndBounce = 0;
+        }
     }
 }
