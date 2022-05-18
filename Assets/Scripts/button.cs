@@ -27,6 +27,8 @@ public class button : MonoBehaviour
 
     public int button_type=0;
 
+    public int if_fan = 0;
+
     private static readonly int EmissiveColor = Shader.PropertyToID("Emissive_Color");
     private static readonly int DetailColor = Shader.PropertyToID("Detail_Color");
 
@@ -43,7 +45,15 @@ public class button : MonoBehaviour
 
     void Update()
     {
-        if (flag || energabler.GetComponent<Energabler>().energy_units == 2)
+        if (if_fan==1&&(flag || energabler.GetComponent<Energabler>().energy_units == 2))
+        {
+            float step = speed * Time.deltaTime;
+
+            platform.transform.position = Vector3.MoveTowards(platform.transform.position, platform_position2.position, step);
+
+
+        }
+        else if (if_fan==0 && flag)
         {
             float step = speed * Time.deltaTime;
 
