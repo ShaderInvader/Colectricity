@@ -42,6 +42,11 @@ public class Cable : MonoBehaviour
         return player;
     }
 
+    public float getRangeOfConnection()
+    {
+        return range_of_connection;
+    }
+
     bool IsCableReady()
     {
         return ready;

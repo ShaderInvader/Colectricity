@@ -361,7 +361,8 @@ public class Electron : MonoBehaviour
                 minDist = dist;
             }
         }
-        if (distance_limit > 0 && minDist > distance_limit)
+        if ((distance_limit > 0 && minDist > distance_limit) 
+            || (eMin.GetComponent<Cable>() != null && eMin.GetComponent<Cable>().getRangeOfConnection() > 0 && minDist > eMin.GetComponent<Cable>().getRangeOfConnection()))
         {
             return null;
         }
