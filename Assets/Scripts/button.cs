@@ -93,7 +93,7 @@ public class button : MonoBehaviour
         {
             if (other.tag == "Player")
             {
-                if(other.GetComponent<Energabler>().energy_units == 1)
+                if(other.GetComponent<Energabler>().energy_units >= 1)
                 {
                     emission.SetActive(true);
 
@@ -113,7 +113,7 @@ public class button : MonoBehaviour
         {
             if (other.tag == "Player")
             {
-                if (other.GetComponent<Energabler>().energy_units ==2)
+                if (other.GetComponent<Energabler>().energy_units >=2)
                 {
                     emission.SetActive(true);
 
