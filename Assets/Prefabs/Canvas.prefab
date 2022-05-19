@@ -228,6 +228,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 384925610889206600}
+  - component: {fileID: 8654839685946150707}
+  - component: {fileID: 7980888571455221572}
   m_Layer: 5
   m_Name: pause_ui
   m_TagString: Untagged
@@ -259,6 +261,39 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &8654839685946150707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1723844294493667747}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77e0064ef9c408e47bdd4b28b6d7f422, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuName: Pause
+  selectables:
+  - button: {fileID: 8308201812865175184}
+    nextController: {fileID: 0}
+  - button: {fileID: 6523988535761782039}
+    nextController: {fileID: 0}
+  - button: {fileID: 2288296303658007172}
+    nextController: {fileID: 0}
+--- !u!114 &7980888571455221572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1723844294493667747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac81987404fb6814aaefedbb9b9c70b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentMenuController: {fileID: 8654839685946150707}
 --- !u!1 &1771239793213254067
 GameObject:
   m_ObjectHideFlags: 0

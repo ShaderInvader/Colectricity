@@ -313,7 +313,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.5372549, g: 0.9568628, b: 0.9686275, a: 1}
     m_PressedColor: {r: 0.2783019, g: 0.98031735, b: 1, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.5372549, g: 0.95686275, b: 0.96862745, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -446,7 +446,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.5372549, g: 0.9568628, b: 0.9686275, a: 1}
     m_PressedColor: {r: 0.2783019, g: 0.98031735, b: 1, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.5372549, g: 0.95686275, b: 0.96862745, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -4958,6 +4958,10 @@ GameObject:
   - component: {fileID: 1937989610}
   - component: {fileID: 1937989609}
   - component: {fileID: 1937989613}
+  - component: {fileID: 1937989615}
+  - component: {fileID: 1937989614}
+  - component: {fileID: 1937989616}
+  - component: {fileID: 1937989617}
   m_Layer: 5
   m_Name: Menu
   m_TagString: Untagged
@@ -5075,6 +5079,77 @@ MonoBehaviour:
   controllerDialog: {fileID: 373771370}
   creditsDialog: {fileID: 684280928}
   wEvents: {fileID: 1626491055}
+--- !u!114 &1937989614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1937989608}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77e0064ef9c408e47bdd4b28b6d7f422, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuName: Main
+  selectables:
+  - button: {fileID: 70909385}
+    nextController: {fileID: 1937989617}
+  - button: {fileID: 853399770}
+    nextController: {fileID: 1937989616}
+  - button: {fileID: 325579946}
+    nextController: {fileID: 0}
+--- !u!114 &1937989615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1937989608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac81987404fb6814aaefedbb9b9c70b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentMenuController: {fileID: 1937989614}
+--- !u!114 &1937989616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1937989608}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77e0064ef9c408e47bdd4b28b6d7f422, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuName: Credits
+  selectables:
+  - button: {fileID: 2045896509}
+    nextController: {fileID: 1937989614}
+--- !u!114 &1937989617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1937989608}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77e0064ef9c408e47bdd4b28b6d7f422, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuName: Play
+  selectables:
+  - button: {fileID: 754446685}
+    nextController: {fileID: 0}
+  - button: {fileID: 2058259306}
+    nextController: {fileID: 0}
+  - button: {fileID: 136289739}
+    nextController: {fileID: 0}
+  - button: {fileID: 100862211}
+    nextController: {fileID: 1937989614}
 --- !u!1 &1964323911
 GameObject:
   m_ObjectHideFlags: 0
