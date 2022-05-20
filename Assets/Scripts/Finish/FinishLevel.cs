@@ -52,7 +52,8 @@ public class FinishLevel : MonoBehaviour
 
     IEnumerator LoadLevelLag()
     {
-        yield return new WaitForSeconds(timeLag);
+        yield return FadeToBlackController.Instance.FadeOut();
+        //yield return new WaitForSeconds(timeLag);
         if (isGiverReady && isReceiverReady)
         {
             SceneManager.LoadScene(sceneName);
