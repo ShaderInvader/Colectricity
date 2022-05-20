@@ -5469,16 +5469,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d4fd34ee03267d468e83c7904802815, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeSpeed: 7
+  lifeSpeed: 8
   deathSpeed: 3
   scale_speed_factor: 1
-  angle: 0
+  angle: 315
   takeAngleFromCamera: 1
   dashSpeed: 2.5
   dashTime: 0.2
   movement_vector: {x: 0, y: 0, z: 0}
-  momentum_changer: 0.1
-  bounceForce: 100
+  momentum_changer: 0.08
+  bounceForce: 180
   bounceTime: 0.2
 --- !u!114 &5822440272893144625
 MonoBehaviour:
