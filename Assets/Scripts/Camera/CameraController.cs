@@ -35,6 +35,17 @@ public class CameraController : MonoBehaviour
         if (instance == null) instance = this;
         else Debug.LogError("There are two instances of CameraController in the scene!");
 
+        if(player1.name == "Oddawacz")
+        {
+            /*
+             Quick fix so that placing Oddawacz and Pobieracz in the correct order doesn't matter
+            TODO: Swap LeftCamera and RightCamera naming, current is not correct
+             */
+            Transform pom = player1;
+            player1 = player2;
+            player2 = pom;
+        }
+
         leftCamera = player1.GetComponentInChildren<Camera>();
         rightCamera = player2.GetComponentInChildren<Camera>();
         mainCamera = GetComponentInChildren<Camera>();
