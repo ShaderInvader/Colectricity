@@ -66,6 +66,8 @@ public class Electron : MonoBehaviour
 
     AudioSource audioSource;
 
+    public LightBulbs lb;
+
     private void Start()
     {
         liveBodyMaterial = GetComponent<MeshRenderer>().material;
@@ -149,6 +151,7 @@ public class Electron : MonoBehaviour
 
     public void ReceiveDamage(int damage)
     {
+        lb.TurnOffNext();
         health -= damage;
         if (health <= 0)
         {
@@ -270,6 +273,7 @@ public class Electron : MonoBehaviour
 
     public void Reborn()
     {
+        lb.TurnOnAll();
         health = originalHeath;
         isDead = false;
         GetComponent<MeshRenderer>().material = liveBodyMaterial;
