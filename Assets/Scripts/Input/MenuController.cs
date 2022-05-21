@@ -10,6 +10,9 @@ public class MenuController : MonoBehaviour
     public List<SelectableType> selectables;
     int currentSelectable;
 
+    float ignoreBelow = 0.2f;
+    bool inputed = false;
+
     KeyCode[] selectKeys = new KeyCode[] { KeyCode.DownArrow, KeyCode.UpArrow, KeyCode.Return };
 
     private void OnEnable()
@@ -24,29 +27,71 @@ public class MenuController : MonoBehaviour
     }
 
     void OnGUI()
-    {
-        KeyCode tempKeyCode;
+    {   
+        float leftInput = Input.GetAxisRaw("LeftVertical");
+        float rightInput = Input.GetAxisRaw("RightVertical");
 
-        if (!Event.current.isKey || Event.current.type != EventType.KeyDown)
+        int inputFromPad = 0;
+
+        if (Mathf.Abs(leftInput) > ignoreBelow && !inputed)
         {
+            if (leftInput > 0)
+            {
+                inputFromPad = 1;
+            }
+            else
+            {
+                inputFromPad = -1;
+            }
+        }
+
+        if (Mathf.Abs(rightInput) > ignoreBelow && !inputed)
+        {
+            if (rightInput > 0)
+            {
+                inputFromPad = 1;
+            }
+            else
+            {
+                inputFromPad = -1;
+            }
+        }
+
+        if(inputed && Mathf.Abs(leftInput) < ignoreBelow && Mathf.Abs(rightInput) < ignoreBelow)
+        {
+            inputFromPad = 0;
+            inputed = false;
+        }
+
+        if (inputFromPad != 0)
+        {
+            inputed = true;
+
+            if (currentSelectable >= 0)
+            {
+                selectables[currentSelectable].button.OnPointerExit(null);
+            }
+
+            if (inputFromPad == 1)
+            {
+                currentSelectable = currentSelectable < 0 ? 0 : currentSelectable;
+                currentSelectable = mod(currentSelectable - 1, selectables.Count);
+            }
+            else
+            {
+                currentSelectable = (currentSelectable + 1) % selectables.Count;
+            }
+            selectables[currentSelectable].button.OnPointerEnter(null);
             return;
         }
 
-        tempKeyCode = Event.current.keyCode;
-        Debug.Log(tempKeyCode);
-
-        if (!selectKeys.Contains(tempKeyCode))
+        if (currentSelectable >= 0)
         {
-            return;
-        }
-
-        if(currentSelectable>=0)
-        {
-            if(tempKeyCode == KeyCode.Return)
+            if (Input.GetButtonDown("Submit") || Input.GetButton("LeftEnv") || Input.GetButton("RightEnv"))
             {
                 selectables[currentSelectable].button.onClick.Invoke();
-                
-                if(selectables[currentSelectable].nextController == null)
+
+                if (selectables[currentSelectable].nextController == null)
                 {
                     return;
                 }
@@ -54,18 +99,46 @@ public class MenuController : MonoBehaviour
                 GetComponent<MenuManager>().ChangeMenu(selectables[currentSelectable].nextController);
                 return;
             }
-            selectables[currentSelectable].button.OnPointerExit(null);
         }
 
-        if (tempKeyCode == KeyCode.DownArrow)
-        {
-            currentSelectable = (currentSelectable + 1) % selectables.Count;
-        }
-        else if (tempKeyCode == KeyCode.UpArrow)
-        {
-            currentSelectable = currentSelectable < 0 ? 0 : currentSelectable;
-            currentSelectable = mod(currentSelectable-1, selectables.Count);
-        }
-        selectables[currentSelectable].button.OnPointerEnter(null);
+        //if (!Event.current.isKey || Event.current.type != EventType.KeyDown)
+        //{
+        //    return;
+        //}
+
+        //KeyCode tempKeyCode = Event.current.keyCode;
+
+        //if (!selectKeys.Contains(tempKeyCode))
+        //{
+        //    return;
+        //}
+
+        //if(currentSelectable>=0)
+        //{
+        //    if(tempKeyCode == KeyCode.Return)
+        //    {
+        //        selectables[currentSelectable].button.onClick.Invoke();
+
+        //        if(selectables[currentSelectable].nextController == null)
+        //        {
+        //            return;
+        //        }
+
+        //        GetComponent<MenuManager>().ChangeMenu(selectables[currentSelectable].nextController);
+        //        return;
+        //    }
+        //    selectables[currentSelectable].button.OnPointerExit(null);
+        //}
+
+        //if (tempKeyCode == KeyCode.DownArrow)
+        //{
+        //    currentSelectable = (currentSelectable + 1) % selectables.Count;
+        //}
+        //else if (tempKeyCode == KeyCode.UpArrow)
+        //{
+        //    currentSelectable = currentSelectable < 0 ? 0 : currentSelectable;
+        //    currentSelectable = mod(currentSelectable-1, selectables.Count);
+        //}
+        //selectables[currentSelectable].button.OnPointerEnter(null);
     }
 }
