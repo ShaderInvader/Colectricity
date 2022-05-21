@@ -16,7 +16,7 @@ public class Levitation : MonoBehaviour
         yStart = transform.localPosition.y;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         yOffset = Mathf.Sin((Time.fixedTime + offset) * Mathf.PI * frequency) * amplitude;
         transform.localPosition = new Vector3(transform.localPosition.x, yStart + yOffset, transform.localPosition.z);

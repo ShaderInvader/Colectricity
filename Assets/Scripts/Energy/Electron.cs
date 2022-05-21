@@ -68,6 +68,8 @@ public class Electron : MonoBehaviour
 
     private void Start()
     {
+        liveBodyMaterial = GetComponent<MeshRenderer>().material;
+        liveHeadMaterial = head.GetComponent<MeshRenderer>().material;
         audioSource = GetComponent<AudioSource>();
 
         baseY = followCode.offset.y;
@@ -88,6 +90,12 @@ public class Electron : MonoBehaviour
     {
         prevEnergy = GetComponent<Energabler>().energy_units;
         followCode.offset = new Vector3(followCode.offset.x, baseY + prevEnergy*mulYVal, followCode.offset.z);
+
+        if (isDead)
+        {
+            return;
+        }
+
         bool enviro_pressed = selectKeys.Env, player_pressed = selectKeys.Play;
 
         if ((enviro_pressed || player_pressed) && timer == 0)
@@ -267,7 +275,6 @@ public class Electron : MonoBehaviour
         GetComponent<MeshRenderer>().material = liveBodyMaterial;
         head.GetComponent<MeshRenderer>().material = liveHeadMaterial;
         prevEnergy = 0;
-        UpdateEmission(true);
     }
 
     void Receive()
@@ -345,6 +352,15 @@ public class Electron : MonoBehaviour
         }
 
         bool isElec = elec.gameObject.GetComponent<Electron>() != null;
+
+        if (isElec)
+        {
+            if (elec.gameObject.GetComponent<Electron>().isDead)
+            {
+                return;
+            }
+        }
+
         if ((isElec
             || (elec.gameObject.GetComponent<Cable>() != null && elec.GetComponent<Cable>().IsGoodToTransfer()))
             && GetComponent<Energabler>().RemEnergy(size_of_energy))

@@ -29,6 +29,10 @@ public class HeadMovement : MonoBehaviour
     void Update()
     {
         float speedMagnitude = electronMove.GetMovementVector().magnitude;
+        if (speedMagnitude <= 0.01)
+        {
+            return;
+        }
         float lerpVal = speedMagnitude / maxSpeed;
 
         transform.localPosition = Vector3.Lerp(startPosition, endPosition, lerpVal);
