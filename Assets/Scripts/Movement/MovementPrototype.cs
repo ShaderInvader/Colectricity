@@ -29,6 +29,9 @@ public class MovementPrototype : MonoBehaviour
     private float timeToEndBounce;
     private bool duringBounce = false;
 
+
+
+
     public Vector3 GetMovementVector()
     {
         return cur_movement_vector;
@@ -81,6 +84,8 @@ public class MovementPrototype : MonoBehaviour
         {
             readyDash = true;
         }
+
+  
     }
 
     void UpdateMovementVect()

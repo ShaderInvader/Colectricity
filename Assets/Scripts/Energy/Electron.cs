@@ -60,9 +60,16 @@ public class Electron : MonoBehaviour
     float baseY;
     public float mulYVal;
 
+    public AudioClip collectClip;
+    public AudioClip dischargeClip;
+    public AudioClip transferClip;
+
+    AudioSource audioSource;
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+
         baseY = followCode.offset.y;
         visualEffect1 = arc1.GetComponent<VisualEffect>();
         visualEffect2 = arc2.GetComponent<VisualEffect>();
@@ -265,6 +272,8 @@ public class Electron : MonoBehaviour
 
     void Receive()
     {
+        
+
         Energabler energabler = GetNearestEnergable(empty_acc: false, electron: false, cable: false);
         if (energabler == null)
         {
@@ -272,6 +281,7 @@ public class Electron : MonoBehaviour
         }
         else if (GetComponent<Energabler>().AddEnergy(size_of_energy))
         {
+            audioSource.PlayOneShot(collectClip);
             shockWaveParticleSystem.Play();
             StartCoroutine(cameraShake.Shake(0.07f, 0.2f));
             StartCoroutine(cameraShake2.Shake(0.07f, 0.2f));
@@ -286,6 +296,9 @@ public class Electron : MonoBehaviour
 
     void Give()
     {
+      
+
+
         Energabler energabler = GetNearestEnergable(full_acc: false, electron: false, cable: false);
         if (energabler == null)
         {
@@ -297,6 +310,7 @@ public class Electron : MonoBehaviour
         }
         else if (GetComponent<Energabler>().RemEnergy(size_of_energy))
         {
+            audioSource.PlayOneShot(dischargeClip);
             arc1.transform.position = energabler.transform.position;
             arc2.transform.position = energabler.transform.position;
             arc3.transform.position = energabler.transform.position;
@@ -315,6 +329,7 @@ public class Electron : MonoBehaviour
 
     void TransferToElectron()
     {
+
         Energabler elec = GetNearestEnergable(full_acc: false, isTransfer: true);
         if (elec == null)
         {
@@ -334,6 +349,9 @@ public class Electron : MonoBehaviour
             || (elec.gameObject.GetComponent<Cable>() != null && elec.GetComponent<Cable>().IsGoodToTransfer()))
             && GetComponent<Energabler>().RemEnergy(size_of_energy))
         {
+            audioSource.PlayOneShot(transferClip);
+
+
             if (player == Type.giver)
             {
                 arc4.transform.position = elec.transform.position;

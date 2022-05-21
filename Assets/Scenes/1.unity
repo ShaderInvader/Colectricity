@@ -1212,6 +1212,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9156543934575415275, guid: 7e40a1979db231248b7a0fa8f9ee7198, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4aee8c8734373a24dbc0306318da30d3, type: 3}
+    - target: {fileID: 9156543934575415275, guid: 7e40a1979db231248b7a0fa8f9ee7198, type: 3}
+      propertyPath: rolloffMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156543934575415275, guid: 7e40a1979db231248b7a0fa8f9ee7198, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e40a1979db231248b7a0fa8f9ee7198, type: 3}
 --- !u!198 &134530628 stripped
@@ -14343,6 +14355,14 @@ PrefabInstance:
       propertyPath: image
       value: 
       objectReference: {fileID: 525618912}
+    - target: {fileID: 5216546701836661286, guid: f613f2c32a01e9f4894bc655ada41a7b, type: 3}
+      propertyPath: m_Volume
+      value: 0.274
+      objectReference: {fileID: 0}
+    - target: {fileID: 5216546701836661286, guid: f613f2c32a01e9f4894bc655ada41a7b, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5822440272893144625, guid: f613f2c32a01e9f4894bc655ada41a7b, type: 3}
       propertyPath: arc
       value: 
