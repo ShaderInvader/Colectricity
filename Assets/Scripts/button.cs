@@ -111,7 +111,11 @@ public class button : MonoBehaviour
                     emission.SetActive(false);
 
                     flag = false;
-
+                    if (cable)
+                    {
+                        cable.material.SetColor(EmissiveColor, Color.Lerp(disabledEmissiveColor, enabledEmissiveColor, 0.0f));
+                        cable.material.SetColor(DetailColor, Color.Lerp(disabledDetailColor, enabledDetailColor, 0.0f));
+                    }
                 }
 
             }
@@ -138,7 +142,11 @@ public class button : MonoBehaviour
                     emission.SetActive(false);
 
                     flag = false;
-
+                    if (cable)
+                    {
+                        cable.material.SetColor(EmissiveColor, Color.Lerp(disabledEmissiveColor, enabledEmissiveColor, 0.0f));
+                        cable.material.SetColor(DetailColor, Color.Lerp(disabledDetailColor, enabledDetailColor, 0.0f));
+                    }
                 }
 
             }
