@@ -113,6 +113,10 @@ public class Electron : MonoBehaviour
                 {
                     health += 1;
                     lb.TurnOnNext();
+                    if (health < originalHeath)
+                    {
+                        regeneratorClock = regenerateAfter;
+                    }
                 }
             }
         }
@@ -172,7 +176,6 @@ public class Electron : MonoBehaviour
     {
         lb.TurnOffNext();
         health -= damage;
-        Debug.Log(health);
         if (health <= 0)
         {
             Die();

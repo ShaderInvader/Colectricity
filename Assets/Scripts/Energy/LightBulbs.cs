@@ -14,13 +14,19 @@ public class LightBulbs : MonoBehaviour
 
     public void TurnOffNext()
     {
-        int turnOffID = --currentHP;
-        lights[turnOffID].SetActive(false);
+        if (currentHP > 0)
+        {
+            int turnOffID = --currentHP;
+            lights[turnOffID].SetActive(false);
+        }
     }
     public void TurnOnNext()
     {
-        int turnOffID = currentHP++;
-        lights[turnOffID].SetActive(true);
+        if (currentHP < 2)
+        {
+            int turnOffID = currentHP++;
+            lights[turnOffID].SetActive(true);
+        }
     }
 
     public void TurnOnAll()
