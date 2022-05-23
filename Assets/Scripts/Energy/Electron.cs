@@ -12,7 +12,12 @@ public class Electron : MonoBehaviour
 {
     public enum Type { giver, receiver };
     public Type player;
+
     public int health = 1;
+    private int originalHeath;
+    public double regenerateAfter = 10;
+    private double regeneratorClock = 0;
+
     public bool isDead = false;
     public float time_to_shot_ms = 20;
     public float transfer_distance_limit = 0;
@@ -28,7 +33,7 @@ public class Electron : MonoBehaviour
     public Material deadHeadMaterial;
 
     public double intensityPower = 0.5;
-
+     
     public GameObject arc1;
     public GameObject arc2;
     public GameObject arc3;
@@ -42,7 +47,6 @@ public class Electron : MonoBehaviour
     int size_of_energy;
     float timer = 0;
 
-    private int originalHeath;
     public CameraShake cameraShake;
     public CameraShake cameraShake2;
     private int blockadeMask;
@@ -95,7 +99,22 @@ public class Electron : MonoBehaviour
 
         if (isDead)
         {
+            regeneratorClock = 0;
             return;
+        }
+
+        if(regeneratorClock > 0)
+        {
+            regeneratorClock -= Time.deltaTime;
+            
+            if(regeneratorClock<=0)
+            {
+                if (health != originalHeath)
+                {
+                    health += 1;
+                    lb.TurnOnNext();
+                }
+            }
         }
 
         bool enviro_pressed = selectKeys.Env, player_pressed = selectKeys.Play;
@@ -153,12 +172,14 @@ public class Electron : MonoBehaviour
     {
         lb.TurnOffNext();
         health -= damage;
+        Debug.Log(health);
         if (health <= 0)
         {
             Die();
         }
         else
         {
+            regeneratorClock = regenerateAfter;
             StartCoroutine(BlinkDamageBody(0.4f, Time.deltaTime));
             StartCoroutine(BlinkDamageHead(0.4f, Time.deltaTime));
             StartCoroutine(DamageBlink(0.4f, Time.deltaTime));
