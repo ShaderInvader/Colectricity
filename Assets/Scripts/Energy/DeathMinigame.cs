@@ -14,6 +14,7 @@ public class DeathMinigame : MonoBehaviour
     public Material particle_mat;
 
     private Electron elec;
+    private GameObject head;
     private List<GameObject> collectables = new List<GameObject>();
 
     void OnEnable()
@@ -66,7 +67,7 @@ public class DeathMinigame : MonoBehaviour
         float progress = collectables.Count / (float) howMany;
 
         GetComponent<MeshRenderer>().material.color = Color.Lerp(elec.liveBodyMaterial.color, elec.deadBodyMaterial.color, progress);
-        //GetComponent<MeshRenderer>().material.color = Color.Lerp(elec.liveHeadMaterial.color, elec.deadHeadMaterial.color, progress);
+        elec.head.GetComponent<MeshRenderer>().material.color = Color.Lerp(elec.liveHeadMaterial.color, elec.deadHeadMaterial.color, progress);
         //GetComponent<Light>().intensity = 
 
         if (collectables.Count == 0)
