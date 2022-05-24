@@ -10,8 +10,11 @@ public class SimpleAI : MonoBehaviour
     public float activationDistance = 1f;
     public float deativationDistance = 1.5f;
     public Electron target;
+    public Animator modelAnimator;
+
     void Start()
     {
+        modelAnimator = GetComponentInChildren<Animator>();
         sm = new StateMachine();
         states.Add(new WaitForElectronInRange(gameObject));
         states.Add(new GetNearElectron(gameObject));

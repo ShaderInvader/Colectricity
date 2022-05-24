@@ -45,6 +45,7 @@ public class MeleeAttack : ActionBase
     void Attack()
     {
         sinceLast = timeBetween;
+        sai.modelAnimator.SetTrigger("attacking");
         sai.target.ReceiveDamage(units);
     }
 }
