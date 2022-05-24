@@ -15,7 +15,7 @@ public class GetNearElectron : State
     public override void Enter()
     {
         base.Enter();
-        go.GetComponentInChildren<EnemyEffect>().UpdateEnemyEffect(2);
+        go.GetComponentInChildren<EnemyEffect>().SpeedUpEffect();
         ai = go.GetComponent<SimpleAI>();
         agent = go.GetComponent<NavMeshAgent>();
         agent.isStopped = false;
@@ -52,7 +52,7 @@ public class GetNearElectron : State
 
     public override void Exit()
     {
-        go.GetComponentInChildren<EnemyEffect>().UpdateEnemyEffect(0.5f);
+        go.GetComponentInChildren<EnemyEffect>().SlowDownEffect();
         foreach (ActionBase act in actions)
         {
             act.enabled = false;
