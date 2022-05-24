@@ -5,25 +5,28 @@ using UnityEngine;
 public class EnemyEffect : MonoBehaviour
 {
     public List<MeshRenderer> enemyEffect;
-    public float changingDuration;
-    public float speedUpBy = 2;
-    public int steps;
+    public float changingSpeed;
+    public float speedUpEffectBy = 2;
+    List<Vector4> startValues = new List<Vector4>();
+    List<Vector4> endValues = new List<Vector4>();
+    float t = 0;
 
     public void SpeedUpEffect()
     {
-        UpdateEnemyEffect(speedUpBy);
+        UpdateEnemyEffect(speedUpEffectBy);
     }
 
     public void SlowDownEffect()
     {
-        float slowDownBy = 1 / speedUpBy;
+        float slowDownBy = 1 / speedUpEffectBy;
         UpdateEnemyEffect(slowDownBy);
     }
 
     void UpdateEnemyEffect(float mul)
     {
-        List<Vector4> startValues = new List<Vector4>();
-        List<Vector4> endValues = new List<Vector4>();
+        startValues.Clear();
+        endValues.Clear();
+        t = 0;
         foreach (MeshRenderer mr in enemyEffect)
         {
             Vector4 startVal = mr.material.GetVector("ScrollSpeedCubes");
@@ -31,26 +34,33 @@ public class EnemyEffect : MonoBehaviour
             startValues.Add(startVal);
             endValues.Add(endVal);
         }
-        StartCoroutine(ChangeMaterialProps(startValues, endValues));
     }
 
-    IEnumerator ChangeMaterialProps(List<Vector4> startValues, List<Vector4> endValues)
+    void Update()
     {
-        Debug.Log("Start");
-        int countList = startValues.Count;
-        float stepDuration = changingDuration / steps;
-
-        for (float step = 0; step <= steps; step++)
+        if (startValues.Count == 0)
         {
-            float lerpVal = step / steps;
-            for (int i = 0; i < countList; i++)
-            {
-                Vector4 val = Vector4.Lerp(startValues[i], endValues[i], lerpVal);
-                enemyEffect[i].material.SetVector("ScrollSpeedCubes", val);
-            }
-
-            yield return new WaitForSeconds(stepDuration);
+            return;
         }
-        Debug.Log("End");
+
+        t += Time.deltaTime * changingSpeed;
+
+        if (t >= 1)
+        {
+            SetPropValue(1);
+            startValues.Clear();
+            endValues.Clear();
+            return;
+        }
+        SetPropValue(t);
+    }
+
+    void SetPropValue(float t)
+    {
+        for (int i = 0; i < startValues.Count; i++)
+        {
+            Vector4 val = Vector4.Lerp(startValues[i], endValues[i], t);
+            enemyEffect[i].material.SetVector("ScrollSpeedCubes", val);
+        }
     }
 }
