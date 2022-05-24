@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class SimpleAI : MonoBehaviour
 {
-    private StateMachine sm;
+    [HideInInspector]
+    public StateMachine sm;
     public List<State> states = new List<State>();
     int stateNumber;
     public float activationDistance = 1f;
