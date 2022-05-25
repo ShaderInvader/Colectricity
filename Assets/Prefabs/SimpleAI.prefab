@@ -145,9 +145,8 @@ MonoBehaviour:
   enemyEffect:
   - {fileID: 151480454150253151}
   - {fileID: 5624900972272314439}
-  changingDuration: 0.5
-  speedUpBy: 2
-  steps: 6
+  changingSpeed: 0
+  speedUpEffectBy: 2
 --- !u!1 &8214395662698608694
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,6 +300,7 @@ MonoBehaviour:
   radius: 3
   units: 1
   timeBetween: 2
+  attackAnimationDelay: 1.5
 --- !u!114 &7225401270156866050
 MonoBehaviour:
   m_ObjectHideFlags: 0

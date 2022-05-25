@@ -5,8 +5,12 @@ using UnityEngine;
 [RequireComponent(typeof(SimpleAI))]
 public class MeleeAttack : ActionBase
 {
-    private SimpleAI sai;
+    public float attackAnimationDelay;
+    private float attackDelayT;
+    private bool isAttackAnimationPlaying;
 
+    private SimpleAI sai;
+    
     private float sinceLast;
 
     void Start()
@@ -16,36 +20,66 @@ public class MeleeAttack : ActionBase
 
     void OnEnable()
     {
+        isAttackAnimationPlaying = false;
         sinceLast = timeBetween;
+        attackDelayT = attackAnimationDelay;
     }
 
     void Update()
     {
-        sinceLast -= Time.deltaTime;
-        sinceLast = sinceLast < 0 ? 0 : sinceLast;
-
-        if (sai.target == null)
+        if(!isAttackAnimationPlaying)
         {
-            return;
+            sinceLast -= Time.deltaTime;
+            sinceLast = sinceLast < 0 ? 0 : sinceLast;
+
+            if (hasValidTarget() && sinceLast == 0)
+            {
+                tryToAttack();
+            }
+        } 
+        else
+        {
+            attackDelayT -= Time.deltaTime;
+            attackDelayT = attackDelayT < 0 ? 0 : attackDelayT;
+
+            if (attackDelayT == 0)
+            {
+                if(hasValidTarget())
+                {
+                    Attack();
+                }
+                attackDelayT = attackAnimationDelay;
+                isAttackAnimationPlaying = false;
+            }
         }
 
-        if (sinceLast > 0)
-        {
-            return;
-        }
-
-        if (Vector3.Distance(sai.target.transform.position, transform.position) > radius)
-        {
-            return;
-        }
-
-        Attack();
     }
 
     void Attack()
     {
-        sinceLast = timeBetween;
-        sai.modelAnimator.SetTrigger("attacking");
+        
         sai.target.ReceiveDamage(units);
+    }
+
+    void tryToAttack()
+    {
+        sinceLast = timeBetween;
+        isAttackAnimationPlaying = true;
+        sai.modelAnimator.SetTrigger("attacking");
+    }
+
+    private bool hasValidTarget()
+    {
+        if (sai.target == null)
+        {
+            return false;
+        }
+
+        if (Vector3.Distance(sai.target.transform.position, transform.position) > radius)
+        {
+            return false;
+        }
+
+        return true;
     }
 }
