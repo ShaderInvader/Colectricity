@@ -20,6 +20,8 @@ public class Menu : MonoBehaviour
 
     public EventSystem wEvents;
 
+    private bool isLoading = false;
+
     public void Update()
     {
         wEvents.SetSelectedGameObject(null);
@@ -37,7 +39,11 @@ public class Menu : MonoBehaviour
     }
     public void StartGame()
     {
-        StartCoroutine(LoadAsynchronously(startLevelName));
+        if (!isLoading)
+        {
+            isLoading = true;
+            StartCoroutine(LoadAsynchronously(startLevelName));
+        }
     }
 
     public void pickBoth()
