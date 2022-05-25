@@ -44,11 +44,11 @@ public class scene_loader : MonoBehaviour
         }
         if (Input.GetKeyDown("5"))
         {
-            SceneManager.LoadScene("5_tutorial_enemy");
+            SceneManager.LoadScene("5");
         }
         if (Input.GetKeyDown("6"))
         {
-            SceneManager.LoadScene("6");
+            SceneManager.LoadScene("6_tutorial_enemy");
         }
         if (Input.GetKeyDown("7"))
         {
