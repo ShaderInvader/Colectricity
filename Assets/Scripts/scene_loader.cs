@@ -22,35 +22,33 @@ public class scene_loader : MonoBehaviour
             SceneManager.LoadScene(sceneName); 
         }
 
+        if (Input.GetKeyDown("0"))
+        {
+            SceneManager.LoadScene("0_tutorial");
+        }
         if (Input.GetKeyDown("1"))
         {
             SceneManager.LoadScene("1");
-
         }
         if (Input.GetKeyDown("2"))
         {
             SceneManager.LoadScene("2");
-
         }
         if (Input.GetKeyDown("3"))
         {
             SceneManager.LoadScene("3");
-
         }
         if (Input.GetKeyDown("4"))
         {
             SceneManager.LoadScene("4");
-
         }
         if (Input.GetKeyDown("5"))
         {
-            SceneManager.LoadScene("5");
-
+            SceneManager.LoadScene("5_tutorial_enemy");
         }
         if (Input.GetKeyDown("6"))
         {
             SceneManager.LoadScene("6");
-
         }
         if (Input.GetKeyDown("7"))
         {
@@ -64,23 +62,10 @@ public class scene_loader : MonoBehaviour
         {
             SceneManager.LoadScene("9");
         }
-        if (Input.GetKeyDown("z"))
+        if (Input.GetKeyDown("-"))
         {
-            SceneManager.LoadScene("10");
+            SceneManager.LoadScene("thankyouscene");
         }
-        if (Input.GetKeyDown("x"))
-        {
-            SceneManager.LoadScene("11");
-        }
-        if (Input.GetKeyDown("c"))
-        {
-            SceneManager.LoadScene("Arena1");
-        }
-        if (Input.GetKeyDown("v"))
-        {
-            SceneManager.LoadScene("Arena2");
-        }
-      
     }
 
     void OnTriggerEnter(Collider other)

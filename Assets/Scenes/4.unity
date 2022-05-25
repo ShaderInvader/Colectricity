@@ -40891,12 +40891,12 @@ ReflectionProbe:
   m_Enabled: 1
   serializedVersion: 2
   m_Type: 0
-  m_Mode: 1
+  m_Mode: 2
   m_RefreshMode: 2
   m_TimeSlicingMode: 0
   m_Resolution: 128
   m_UpdateFrequency: 0
-  m_BoxSize: {x: 12, y: 50, z: 100}
+  m_BoxSize: {x: 120, y: 50, z: 100}
   m_BoxOffset: {x: 0, y: 0, z: 0}
   m_NearClip: 0.3
   m_FarClip: 1000
@@ -48279,7 +48279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee8b8e6f7230f3d4b8ce3d12dfc40c7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: 5
+  sceneName: 5_tutorial_enemy
   changeLevel: 0
   count: 0
 --- !u!135 &2117245439
