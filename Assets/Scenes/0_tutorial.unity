@@ -7270,6 +7270,14 @@ PrefabInstance:
       propertyPath: player2
       value: 
       objectReference: {fileID: 1610704135}
+    - target: {fileID: 4281346437646083814, guid: 840cdc606ff0f8a488f854c30642f650, type: 3}
+      propertyPath: minDistanceBetweenPlayers1To2
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4281346437646083814, guid: 840cdc606ff0f8a488f854c30642f650, type: 3}
+      propertyPath: minDistanceBetweenPlayers2To1
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 4281346437646083815, guid: 840cdc606ff0f8a488f854c30642f650, type: 3}
       propertyPath: m_Name
       value: CamerasController
