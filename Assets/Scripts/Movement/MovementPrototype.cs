@@ -39,7 +39,8 @@ public class MovementPrototype : MonoBehaviour
 
     private void OnEnable()
     {
-        cam = gameObject.GetComponentInChildren<Camera>();
+        // HACK: This is a very dirty way to do this, but i need this for quick prototyping ~fmazurek
+        cam = GameObject.FindGameObjectWithTag("PrimaryCamera").GetComponent<Camera>();
     }
 
     private void Start()
