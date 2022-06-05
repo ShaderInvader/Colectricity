@@ -483,6 +483,9 @@ MonoBehaviour:
   m_Name: ScreenSplitPostProcess
   m_EditorClassIdentifier: 
   active: 1
+  enabled:
+    m_OverrideState: 0
+    m_Value: 0
   secondaryTexture:
     m_OverrideState: 1
     m_Value: {fileID: 8400000, guid: e64c9bbe53108b64a8d913cc8975e0d7, type: 2}
