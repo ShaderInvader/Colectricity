@@ -52,8 +52,8 @@ public class BruttalTextChangingController : MonoBehaviour
                 Color previous = texts[activeText].GetComponent<Text>().color;
                 texts[activeText].GetComponent<Text>().color = new Color(previous.r, previous.g, previous.b, previous.a - opacityChangeSpeed < 0 ? 0 : previous.a - opacityChangeSpeed);
 
-                previous = texts[activeText].Find(controller).GetComponent<Text>().color;
-                texts[activeText].Find(controller).GetComponent<Text>().color = new Color(previous.r, previous.g, previous.b, previous.a - opacityChangeSpeed < 0 ? 0 : previous.a - opacityChangeSpeed);
+                //previous = texts[activeText].Find(controller).GetComponent<Text>().color;
+                //texts[activeText].Find(controller).GetComponent<Text>().color = new Color(previous.r, previous.g, previous.b, previous.a - opacityChangeSpeed < 0 ? 0 : previous.a - opacityChangeSpeed);
             } 
             else // dissapear
             {
@@ -68,8 +68,8 @@ public class BruttalTextChangingController : MonoBehaviour
                     Color previous = texts[activeText].GetComponent<Text>().color;
                     texts[activeText].GetComponent<Text>().color = new Color(previous.r, previous.g, previous.b, 0);
 
-                    previous = texts[activeText].Find(controller).GetComponent<Text>().color;
-                    texts[activeText].Find(controller).GetComponent<Text>().color = new Color(previous.r, previous.g, previous.b, 0);
+                    //previous = texts[activeText].Find(controller).GetComponent<Text>().color;
+                    //texts[activeText].Find(controller).GetComponent<Text>().color = new Color(previous.r, previous.g, previous.b, 0);
                 }
             }
         }
@@ -80,8 +80,8 @@ public class BruttalTextChangingController : MonoBehaviour
                 Color previous = texts[activeText].GetComponent<Text>().color;
                 texts[activeText].GetComponent<Text>().color = new Color(previous.r, previous.g, previous.b, previous.a + opacityChangeSpeed > 1 ? 1 : previous.a + opacityChangeSpeed);
 
-                previous = texts[activeText].Find(controller).GetComponent<Text>().color;
-                texts[activeText].Find(controller).GetComponent<Text>().color = new Color(previous.r, previous.g, previous.b, previous.a + opacityChangeSpeed > 1 ? 1 : previous.a + opacityChangeSpeed);
+                //previous = texts[activeText].Find(controller).GetComponent<Text>().color;
+                //texts[activeText].Find(controller).GetComponent<Text>().color = new Color(previous.r, previous.g, previous.b, previous.a + opacityChangeSpeed > 1 ? 1 : previous.a + opacityChangeSpeed);
             }
         }
     }
@@ -116,9 +116,9 @@ public class BruttalTextChangingController : MonoBehaviour
             }
             else
             {
-                return "pc";
+                return "pc_only";
             }
         }
-        return "pc";
+        return "pc_only";
     }
 }
