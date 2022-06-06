@@ -32,8 +32,11 @@ public class button : MonoBehaviour
     private static readonly int EmissiveColor = Shader.PropertyToID("Emissive_Color");
     private static readonly int DetailColor = Shader.PropertyToID("Detail_Color");
 
+    private List<Collider> players;
+
     void Start()
     {
+        players = new List<Collider>();
         emission.SetActive(false);
         // HACK HACK HACK THIS IS A HACK PLEASE MAKE IT MORE CIVILIZED IN THE FUTURE
         if (cable)
@@ -68,15 +71,60 @@ public class button : MonoBehaviour
             platform.transform.position = Vector3.MoveTowards(platform.transform.position, platform_position1.position, step);
         }
 
+        players.ForEach(player =>
+        {
+            Collider other = player.GetComponent<Collider>();
+            switch (button_type)
+            {
+                case 2:
+                    if (other.GetComponent<Energabler>().energy_units < 1)
+                    {
+                        removeFromListAndTryToDeactivateButton(other);
+                    }
+                    break;
+
+                case 3:
+                    if (other.GetComponent<Energabler>().energy_units < 2)
+                    {
+                        removeFromListAndTryToDeactivateButton(other);
+                    }
+                    break;
+
+                default:
+                    break;
+            }
+            removeFromListAndTryToDeactivateButton(other);
+        });
     }
 
     private void OnTriggerStay(Collider other)
     {
         Debug.Log("entr");
-        if(button_type==0)
+        if(button_type==0 && other.tag == "Player")
         {
-            if (other.tag == "Player")
+            if(!players.Contains(other))
             {
+                players.Add(other);
+            }
+            emission.SetActive(true);
+
+            flag = true;
+
+            // HACK HACK HACK THIS IS A HACK PLEASE MAKE IT MORE CIVILIZED IN THE FUTURE
+            if (cable)
+            {
+                cable.material.SetColor(EmissiveColor, Color.Lerp(disabledEmissiveColor, enabledEmissiveColor, 1.0f));
+                cable.material.SetColor(DetailColor, Color.Lerp(disabledDetailColor, enabledDetailColor, 1.0f));
+            }
+        }
+        else if (button_type==1 && other.tag == "Player")
+        {
+            if(other.GetComponent<Energabler>().energy_units >= 1)
+            {
+                if (!players.Contains(other))
+                {
+                    players.Add(other);
+                }
                 emission.SetActive(true);
 
                 flag = true;
@@ -89,76 +137,38 @@ public class button : MonoBehaviour
                 }
             }
         }
-        else if (button_type==1)
+        else if (button_type == 2 && other.tag == "Player")
         {
-            if (other.tag == "Player")
+            if (other.GetComponent<Energabler>().energy_units >=2)
             {
-                if(other.GetComponent<Energabler>().energy_units >= 1)
+                if (!players.Contains(other))
                 {
-                    emission.SetActive(true);
-
-                    flag = true;
-
-                    // HACK HACK HACK THIS IS A HACK PLEASE MAKE IT MORE CIVILIZED IN THE FUTURE
-                    if (cable)
-                    {
-                        cable.material.SetColor(EmissiveColor, Color.Lerp(disabledEmissiveColor, enabledEmissiveColor, 1.0f));
-                        cable.material.SetColor(DetailColor, Color.Lerp(disabledDetailColor, enabledDetailColor, 1.0f));
-                    }
+                    players.Add(other);
                 }
-                else if (other.GetComponent<Energabler>().energy_units < 1)
+                emission.SetActive(true);
+
+                flag = true;
+
+                // HACK HACK HACK THIS IS A HACK PLEASE MAKE IT MORE CIVILIZED IN THE FUTURE
+                if (cable)
                 {
-                    emission.SetActive(false);
-
-                    flag = false;
-                    if (cable)
-                    {
-                        cable.material.SetColor(EmissiveColor, Color.Lerp(disabledEmissiveColor, enabledEmissiveColor, 0.0f));
-                        cable.material.SetColor(DetailColor, Color.Lerp(disabledDetailColor, enabledDetailColor, 0.0f));
-                    }
+                    cable.material.SetColor(EmissiveColor, Color.Lerp(disabledEmissiveColor, enabledEmissiveColor, 1.0f));
+                    cable.material.SetColor(DetailColor, Color.Lerp(disabledDetailColor, enabledDetailColor, 1.0f));
                 }
-
             }
         }
-        else if (button_type == 2)
-        {
-            if (other.tag == "Player")
-            {
-                if (other.GetComponent<Energabler>().energy_units >=2)
-                {
-                    emission.SetActive(true);
-
-                    flag = true;
-
-                    // HACK HACK HACK THIS IS A HACK PLEASE MAKE IT MORE CIVILIZED IN THE FUTURE
-                    if (cable)
-                    {
-                        cable.material.SetColor(EmissiveColor, Color.Lerp(disabledEmissiveColor, enabledEmissiveColor, 1.0f));
-                        cable.material.SetColor(DetailColor, Color.Lerp(disabledDetailColor, enabledDetailColor, 1.0f));
-                    }
-                }
-                else if (other.GetComponent<Energabler>().energy_units < 2)
-                {
-                    emission.SetActive(false);
-
-                    flag = false;
-                    if (cable)
-                    {
-                        cable.material.SetColor(EmissiveColor, Color.Lerp(disabledEmissiveColor, enabledEmissiveColor, 0.0f));
-                        cable.material.SetColor(DetailColor, Color.Lerp(disabledDetailColor, enabledDetailColor, 0.0f));
-                    }
-                }
-
-            }
-        }
-
-
     }
 
     private void OnTriggerExit(Collider other)
     {
         Debug.Log("exit");
-        if (other.tag == "Player")
+        removeFromListAndTryToDeactivateButton(other);
+    }
+
+    private void removeFromListAndTryToDeactivateButton(Collider other)
+    {
+        players.Remove(other);
+        if (other.tag == "Player" && players.Count == 0)
         {
             emission.SetActive(false);
             flag = false;
@@ -170,8 +180,6 @@ public class button : MonoBehaviour
                 cable.material.SetColor(DetailColor, Color.Lerp(disabledDetailColor, enabledDetailColor, 0.0f));
             }
         }
-    
     }
-
 
 }
