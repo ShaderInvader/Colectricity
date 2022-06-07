@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: a7aebcd597607c04982ac20524365b01, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 3fb45e0fd354c7540a753422ea00ac31, type: 2}
 --- !u!1001 &1630985
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7715,7 +7715,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e835a284603822a4584c6f2d80e9685a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.03
+      value: -0.09
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e835a284603822a4584c6f2d80e9685a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8837,6 +8837,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7687757341073395730, guid: 54278160a093ad44d9f78d551832dc0a, type: 3}
+      propertyPath: m_Speed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8214395662698608694, guid: 54278160a093ad44d9f78d551832dc0a, type: 3}
       propertyPath: m_Name
       value: Melee
@@ -8847,6 +8851,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9179753832912318413, guid: 54278160a093ad44d9f78d551832dc0a, type: 3}
       propertyPath: energyUnitsToDie
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9179753832912318414, guid: 54278160a093ad44d9f78d551832dc0a, type: 3}
+      propertyPath: radius
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9179753832912318414, guid: 54278160a093ad44d9f78d551832dc0a, type: 3}
+      propertyPath: timeBetween
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

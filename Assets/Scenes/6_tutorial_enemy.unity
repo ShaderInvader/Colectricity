@@ -12538,6 +12538,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7687757341073395730, guid: 54278160a093ad44d9f78d551832dc0a, type: 3}
+      propertyPath: m_Speed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8214395662698608694, guid: 54278160a093ad44d9f78d551832dc0a, type: 3}
       propertyPath: m_Name
       value: Melee
@@ -12560,6 +12564,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9179753832912318413, guid: 54278160a093ad44d9f78d551832dc0a, type: 3}
       propertyPath: energyUnitsToDie
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9179753832912318414, guid: 54278160a093ad44d9f78d551832dc0a, type: 3}
+      propertyPath: radius
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9179753832912318414, guid: 54278160a093ad44d9f78d551832dc0a, type: 3}
+      propertyPath: timeBetween
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

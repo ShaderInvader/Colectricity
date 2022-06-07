@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: 3a01fbf75ba70e34d846cc04a472283e, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: e8d263db016ec454f9151add5d0a7ea1, type: 2}
 --- !u!1001 &811003
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2602,6 +2602,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7687757341073395730, guid: 54278160a093ad44d9f78d551832dc0a, type: 3}
+      propertyPath: m_Speed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8214395662698608694, guid: 54278160a093ad44d9f78d551832dc0a, type: 3}
       propertyPath: m_Name
       value: Melee (1)
@@ -2612,6 +2616,14 @@ PrefabInstance:
       objectReference: {fileID: 795053126}
     - target: {fileID: 9179753832912318413, guid: 54278160a093ad44d9f78d551832dc0a, type: 3}
       propertyPath: energyUnitsToDie
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9179753832912318414, guid: 54278160a093ad44d9f78d551832dc0a, type: 3}
+      propertyPath: radius
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9179753832912318414, guid: 54278160a093ad44d9f78d551832dc0a, type: 3}
+      propertyPath: timeBetween
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -11388,6 +11400,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7687757341073395730, guid: 54278160a093ad44d9f78d551832dc0a, type: 3}
+      propertyPath: m_Speed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8214395662698608694, guid: 54278160a093ad44d9f78d551832dc0a, type: 3}
       propertyPath: m_Name
       value: Melee
@@ -11398,6 +11414,14 @@ PrefabInstance:
       objectReference: {fileID: 795053126}
     - target: {fileID: 9179753832912318413, guid: 54278160a093ad44d9f78d551832dc0a, type: 3}
       propertyPath: energyUnitsToDie
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9179753832912318414, guid: 54278160a093ad44d9f78d551832dc0a, type: 3}
+      propertyPath: radius
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9179753832912318414, guid: 54278160a093ad44d9f78d551832dc0a, type: 3}
+      propertyPath: timeBetween
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
