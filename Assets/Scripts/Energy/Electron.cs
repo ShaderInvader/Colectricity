@@ -72,11 +72,15 @@ public class Electron : MonoBehaviour
 
     public LightBulbs lb;
 
+    public float heightToDieAt = -6;
+    private Vector3 startingPosition;
+
     private void Start()
     {
         liveBodyMaterial = GetComponent<MeshRenderer>().material;
         liveHeadMaterial = head.GetComponent<MeshRenderer>().material;
         audioSource = GetComponent<AudioSource>();
+        startingPosition = transform.position;
 
         baseY = followCode.offset.y;
         visualEffect1 = arc1.GetComponent<VisualEffect>();
@@ -149,6 +153,12 @@ public class Electron : MonoBehaviour
             }
             timer += time_to_shot_ms / 1000;
         }
+
+        if (isPlayerTooLow())
+        {
+            returnToStart();
+        }
+
         timer -= Time.deltaTime;
         timer = timer < 0 ? 0 : timer;
     }
@@ -464,5 +474,15 @@ public class Electron : MonoBehaviour
 
         lr.SetPosition(0, transform.position);
         lr.SetPosition(1, target.position);
+    }
+
+    private bool isPlayerTooLow()
+    {
+        return transform.position.y <= heightToDieAt;
+    }
+    
+    private void returnToStart()
+    {
+        transform.position = startingPosition;
     }
 }
