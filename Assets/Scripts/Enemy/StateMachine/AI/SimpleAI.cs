@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,7 @@ public class SimpleAI : MonoBehaviour
     int stateNumber;
     public float activationDistance = 1f;
     public float deativationDistance = 1.5f;
+    public float startZone = 0.2f;
     public Electron target;
     public Animator modelAnimator;
 
@@ -19,6 +21,7 @@ public class SimpleAI : MonoBehaviour
         sm = new StateMachine();
         states.Add(new WaitForElectronInRange(gameObject));
         states.Add(new GetNearElectron(gameObject));
+        states.Add(new GoToStartPosition(gameObject));
         sm.CurrentState = states[0];
     }
 
@@ -38,8 +41,27 @@ public class SimpleAI : MonoBehaviour
         stateNumber = (stateNumber+1)%states.Count;
         sm.CurrentState = states[stateNumber];
     }
+
+    public void ChooseStateOfType(Type type)
+    {
+        for(int i=0; i<states.Count; i++)
+        {
+            if (states[i].GetType() == type)
+            {
+                stateNumber = i;
+                break;
+            }
+        }
+        sm.CurrentState = states[stateNumber];
+    }
+
     public float GetDistance(Transform el)
     {
         return Vector3.Distance(el.position, transform.position);
+    }
+
+    public float GetDistance(Vector3 el)
+    {
+        return Vector3.Distance(el, transform.position);
     }
 }

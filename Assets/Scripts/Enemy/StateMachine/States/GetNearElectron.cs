@@ -34,7 +34,7 @@ public class GetNearElectron : State
         {
             ai.target = null;
             agent.isStopped = true;
-            ai.NextState();
+            ai.ChooseStateOfType(typeof(GoToStartPosition));
             return;
         }
 
@@ -43,7 +43,7 @@ public class GetNearElectron : State
         {
             ai.target = null;
             agent.isStopped = true;
-            ai.NextState();
+            ai.ChooseStateOfType(typeof(GoToStartPosition));
             return;
         }
 

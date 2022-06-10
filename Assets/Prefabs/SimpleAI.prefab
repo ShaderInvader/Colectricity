@@ -165,6 +165,7 @@ GameObject:
   - component: {fileID: 9179753832912318414}
   - component: {fileID: 7225401270156866050}
   - component: {fileID: 3282342127975210583}
+  - component: {fileID: 3189429723989170600}
   m_Layer: 0
   m_Name: SimpleAI
   m_TagString: Untagged
@@ -284,7 +285,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   energyUnitsToDie: 2
-  endColor: {r: 0.21933071, g: 0.5640106, b: 0.9528302, a: 0}
 --- !u!114 &9179753832912318414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -331,6 +331,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   img: {fileID: 8879944048477982802}
+--- !u!114 &3189429723989170600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8214395662698608694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75fe56243f5e62b48b5c93f36e9971c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3706291689357963162
 PrefabInstance:
   m_ObjectHideFlags: 0
