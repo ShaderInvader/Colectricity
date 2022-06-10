@@ -44,7 +44,7 @@ public class GoToStartPosition : State
                 continue;
             }
             dist = ai.GetDistance(e.transform);
-            if (ai.activationDistance > dist)
+            if (ai.activationDistance > dist && ai.IsVisible(e.gameObject))
             {
                 ai.target = e;
                 ai.ChooseStateOfType(typeof(GetNearElectron));

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.AI;
 using UnityEngine;
+using System;
 
 public class GetNearElectron : State
 {
@@ -32,22 +33,31 @@ public class GetNearElectron : State
 
         if (ai.target.isDead)
         {
-            ai.target = null;
-            agent.isStopped = true;
-            ai.ChooseStateOfType(typeof(GoToStartPosition));
+            StartExitting(typeof(GoToStartPosition));
             return;
         }
 
         float dist = ai.GetDistance(ai.target.transform);
         if (ai.deativationDistance < dist)
         {
-            ai.target = null;
-            agent.isStopped = true;
-            ai.ChooseStateOfType(typeof(GoToStartPosition));
+            StartExitting(typeof(GoToStartPosition));
+            return;
+        }
+
+        if(!ai.IsVisible())
+        {
+            StartExitting(typeof(GoToStartPosition));
             return;
         }
 
         agent.SetDestination(ai.target.transform.position);
+    }
+    
+    private void StartExitting(Type type)
+    {
+        ai.target = null;
+        agent.isStopped = true;
+        ai.ChooseStateOfType(type);
     }
 
     public override void Exit()

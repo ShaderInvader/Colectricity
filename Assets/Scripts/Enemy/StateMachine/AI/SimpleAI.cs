@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class SimpleAI : MonoBehaviour
 {
+    private int blockadeMask;
     [HideInInspector]
     public StateMachine sm;
     public List<State> states = new List<State>();
@@ -23,6 +24,7 @@ public class SimpleAI : MonoBehaviour
         states.Add(new GetNearElectron(gameObject));
         states.Add(new GoToStartPosition(gameObject));
         sm.CurrentState = states[0];
+        blockadeMask = 1 << LayerMask.NameToLayer("Blockade");
     }
 
     private void Update()
@@ -63,5 +65,24 @@ public class SimpleAI : MonoBehaviour
     public float GetDistance(Vector3 el)
     {
         return Vector3.Distance(el, transform.position);
+    }
+
+    public bool IsVisible(GameObject potentialTarget=null)
+    {
+        if(potentialTarget == null)
+        {
+            if (target == null)
+            {
+                return false;
+            }
+            potentialTarget = target.gameObject;
+        }
+
+        RaycastHit hit;
+        Vector3 enemyPosition = transform.position;
+        Vector3 targetPosition = potentialTarget.transform.position;
+        float distance = Vector3.Distance(enemyPosition, targetPosition);
+        bool isColliding = Physics.Raycast(enemyPosition, targetPosition - enemyPosition, out hit, distance, blockadeMask);
+        return !isColliding;
     }
 }
