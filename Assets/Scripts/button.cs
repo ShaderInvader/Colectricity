@@ -71,114 +71,93 @@ public class button : MonoBehaviour
             platform.transform.position = Vector3.MoveTowards(platform.transform.position, platform_position1.position, step);
         }
 
-        players.ForEach(player =>
+        int sum = sumEnergyForPlayersOnButton();
+        bool shouldBeTurnedOn = false;
+
+        switch (button_type)
         {
-            Collider other = player.GetComponent<Collider>();
-            switch (button_type)
-            {
-                case 2:
-                    if (other.GetComponent<Energabler>().energy_units < 1)
-                    {
-                        removeFromListAndTryToDeactivateButton(other);
-                    }
-                    break;
+            case 1:
+                if (sum >= 1)
+                {
+                    Debug.Log(2 + " " + sum + " " + players.Count);
+                    shouldBeTurnedOn = true;
+                }
+                break;
 
-                case 3:
-                    if (other.GetComponent<Energabler>().energy_units < 2)
-                    {
-                        removeFromListAndTryToDeactivateButton(other);
-                    }
-                    break;
+            case 2:
+                if (sum >= 2)
+                {
+                    Debug.Log(3 + " " + sum + " " + players.Count);
+                    shouldBeTurnedOn = true;
+                }
+                break;
 
-                default:
-                    break;
-            }
-            removeFromListAndTryToDeactivateButton(other);
-        });
+            default:
+                if (players.Count > 0)
+                {
+                    Debug.Log(1 + " " + sum + " " + players.Count);
+                    shouldBeTurnedOn = true;
+                }
+                break;
+        }
+
+        if(shouldBeTurnedOn)
+        {
+            buttonIsTurnedOn();
+        }
+        else
+        {
+            buttonIsTurnedOff();
+        }
     }
 
     private void OnTriggerStay(Collider other)
     {
         Debug.Log("entr");
-        if(button_type==0 && other.tag == "Player")
+        if (!players.Contains(other) && other.tag == "Player")
         {
-            if(!players.Contains(other))
-            {
-                players.Add(other);
-            }
-            emission.SetActive(true);
-
-            flag = true;
-
-            // HACK HACK HACK THIS IS A HACK PLEASE MAKE IT MORE CIVILIZED IN THE FUTURE
-            if (cable)
-            {
-                cable.material.SetColor(EmissiveColor, Color.Lerp(disabledEmissiveColor, enabledEmissiveColor, 1.0f));
-                cable.material.SetColor(DetailColor, Color.Lerp(disabledDetailColor, enabledDetailColor, 1.0f));
-            }
-        }
-        else if (button_type==1 && other.tag == "Player")
-        {
-            if(other.GetComponent<Energabler>().energy_units >= 1)
-            {
-                if (!players.Contains(other))
-                {
-                    players.Add(other);
-                }
-                emission.SetActive(true);
-
-                flag = true;
-
-                // HACK HACK HACK THIS IS A HACK PLEASE MAKE IT MORE CIVILIZED IN THE FUTURE
-                if (cable)
-                {
-                    cable.material.SetColor(EmissiveColor, Color.Lerp(disabledEmissiveColor, enabledEmissiveColor, 1.0f));
-                    cable.material.SetColor(DetailColor, Color.Lerp(disabledDetailColor, enabledDetailColor, 1.0f));
-                }
-            }
-        }
-        else if (button_type == 2 && other.tag == "Player")
-        {
-            if (other.GetComponent<Energabler>().energy_units >=2)
-            {
-                if (!players.Contains(other))
-                {
-                    players.Add(other);
-                }
-                emission.SetActive(true);
-
-                flag = true;
-
-                // HACK HACK HACK THIS IS A HACK PLEASE MAKE IT MORE CIVILIZED IN THE FUTURE
-                if (cable)
-                {
-                    cable.material.SetColor(EmissiveColor, Color.Lerp(disabledEmissiveColor, enabledEmissiveColor, 1.0f));
-                    cable.material.SetColor(DetailColor, Color.Lerp(disabledDetailColor, enabledDetailColor, 1.0f));
-                }
-            }
+            players.Add(other);
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
         Debug.Log("exit");
-        removeFromListAndTryToDeactivateButton(other);
+        players.Remove(other);
     }
 
-    private void removeFromListAndTryToDeactivateButton(Collider other)
+    private int sumEnergyForPlayersOnButton()
     {
-        players.Remove(other);
-        if (other.tag == "Player" && players.Count == 0)
+        int sum = 0;
+        players.ForEach(player =>
         {
-            emission.SetActive(false);
-            flag = false;
+            Collider other = player.GetComponent<Collider>();
+            sum = sum + other.GetComponent<Energabler>().energy_units;
+        });
+        return sum;
+    }
 
-            // HACK HACK HACK THIS IS A HACK PLEASE MAKE IT MORE CIVILIZED IN THE FUTURE
-            if (cable)
-            {
-                cable.material.SetColor(EmissiveColor, Color.Lerp(disabledEmissiveColor, enabledEmissiveColor, 0.0f));
-                cable.material.SetColor(DetailColor, Color.Lerp(disabledDetailColor, enabledDetailColor, 0.0f));
-            }
+    private void buttonIsTurnedOn()
+    {
+        emission.SetActive(true);
+        flag = true;
+
+        if (cable)
+        {
+            cable.material.SetColor(EmissiveColor, Color.Lerp(disabledEmissiveColor, enabledEmissiveColor, 1.0f));
+            cable.material.SetColor(DetailColor, Color.Lerp(disabledDetailColor, enabledDetailColor, 1.0f));
+        }
+    }
+
+    private void buttonIsTurnedOff()
+    {
+        emission.SetActive(false);
+        flag = false;
+
+        if (cable)
+        {
+            cable.material.SetColor(EmissiveColor, Color.Lerp(disabledEmissiveColor, enabledEmissiveColor, 0.0f));
+            cable.material.SetColor(DetailColor, Color.Lerp(disabledDetailColor, enabledDetailColor, 0.0f));
         }
     }
 
