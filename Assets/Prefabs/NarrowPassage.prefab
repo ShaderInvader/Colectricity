@@ -571,9 +571,10 @@ GameObject:
   - component: {fileID: 2608585754976255380}
   - component: {fileID: 8599747894324748009}
   - component: {fileID: 8272129935289517018}
-  m_Layer: 0
+  - component: {fileID: 3432334497087899127}
+  m_Layer: 13
   m_Name: Narrow_passage_plane_low
-  m_TagString: Untagged
+  m_TagString: SmallDoor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -657,3 +658,16 @@ MonoBehaviour:
   minDistance: 5
   minIntensity: 0
   maxIntensity: 2
+--- !u!65 &3432334497087899127
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8329805117948277709}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.529002, y: 2.0616457, z: 0.0000005036236}
+  m_Center: {x: 1.764501, y: 0.0000019073486, z: -0.000000053286954}

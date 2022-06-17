@@ -27,6 +27,7 @@ public class MovementPrototype : MonoBehaviour
     private Vector3 originalAppliedVector, appliedVector = new Vector3(0, 0, 0);
     private float originalDurationVector, durationAppliedVector=0;
 
+    public List<string> knockbackables;
     public float bounceForce;
     public float bounceTime;
 
@@ -128,19 +129,50 @@ public class MovementPrototype : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.tag == "Player")
+        ApplyKnockback(collision.gameObject);
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        ApplyKnockback(other.gameObject);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        ApplyKnockback(other.gameObject);
+    }
+
+    void ApplyKnockback(GameObject other)
+    {
+        string collisionTag = other.transform.tag;
+        if (!knockbackables.Contains(collisionTag))
+        {
+            return;
+        }
+
+        if (other.transform.tag == "Player")
         {
             float currSpeed = GetComponent<Electron>().isDead ? deathSpeed : lifeSpeed;
-            float movementMagnitude = collision.gameObject.GetComponent<MovementPrototype>().movement_vector.magnitude;
-            if (movementMagnitude < movement_vector.magnitude || movementMagnitude < currSpeed/2)
+            float movementMagnitude = other.gameObject.GetComponent<MovementPrototype>().movement_vector.magnitude;
+            if (movementMagnitude < movement_vector.magnitude || movementMagnitude < currSpeed / 2)
             {
                 return;
             }
-
-            Vector3 dir = transform.position - collision.transform.position;
-            dir.y = 0;
-            dir = dir.normalized;
-            ApplyVector(dir * bounceForce, bounceTime);
         }
+
+        if (other.transform.tag == "SmallDoor")
+        {
+            if (GetComponent<Energabler>().energy_units == 0)
+            {
+                return;
+            }
+        }
+
+        Vector3 dir = transform.position - other.transform.position;
+        dir.y = 0;
+        dir = dir.normalized;
+        ApplyVector(dir * bounceForce, bounceTime);
     }
+
+
 }
