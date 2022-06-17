@@ -24,13 +24,11 @@ public class MovementPrototype : MonoBehaviour
     public float momentum_changer = 0.3f;
     private SelectKeys selectKeys;
 
+    private Vector3 originalAppliedVector, appliedVector = new Vector3(0, 0, 0);
+    private float originalDurationVector, durationAppliedVector=0;
+
     public float bounceForce;
     public float bounceTime;
-    private float timeToEndBounce;
-    private bool duringBounce = false;
-
-
-
 
     public Vector3 GetMovementVector()
     {
@@ -52,6 +50,7 @@ public class MovementPrototype : MonoBehaviour
     {
         if (isDashing)
         {
+            durationAppliedVector = 0;
             StartCoroutine(Dash(movement_vector));
             return;
         }
@@ -61,19 +60,18 @@ public class MovementPrototype : MonoBehaviour
             angle = cam.transform.eulerAngles.y;
         }
 
-        if (!duringBounce)
+        if (durationAppliedVector > 0)
         {
-            UpdateMovementVect();
-            Move(cur_movement_vector);
-        }
-        else
-        {
-            timeToEndBounce += Time.deltaTime;
-            if(timeToEndBounce > bounceTime)
+            durationAppliedVector -= Time.deltaTime;
+            if (durationAppliedVector < 0)
             {
-                duringBounce = false;
+                durationAppliedVector = 0;
             }
+            appliedVector = Vector3.Lerp(Vector3.zero, originalAppliedVector, durationAppliedVector / originalDurationVector);
         }
+
+        UpdateMovementVect();
+        Move(cur_movement_vector);
 
         if (selectKeys.Dash && readyDash)
         {
@@ -84,8 +82,6 @@ public class MovementPrototype : MonoBehaviour
         {
             readyDash = true;
         }
-
-  
     }
 
     void UpdateMovementVect()
@@ -98,6 +94,7 @@ public class MovementPrototype : MonoBehaviour
         Vector3 vel = new Vector3(right, 0, forward).normalized * (speed + add);
         movement_vector = Quaternion.Euler(0, angle, 0) * vel;
         cur_movement_vector = Vector3.Lerp(cur_movement_vector, movement_vector, momentum_changer);
+        cur_movement_vector += appliedVector;
     }
 
     void RotateBall(Vector3 vect)
@@ -123,6 +120,12 @@ public class MovementPrototype : MonoBehaviour
         isDashing = false;
     }
 
+    void ApplyVector(Vector3 appVect, float duration)
+    {
+        originalAppliedVector = appVect;
+        durationAppliedVector = originalDurationVector = duration;
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.tag == "Player")
@@ -137,9 +140,7 @@ public class MovementPrototype : MonoBehaviour
             Vector3 dir = transform.position - collision.transform.position;
             dir.y = 0;
             dir = dir.normalized;
-            gameObject.GetComponent<Rigidbody>().AddForce(dir * bounceForce);
-            duringBounce = true;
-            timeToEndBounce = 0;
+            ApplyVector(dir * bounceForce, bounceTime);
         }
     }
 }

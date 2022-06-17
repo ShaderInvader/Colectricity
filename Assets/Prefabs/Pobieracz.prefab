@@ -5479,7 +5479,7 @@ MonoBehaviour:
   dashTime: 0.2
   movement_vector: {x: 0, y: 0, z: 0}
   momentum_changer: 0.08
-  bounceForce: 180
+  bounceForce: 5
   bounceTime: 0.2
 --- !u!114 &5822440272893144625
 MonoBehaviour:
@@ -5525,6 +5525,7 @@ MonoBehaviour:
   dischargeClip: {fileID: 8300000, guid: 063fba7e8a93180418171c4f0dd37227, type: 3}
   transferClip: {fileID: 8300000, guid: df1a3e3f2ae53d74d876b6d55f665319, type: 3}
   lb: {fileID: 3540691049884618613}
+  heightToDieAt: -6
 --- !u!114 &5822440272893144626
 MonoBehaviour:
   m_ObjectHideFlags: 0
