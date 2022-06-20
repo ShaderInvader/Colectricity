@@ -425,10 +425,12 @@ public class Electron : MonoBehaviour
             {
                 elec.GetComponent<Electron>().UpdateEmission();
             }
-        }
 
             StartCoroutine(cameraShake.Shake(0.04f, 0.1f));
             StartCoroutine(cameraShake2.Shake(0.07f, 0.2f));
+        }
+
+            
 
     }
 
