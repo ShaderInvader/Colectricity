@@ -317,8 +317,6 @@ public class Electron : MonoBehaviour
 
     void Receive()
     {
-        
-
         Energabler energabler = GetNearestEnergable(empty_acc: false, electron: false, cable: false);
         if (energabler == null)
         {
@@ -341,19 +339,26 @@ public class Electron : MonoBehaviour
 
     void Give()
     {
-      
-
-
-        Energabler energabler = GetNearestEnergable(full_acc: false, electron: false, cable: false);
+        Energabler energabler = GetNearestEnergable(full_acc: false, electron: false, cable: false, isTransfer: true);
         if (energabler == null)
         {
             return;
         }
-        else if (energabler.GetComponent<Cable>() != null && energabler.GetComponent<Cable>().IsGoodToTransfer())
+
+        if (energabler.GetComponent<Cable>() != null && energabler.GetComponent<Cable>().IsGoodToTransfer())
         {
             return;
         }
-        else if (GetComponent<Energabler>().RemEnergy(size_of_energy))
+
+        RaycastHit hit;
+        float distance = Vector3.Distance(transform.position, energabler.transform.position);
+        bool isColliding = Physics.Raycast(transform.position, energabler.transform.position - transform.position, out hit, distance, blockadeMask);
+        if (isColliding)
+        {
+            return;
+        }
+
+        if (GetComponent<Energabler>().RemEnergy(size_of_energy))
         {
             audioSource.PlayOneShot(dischargeClip);
             arc1.transform.position = energabler.transform.position;
@@ -374,7 +379,6 @@ public class Electron : MonoBehaviour
 
     void TransferToElectron()
     {
-
         Energabler elec = GetNearestEnergable(full_acc: false, isTransfer: true);
         if (elec == null)
         {
@@ -429,9 +433,6 @@ public class Electron : MonoBehaviour
             StartCoroutine(cameraShake.Shake(0.04f, 0.1f));
             StartCoroutine(cameraShake2.Shake(0.07f, 0.2f));
         }
-
-            
-
     }
 
     Energabler GetNearestEnergable(bool full_acc = true, bool empty_acc = true, bool cable = true, bool electron = true, bool isTransfer = false)
