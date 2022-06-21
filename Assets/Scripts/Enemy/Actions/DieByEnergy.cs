@@ -1,29 +1,45 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DieByEnergy : MonoBehaviour
 {
+    public DissolveController dissolveController;
+    public GameObject enemyEffect;
     public int energyUnitsToDie = 3;
-    int current = 0, previous=0;
-    int max;
+
+    private int _current = 0;
+    private int _previous = 0;
+    private int _max;
+
 
     private void Start()
     {
-        max = energyUnitsToDie;
+        _max = energyUnitsToDie;
     }
 
     void Update()
     {
-        current = GetComponent<Energabler>().energy_units;
-        if (previous>current)
+        _current = GetComponent<Energabler>().energy_units;
+        if (_previous>_current)
         {
-            energyUnitsToDie -= (previous - current);
+            energyUnitsToDie -= (_previous - _current);
             if (energyUnitsToDie==0)
             {
-                Destroy(gameObject);
+                if (enemyEffect)
+                {
+                    Destroy(enemyEffect);
+                }
+                StartCoroutine(DeathCoroutine());
             }
         }
-        previous = current;
+        _previous = _current;
+    }
+
+    private IEnumerator DeathCoroutine()
+    {
+        yield return dissolveController.Dissolve();
+        Destroy(gameObject);
     }
 }

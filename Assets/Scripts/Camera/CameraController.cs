@@ -49,6 +49,7 @@ public class CameraController : MonoBehaviour
         leftCamera = player1.GetComponentInChildren<Camera>();
         rightCamera = player2.GetComponentInChildren<Camera>();
         mainCamera = GetComponentInChildren<Camera>();
+        changeToOneCamera();
     }
 
     void Start()
