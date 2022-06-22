@@ -9,6 +9,8 @@ public class DieByEnergy : MonoBehaviour
     public GameObject enemyEffect;
     public int energyUnitsToDie = 3;
 
+    private SimpleAI sai;
+
     private int _current = 0;
     private int _previous = 0;
     private int _max;
@@ -17,6 +19,7 @@ public class DieByEnergy : MonoBehaviour
     private void Start()
     {
         _max = energyUnitsToDie;
+        sai = GetComponent<SimpleAI>();
     }
 
     void Update()
@@ -25,6 +28,7 @@ public class DieByEnergy : MonoBehaviour
         if (_previous>_current)
         {
             energyUnitsToDie -= (_previous - _current);
+            sai.modelAnimator.SetTrigger("getting_hit");
             if (energyUnitsToDie==0)
             {
                 if (enemyEffect)
@@ -42,4 +46,5 @@ public class DieByEnergy : MonoBehaviour
         yield return dissolveController.Dissolve();
         Destroy(gameObject);
     }
+
 }
