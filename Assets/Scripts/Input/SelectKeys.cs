@@ -10,5 +10,5 @@ public class SelectKeys : MonoBehaviour
     public float Vertical => Input.GetAxisRaw(selection == Keys.left ? "LeftVertical" : "RightVertical");
     public bool Env => Input.GetButtonDown(selection == Keys.left ? "LeftEnv" : "RightEnv");
     public bool Play => Input.GetButtonDown(selection == Keys.left ? "LeftPlay" : "RightPlay");
-    public bool Dash => Input.GetButtonDown(selection == Keys.left ? "LeftDash" : "RightDash");
+    public bool Dash => Input.GetButtonDown(selection == Keys.left ? "LeftDash" : "RightDash") || (Input.GetAxisRaw(selection == Keys.left ? "LeftDash" : "RightDash") > 0.5f);
 }
