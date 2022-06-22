@@ -92,12 +92,18 @@ public class TransferStationScript : DistanceTriggeredOperation
         if (doStuff(e0, e1) || doStuff(e1, e0))
         {
             triggerActionWhenInDistance();
-            secondTransferStation.triggerActionWhenInDistance();
+            if (secondTransferStation)
+            {
+                secondTransferStation.triggerActionWhenInDistance();
+            }
         }
         else
         {
             triggerActionWhenOutOfDistance();
-            secondTransferStation.triggerActionWhenOutOfDistance();
+            if (secondTransferStation)
+            {
+                secondTransferStation.triggerActionWhenOutOfDistance();
+            }
         }
 
         if(cable.IsCableReady()) 

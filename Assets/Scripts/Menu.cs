@@ -24,7 +24,10 @@ public class Menu : MonoBehaviour
 
     public void Update()
     {
-        wEvents.SetSelectedGameObject(null);
+        if (wEvents)
+        {
+            wEvents.SetSelectedGameObject(null);
+        }
 
         if (Input.GetKey(KeyCode.Escape) && controllerDialog.activeSelf)
         {

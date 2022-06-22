@@ -25,15 +25,18 @@ public class CameraController : MonoBehaviour
     private float toNextChange = 0;
    
     [SerializeField]
-    private bool isChangingState = false; 
+    private bool isChangingState = false;
+
+    private void Awake()
+    {
+        if (instance == null) instance = this;
+        else Debug.LogError("There are two instances of CameraController in the scene!");
+    }
 
     void OnEnable()
     {
         player1 = GameObject.FindObjectsOfType<Electron>()[0].transform;
         player2 = GameObject.FindObjectsOfType<Electron>()[1].transform;
-
-        if (instance == null) instance = this;
-        else Debug.LogError("There are two instances of CameraController in the scene!");
 
         if(player1.name == "Oddawacz")
         {
@@ -165,7 +168,7 @@ public class CameraController : MonoBehaviour
     {
         if (leftCamera.GetComponent<CameraFollow>().parent == player) return leftCamera;
         else if (rightCamera.GetComponent<CameraFollow>().parent == player) return rightCamera;
-        else return null;
+        else throw new System.Exception($"Tried getting camera for {player.name} but got nothing! Most likely the CameraController is not yet fully initialized.");
     }
 
     public bool isVisibleFrom(Camera camera, Vector3 realPosition)

@@ -24,7 +24,11 @@ public class BruttalTextChangingController : MonoBehaviour
         controller = getControllerType();
         texts.ForEach(text => text.gameObject.SetActive(false));
         texts[activeText].gameObject.SetActive(true);
-        texts[activeText].Find(controller).gameObject.SetActive(true);
+        var textController = texts[activeText].Find(controller);
+        if (textController)
+        {
+            textController.gameObject.SetActive(true);
+        }
     }
 
     private void Update()
@@ -52,8 +56,13 @@ public class BruttalTextChangingController : MonoBehaviour
                 Color previous = texts[activeText].GetComponent<Text>().color;
                 texts[activeText].GetComponent<Text>().color = new Color(previous.r, previous.g, previous.b, previous.a - opacityChangeSpeed < 0 ? 0 : previous.a - opacityChangeSpeed);
 
-                previous = texts[activeText].Find(controller).GetComponent<Text>().color;
-                texts[activeText].Find(controller).GetComponent<Text>().color = new Color(previous.r, previous.g, previous.b, previous.a - opacityChangeSpeed < 0 ? 0 : previous.a - opacityChangeSpeed);
+                // This is NOT a proper fucking way of doing this in any way, and is basically a one huge fucking hack to stop the gor forsaken NullReferenceExceptions. I will lose my mind if I see one more code like this ~fmazurek
+                var textController = texts[activeText].Find(controller);
+                if (textController)
+                {
+                    previous = textController.GetComponent<Text>().color;
+                    textController.GetComponent<Text>().color = new Color(previous.r, previous.g, previous.b, previous.a - opacityChangeSpeed < 0 ? 0 : previous.a - opacityChangeSpeed);
+                }
             } 
             else // dissapear
             {
@@ -63,13 +72,20 @@ public class BruttalTextChangingController : MonoBehaviour
                 if(activeText < texts.Count)
                 {
                     texts[activeText].gameObject.SetActive(true);
-                    texts[activeText].Find(controller).gameObject.SetActive(true);
+                    var textController = texts[activeText].Find(controller);
+                    if (textController)
+                    {
+                        textController.gameObject.SetActive(true);
+                    }
 
                     Color previous = texts[activeText].GetComponent<Text>().color;
                     texts[activeText].GetComponent<Text>().color = new Color(previous.r, previous.g, previous.b, 0);
 
-                    previous = texts[activeText].Find(controller).GetComponent<Text>().color;
-                    texts[activeText].Find(controller).GetComponent<Text>().color = new Color(previous.r, previous.g, previous.b, 0);
+                    if (textController)
+                    {
+                        previous = textController.GetComponent<Text>().color;
+                        textController.GetComponent<Text>().color = new Color(previous.r, previous.g, previous.b, 0);
+                    }
                 }
             }
         }
@@ -80,8 +96,13 @@ public class BruttalTextChangingController : MonoBehaviour
                 Color previous = texts[activeText].GetComponent<Text>().color;
                 texts[activeText].GetComponent<Text>().color = new Color(previous.r, previous.g, previous.b, previous.a + opacityChangeSpeed > 1 ? 1 : previous.a + opacityChangeSpeed);
 
-                previous = texts[activeText].Find(controller).GetComponent<Text>().color;
-                texts[activeText].Find(controller).GetComponent<Text>().color = new Color(previous.r, previous.g, previous.b, previous.a + opacityChangeSpeed > 1 ? 1 : previous.a + opacityChangeSpeed);
+                // I assure you I will lose my mind if I find one more "texts[activeText].Find(controller)" copied around
+                var textController = texts[activeText].Find(controller);
+                if (textController)
+                {
+                    previous = textController.GetComponent<Text>().color;
+                    textController.GetComponent<Text>().color = new Color(previous.r, previous.g, previous.b, previous.a + opacityChangeSpeed > 1 ? 1 : previous.a + opacityChangeSpeed);
+                }
             }
         }
     }

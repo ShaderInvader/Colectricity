@@ -11,7 +11,7 @@ public class Indicator : MonoBehaviour
     [Tooltip("0 meaning center, 0.5 meaning edge of camera")]
     public float indicatorDistanceFromScreen = 0.4f;
 
-    private void Start()
+    private void Awake()
     {
         image = GameObject.Find(imageObjectName).transform;
         image.gameObject.SetActive(false);

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2544766881638604429}
   - component: {fileID: 7700564169792271598}
   - component: {fileID: 286916358720633132}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: light_container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -242,7 +242,7 @@ GameObject:
   - component: {fileID: 3919638877852011119}
   - component: {fileID: 2743222715923637645}
   - component: {fileID: 8471488573318338322}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: energy_growing_nskn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -342,7 +342,7 @@ GameObject:
   - component: {fileID: 5555183621043764885}
   - component: {fileID: 8471488574377188476}
   - component: {fileID: 6656756127721237805}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: door_button_pref
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -437,7 +437,7 @@ GameObject:
   - component: {fileID: 4404371249453707594}
   - component: {fileID: 7652856911384680083}
   - component: {fileID: 3239579139793532428}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: door_button_segment_glass_nskn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -520,7 +520,7 @@ GameObject:
   - component: {fileID: 8291823805975021066}
   - component: {fileID: 4362371542708327380}
   - component: {fileID: 8471488573050063739}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: door_button_fan_nskn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -620,7 +620,7 @@ GameObject:
   - component: {fileID: 5042921904165359652}
   - component: {fileID: 233891957165216975}
   - component: {fileID: 8471488572640490461}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: door_button_nskn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -713,7 +713,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8471488574006543819}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: FullDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -747,6 +747,10 @@ PrefabInstance:
     - target: {fileID: 3633159576656913244, guid: bfb1e8a6bb594b9479c8ebe91422a7df, type: 3}
       propertyPath: m_Name
       value: door_small_pref
+      objectReference: {fileID: 0}
+    - target: {fileID: 3633159576656913244, guid: bfb1e8a6bb594b9479c8ebe91422a7df, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4116364612000152038, guid: bfb1e8a6bb594b9479c8ebe91422a7df, type: 3}
       propertyPath: m_RootOrder
@@ -792,6 +796,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4515697223536474570, guid: bfb1e8a6bb594b9479c8ebe91422a7df, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 4515697223536474615, guid: bfb1e8a6bb594b9479c8ebe91422a7df, type: 3}
       propertyPath: m_Intensity
       value: 1061032.9
@@ -800,13 +808,29 @@ PrefabInstance:
       propertyPath: m_Intensity
       value: 1061032.9
       objectReference: {fileID: 0}
+    - target: {fileID: 4515697225030689756, guid: bfb1e8a6bb594b9479c8ebe91422a7df, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4610474653379216120, guid: bfb1e8a6bb594b9479c8ebe91422a7df, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 4610474653379216120, guid: bfb1e8a6bb594b9479c8ebe91422a7df, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5848065426874008174, guid: bfb1e8a6bb594b9479c8ebe91422a7df, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 5848065426874008174, guid: bfb1e8a6bb594b9479c8ebe91422a7df, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7135575486633843671, guid: bfb1e8a6bb594b9479c8ebe91422a7df, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfb1e8a6bb594b9479c8ebe91422a7df, type: 3}
@@ -852,6 +876,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8471488574006543819}
     m_Modifications:
+    - target: {fileID: 2886204277047609351, guid: 6e68038eac435c9478629002c1947b7b, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 2886204277092608576, guid: 6e68038eac435c9478629002c1947b7b, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -900,6 +928,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Door_cable_object
       objectReference: {fileID: 0}
+    - target: {fileID: 2886204277092608577, guid: 6e68038eac435c9478629002c1947b7b, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 2886204277138186722, guid: 6e68038eac435c9478629002c1947b7b, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -913,8 +945,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2886204277138186735, guid: 6e68038eac435c9478629002c1947b7b, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2886204277138186735, guid: 6e68038eac435c9478629002c1947b7b, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 126
+      objectReference: {fileID: 0}
+    - target: {fileID: 2886204277566812500, guid: 6e68038eac435c9478629002c1947b7b, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2886204278723002326, guid: 6e68038eac435c9478629002c1947b7b, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e68038eac435c9478629002c1947b7b, type: 3}

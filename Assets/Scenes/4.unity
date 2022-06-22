@@ -2547,6 +2547,17 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 6761965238731057254, guid: b0d27db022a703343aa4465d9a35657d, type: 3}
+--- !u!114 &122073263 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4933938452422672479, guid: f9482dffa5c453545bd6ce96dc2db3c4, type: 3}
+  m_PrefabInstance: {fileID: 534937629}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19fc0bdc67c7aba489315f971115b74e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &128095972
 GameObject:
   m_ObjectHideFlags: 0
@@ -5615,6 +5626,17 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1463682053287589242, guid: 3b0c3ab7149d26f41b592a24f6b05ab6, type: 3}
+--- !u!114 &449353358 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4933938452422672479, guid: f9482dffa5c453545bd6ce96dc2db3c4, type: 3}
+  m_PrefabInstance: {fileID: 1475734740}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19fc0bdc67c7aba489315f971115b74e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &463521138
 GameObject:
   m_ObjectHideFlags: 0
@@ -6670,6 +6692,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: transfer_station_pref (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4933938452422672479, guid: f9482dffa5c453545bd6ce96dc2db3c4, type: 3}
+      propertyPath: secondTransferStation
+      value: 
+      objectReference: {fileID: 449353358}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9482dffa5c453545bd6ce96dc2db3c4, type: 3}
 --- !u!1 &534937630 stripped
@@ -31342,6 +31368,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.38
       objectReference: {fileID: 0}
+    - target: {fileID: 6745581380330533945, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
+      propertyPath: material
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f5c6e55b6ea587468dcad0748b8749e, type: 2}
     - target: {fileID: 6745581380489110704, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
       propertyPath: m_Materials.Array.size
       value: 1
@@ -31349,7 +31379,7 @@ PrefabInstance:
     - target: {fileID: 6745581380489110704, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: b28becff4304b4d45b1f465f91f915b2, type: 2}
+      objectReference: {fileID: 2100000, guid: 0f5c6e55b6ea587468dcad0748b8749e, type: 2}
     - target: {fileID: 6745581380489110705, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -39452,6 +39482,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -2.64
       objectReference: {fileID: 0}
+    - target: {fileID: 6745581380330533945, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
+      propertyPath: material
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f5c6e55b6ea587468dcad0748b8749e, type: 2}
     - target: {fileID: 6745581380489110704, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
       propertyPath: m_Materials.Array.size
       value: 1
@@ -39459,7 +39493,7 @@ PrefabInstance:
     - target: {fileID: 6745581380489110704, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: b28becff4304b4d45b1f465f91f915b2, type: 2}
+      objectReference: {fileID: 2100000, guid: 0f5c6e55b6ea587468dcad0748b8749e, type: 2}
     - target: {fileID: 6745581380489110704, guid: 9cf24f99655eb9b469e277ba2453b905, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
@@ -40530,6 +40564,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: transfer_station_pref (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4933938452422672479, guid: f9482dffa5c453545bd6ce96dc2db3c4, type: 3}
+      propertyPath: secondTransferStation
+      value: 
+      objectReference: {fileID: 122073263}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9482dffa5c453545bd6ce96dc2db3c4, type: 3}
 --- !u!1 &1475734741 stripped

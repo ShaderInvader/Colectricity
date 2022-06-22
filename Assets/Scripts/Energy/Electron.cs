@@ -50,6 +50,7 @@ public class Electron : MonoBehaviour
     public CameraShake cameraShake;
     public CameraShake cameraShake2;
     private int blockadeMask;
+    private int activatorMask;
     private Color originalColor;
     private SelectKeys selectKeys;
     private int prevEnergy;
@@ -94,6 +95,7 @@ public class Electron : MonoBehaviour
         size_of_energy = GlobalVars.energy_amount_unit;
         bool isWSAD = gameObject.GetComponent<SelectKeys>().selection == SelectKeys.Keys.left;
         blockadeMask = 1 << LayerMask.NameToLayer("Blockade");
+        activatorMask = 1 << LayerMask.NameToLayer("Activator");
     }
 
     void Update()
@@ -387,7 +389,7 @@ public class Electron : MonoBehaviour
 
         RaycastHit hit;
         float distance = Vector3.Distance(transform.position, elec.transform.position);
-        bool isColliding = Physics.Raycast(transform.position, elec.transform.position - transform.position, out hit, distance, blockadeMask);
+        bool isColliding = Physics.Raycast(transform.position, elec.transform.position - transform.position, out hit, distance, blockadeMask | activatorMask);
         if (isColliding)
         {
             return;
