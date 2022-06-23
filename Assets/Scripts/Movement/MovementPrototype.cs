@@ -52,6 +52,7 @@ public class MovementPrototype : MonoBehaviour
         if (isDashing)
         {
             durationAppliedVector = 0;
+            appliedVector = Vector3.zero;
             StartCoroutine(Dash(movement_vector));
             return;
         }
