@@ -3,6 +3,8 @@ using System.Collections;
 using Modules.SceneModule.Data;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
+using Zenject;
 
 namespace Modules.SceneModule
 {
@@ -21,7 +23,14 @@ namespace Modules.SceneModule
         
         public event Action<GameScene, int, int> SceneLoadingStarted;
         public event Action<GameScene, int, int> SceneLoadingFinished;
+        
+        [Inject]
+        public void Construct(SceneDatabase database)
+        {
+            sceneDatabase = database;
+        }
 
+        [ContextMenu("Load Main Menu")]
         public void LoadMainMenu()
         {
             StartCoroutine(LoadSceneCoroutine(sceneDatabase.mainMenu, -1, -1, true));
@@ -32,10 +41,18 @@ namespace Modules.SceneModule
             StartCoroutine(LoadSceneCoroutine(sceneDatabase.sections[section].sectionLevels[level], section, level, true));
         }
 
+        [ContextMenu("Load Next Level")]
         public void LoadNextLevel()
         {
+            if (CurrentSection == -1 || CurrentLevel == -1)
+            {
+                LoadLevel(0, 0);
+                return;
+            }
+            
             int section = CurrentSection;
             int level = CurrentLevel;
+            
             if (level < sceneDatabase.sections[section].sectionLevels.Length - 1)
             {
                 level++;
@@ -54,10 +71,18 @@ namespace Modules.SceneModule
             LoadLevel(section, level);
         }
 
+        [ContextMenu("Load Previous Level")]
         public void LoadPreviousLevel()
         {
+            if (CurrentSection == -1 || CurrentLevel == -1)
+            {
+                Debug.LogWarning("Can't determine previous level, because we are in menu scene");
+                return;
+            }
+            
             int section = CurrentSection;
             int level = CurrentLevel;
+            
             if (level > 0)
             {
                 level--;
@@ -76,6 +101,7 @@ namespace Modules.SceneModule
             LoadLevel(section, level);
         }
 
+        [ContextMenu("Load Ending Scene")]
         public void LoadEndingScene()
         {
             StartCoroutine(LoadSceneCoroutine(sceneDatabase.endingScene, -1, -1, false));
@@ -94,7 +120,7 @@ namespace Modules.SceneModule
             if (showLoadingScreen)
             {
                 // Load scene with loading screen synchronously
-                SceneManager.LoadScene(sceneDatabase.loadingScene.name);
+                SceneManager.LoadScene(sceneDatabase.loadingScene.sceneName);
                 CurrentScene = sceneDatabase.loadingScene;
                 CurrentSection = -1;
                 CurrentLevel = -1;
