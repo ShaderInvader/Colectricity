@@ -4,38 +4,38 @@ using UnityEngine;
 
 public class HeadMovement : MonoBehaviour
 {
-    public MovementPrototype electronMove;
+    public Movement movement;
 
     public Transform targetTransform;
-    Vector3 startPosition;
-    Quaternion startRotation;
+    private Vector3 _startPosition;
+    private Quaternion _startRotation;
 
-    Vector3 endPosition;
-    Quaternion endRotation;
+    private Vector3 _endPosition;
+    private Quaternion _endRotation;
 
-    float maxSpeed;
+    private float _maxSpeed;
 
-    void Start()
+    private void Start()
     {
-        startPosition = transform.localPosition;
-        startRotation = transform.localRotation;
+        _startPosition = transform.localPosition;
+        _startRotation = transform.localRotation;
 
-        endPosition = targetTransform.localPosition;
-        endRotation = targetTransform.localRotation;
+        _endPosition = targetTransform.localPosition;
+        _endRotation = targetTransform.localRotation;
 
-        maxSpeed = electronMove.lifeSpeed;
+        _maxSpeed = movement.NormalSpeed;
     }
 
-    void Update()
+    private void Update()
     {
-        float speedMagnitude = electronMove.GetMovementVector().magnitude;
+        float speedMagnitude = movement.MovementVector.magnitude;
         if (speedMagnitude <= 0.01)
         {
             return;
         }
-        float lerpVal = speedMagnitude / maxSpeed;
+        float lerpVal = speedMagnitude / _maxSpeed;
 
-        transform.localPosition = Vector3.Lerp(startPosition, endPosition, lerpVal);
-        transform.localRotation = Quaternion.Lerp(startRotation, endRotation, lerpVal);
+        transform.localPosition = Vector3.Lerp(_startPosition, _endPosition, lerpVal);
+        transform.localRotation = Quaternion.Lerp(_startRotation, _endRotation, lerpVal);
     }
 }

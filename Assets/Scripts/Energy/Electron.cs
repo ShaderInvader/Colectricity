@@ -2,12 +2,12 @@ using System;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using Image = UnityEngine.UI.Image;
 using UnityEngine.VFX;
 
 [RequireComponent(typeof(Energabler))]
-[RequireComponent(typeof(SelectKeys))]
 public class Electron : MonoBehaviour
 {
     public enum Type { giver, receiver };
@@ -52,7 +52,6 @@ public class Electron : MonoBehaviour
     private int blockadeMask;
     private int activatorMask;
     private Color originalColor;
-    private SelectKeys selectKeys;
     private int prevEnergy;
     private VisualEffect visualEffect1;
     private VisualEffect visualEffect2;
@@ -76,6 +75,8 @@ public class Electron : MonoBehaviour
     public float heightToDieAt = -6;
     private Vector3 startingPosition;
 
+    private PlayerInput _playerInput;
+
     private void Start()
     {
         liveBodyMaterial = GetComponent<MeshRenderer>().material;
@@ -90,12 +91,12 @@ public class Electron : MonoBehaviour
         visualEffect4 = arc4.GetComponent<VisualEffect>();
         visualEffect5 = arc5.GetComponent<VisualEffect>();
         visualEffect6 = arc6.GetComponent<VisualEffect>();
-        selectKeys = GetComponent<SelectKeys>();
         originalHeath = health;
         size_of_energy = GlobalVars.energy_amount_unit;
-        bool isWSAD = gameObject.GetComponent<SelectKeys>().selection == SelectKeys.Keys.left;
         blockadeMask = 1 << LayerMask.NameToLayer("Blockade");
         activatorMask = 1 << LayerMask.NameToLayer("Activator");
+
+        _playerInput = GetComponent<PlayerInput>();
     }
 
     void Update()
@@ -127,13 +128,14 @@ public class Electron : MonoBehaviour
             }
         }
 
-        bool enviro_pressed = selectKeys.Env, player_pressed = selectKeys.Play;
+        var enviroPressed = _playerInput.actions["InteractObject"].WasPerformedThisFrame();
+        var playerPressed = _playerInput.actions["InteractPlayer"].WasPerformedThisFrame();
 
-        if ((enviro_pressed || player_pressed) && timer == 0)
+        if ((enviroPressed || playerPressed) && timer == 0)
         {
             if (player == Type.giver)
             {
-                if (enviro_pressed)
+                if (enviroPressed)
                 {
                     Give();
                 }
@@ -144,7 +146,7 @@ public class Electron : MonoBehaviour
             }
             else
             {
-                if (enviro_pressed)
+                if (enviroPressed)
                 {
                     Receive();
                 }
