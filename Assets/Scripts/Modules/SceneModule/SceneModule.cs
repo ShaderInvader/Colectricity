@@ -3,7 +3,6 @@ using System.Collections;
 using Modules.SceneModule.Data;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 using Zenject;
 
 namespace Modules.SceneModule
@@ -11,6 +10,8 @@ namespace Modules.SceneModule
     public class SceneModule : MonoBehaviour
     {
         public SceneDatabase sceneDatabase;
+        [Tooltip("Loading scene artificial delay in seconds")]
+        public float loadingSceneDelay = 1.0f;
 
         public GameScene CurrentScene { get; private set; } = null;
         // Current section number, from 0 to inf; -1 represents a menu scene
@@ -124,6 +125,7 @@ namespace Modules.SceneModule
                 CurrentScene = sceneDatabase.loadingScene;
                 CurrentSection = -1;
                 CurrentLevel = -1;
+                yield return new WaitForSeconds(loadingSceneDelay);
             }
             
             // Load target scene asynchronously

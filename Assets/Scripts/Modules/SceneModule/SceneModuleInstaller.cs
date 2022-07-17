@@ -11,7 +11,7 @@ namespace Modules.SceneModule
         public override void InstallBindings()
         {
             Container.Bind<SceneDatabase>().FromScriptableObject(sceneDatabase).AsSingle().NonLazy();
-            Container.Bind<SceneModule>().FromNewComponentOnRoot().AsSingle().NonLazy();
+            Container.Bind<SceneModule>().FromNewComponentOnNewGameObject().AsSingle().NonLazy();
         }
     }
 }
