@@ -1,24 +1,23 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerInputModule : MonoBehaviour
 {
     public static PlayerInputModule Instance { get; private set; }
-    public List<PlayerInput> PlayerList { get; private set; }
-    public List<string> PlayersControlSchemes { get; private set; }
-    public List<InputDevice> PlayerDevices { get; private set; }
+    public Dictionary<PlayerInputSelector.Character, PlayerInput> PlayerList { get; private set; }
+    public Dictionary<PlayerInputSelector.Character, string> PlayersControlSchemes { get; private set; }
+    public Dictionary<PlayerInputSelector.Character, InputDevice> PlayerDevices { get; private set; }
     
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
-            PlayerList = new List<PlayerInput>();
-            PlayersControlSchemes = new List<string>();
-            PlayerDevices = new List<InputDevice>();
+            PlayerList = new Dictionary<PlayerInputSelector.Character, PlayerInput>();
+            PlayersControlSchemes = new Dictionary<PlayerInputSelector.Character, string>();
+            PlayerDevices = new Dictionary<PlayerInputSelector.Character, InputDevice>();
             DontDestroyOnLoad(gameObject);
         }
         else
@@ -26,19 +25,45 @@ public class PlayerInputModule : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
-    void Start()
+
+    private void OnEnable()
     {
-        
+        CursorControler.OnDoneSelecting += PlayersDoneSelecting;
     }
 
-    void OnPlayerJoined(PlayerInput playerInput)
+    private void OnDisable()
     {
-        PlayerList.Add(playerInput);
+        CursorControler.OnDoneSelecting -= PlayersDoneSelecting;
     }
-    
-    void OnPlayerLeft(PlayerInput playerInput)
+
+    private void PlayersDoneSelecting()
     {
-        
+        var playerCursors = GameObject.FindGameObjectsWithTag("PlayerCursor");
+
+        var first = playerCursors[0].GetComponent<CursorControler>().PlayerSelection;
+        for (var i = 0; i < playerCursors.Length; i++)
+        {
+            if (!playerCursors[i].GetComponent<CursorControler>().ObjectSelected)
+            {
+                return;
+            }
+
+            if (i > 0 && playerCursors[i].GetComponent<CursorControler>().PlayerSelection == first)
+            {
+                return;
+            }
+        }
+
+        foreach (var t in playerCursors)
+        {
+            var playerInputComponent = t.GetComponent<PlayerInput>();
+            var playerIndex = t.GetComponent<CursorControler>().PlayerSelection;
+            
+            PlayerList.Add(playerIndex, playerInputComponent);
+            PlayerDevices.Add(playerIndex, playerInputComponent.devices[0]);
+            PlayersControlSchemes.Add(playerIndex, playerInputComponent.currentControlScheme);
+        }
+
+        SceneManager.LoadScene(1);
     }
 }
