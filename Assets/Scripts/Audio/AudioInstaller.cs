@@ -6,11 +6,13 @@ using Zenject;
 public class AudioInstaller : ScriptableObjectInstaller<AudioInstaller>
 {
     public Sound[] sounds;
+    public Object globalAudioSourcePrefab;
+    public AudioMixer gloablAudioMixer;
     
     public override void InstallBindings()
     {
-        Container.Bind<AudioManager>().FromComponentInNewPrefabResource("Assets/Prefabs/GlobalAudioSource.prefab").AsSingle();
-        Container.Bind<Sound[]>().FromInstance(sounds);
-        Container.Bind<AudioMixer>().FromResource("Assets/Sounds/MainAudioMixer.mixer").AsSingle();
+        Container.Bind<AudioManager>().FromComponentInNewPrefab(globalAudioSourcePrefab).AsSingle().NonLazy();
+        Container.Bind<Sound[]>().FromInstance(sounds).AsSingle();
+        Container.Bind<AudioMixer>().FromInstance(gloablAudioMixer).AsSingle();
     }
 }
