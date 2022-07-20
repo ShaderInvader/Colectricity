@@ -6,13 +6,15 @@ public class PlayerJoin : MonoBehaviour
     [SerializeField] private GameObject player1CursorPrefab;
     [SerializeField] private GameObject player2CursorPrefab;
 
+    private const int PlayerLimit = 2;
     private bool _firstPlayer = true;
     void Start()
     {
         var action = new InputAction(binding: "/*/<button>");
         action.performed += context =>
         {
-            AddPlayer(context.control.device);
+            if (PlayerInput.all.Count < PlayerLimit)
+                AddPlayer(context.control.device);
         };
         action.Enable();
     }
